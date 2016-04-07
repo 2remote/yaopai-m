@@ -14,8 +14,19 @@ YAOPAI移动端 Redux 版
 
 ### Webpack
 
-* npm i -D webpack webpack-dev-server webpack-merge clean-webpack-plugin open-browser-webpack-plugin
+npm i -D webpack webpack-dev-server webpack-merge clean-webpack-plugin open-browser-webpack-plugin html-webpack-plugin
+
+* webpack, wepack-dev-server: basic webpack stfuff
+* webpapck-merge: merges weebpack config obj
+* clean-webpack-plugin: cleans builds
+* open-browser-webpack-plugin: opens browser after webpack build
+* html-webpack-plugin: HTML preprocessing plugin
 
 ### babel
 
 * npm i -D babel-core babel-loader babel-preset-es2015 babel-preset-react
+
+### ESLint
+
+* TODO
+

@@ -4,7 +4,7 @@
 var urlParse = require('url').parse;
 var crypto = require('crypto');
 /**
- * Î¢ÐÅÀà£¬ÊµÏÖÎ¢ÐÅµÄËùÓÐ½Ó¿Ú
+ * Î¢ï¿½ï¿½ï¿½à£¬Êµï¿½ï¿½Î¢ï¿½Åµï¿½ï¿½ï¿½ï¿½Ð½Ó¿ï¿½
  * @param options
  * @constructor
  */
@@ -17,10 +17,10 @@ var Weixin = function (options) {
   this.accessToken = '';
 };
 /**
- * ³õÊ¹»¯
+ * ï¿½ï¿½Ê¹ï¿½ï¿½
  * @param options
  * {
- *     token: ''    //×Ô¼ºÔÚ¹«¹²Æ½Ì¨ÌîÐ´µÄtokenÖµ
+ *     token: ''    //ï¿½Ô¼ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½Æ½Ì¨ï¿½ï¿½Ð´ï¿½ï¿½tokenÖµ
  * }
  * @returns {Weixin}
  */
@@ -72,7 +72,7 @@ httpHandle = function (url, method, header, postData, callback) {
     type: urlObj.protocol.replace(':', ''),
     host: urlObj.hostname,
     port: this.type == 'http' ? 80 : 443,
-    path: urlObj.path, // ¾ßÌåÂ·¾¶, ±ØÐëÒÔ'/'¿ªÍ·, ÊÇÏà¶ÔÓÚhost¶øÑÔµÄ
+    path: urlObj.path, // ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'/'ï¿½ï¿½Í·, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½hostï¿½ï¿½ï¿½Ôµï¿½
     method: method,
     headers: header
   };
@@ -85,7 +85,7 @@ httpHandle = function (url, method, header, postData, callback) {
       bufferHelper += data;
     });
 
-    // ÔÚÊý¾Ý·¢ËÍÍê±Ïºó´¥·¢
+    // ï¿½ï¿½ï¿½ï¿½ï¿½Ý·ï¿½ï¿½ï¿½ï¿½ï¿½Ïºó´¥·ï¿½
     res.on('end', function () {
       callback(JSON.parse(bufferHelper));
     });

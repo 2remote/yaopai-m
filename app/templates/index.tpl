@@ -169,6 +169,8 @@
 
     <div id="app"></div>
 
+    {% o.htmlWebpackPlugin.files %}
+
     {% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
     <script src="{%=o.htmlWebpackPlugin.files.chunks[chunk].entry%}"></script>
     {% } %}

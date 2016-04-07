@@ -4,7 +4,9 @@ var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 var webpack = require('webpack');
 var merge = require('webpack-merge');
 var Clean = require('clean-webpack-plugin');
-import { TITLE } from './app/components/Tools.js';
+// TODO: temporary hack fix
+// import { TITLE } from './app/components/Tools.js';
+var TITLE = "TODO";
 var pkg = require('./package.json');
 
 var TARGET = process.env.npm_lifecycle_event;
@@ -25,22 +27,22 @@ var common = {
     filename: 'bundle.js'
   },
   module: {
-    preLoaders: [
-      {
-        test: /\.jsx?$/,
-        loaders: ['eslint'],
-        include: path.resolve(ROOT_PATH, 'app')
-      }
-    ],
+    // preLoaders: [
+    //   {
+    //     test: /\.jsx?$/,
+    //     loaders: ['eslint'],
+    //     include: path.resolve(ROOT_PATH, 'app')
+    //   }
+    // ],
     loaders: [
-      {
-        test: /\.css$/,
-        loaders: ['style', 'css'],
-        include: path.resolve(ROOT_PATH, 'app')
-      },
-      { test: /\.scss$/,
-        loaders: ['style', 'css', 'sass']
-      }
+      // {
+      //   test: /\.css$/,
+      //   loaders: ['style', 'css'],
+      //   include: path.resolve(ROOT_PATH, 'app')
+      // },
+      // { test: /\.scss$/,
+      //   loaders: ['style', 'css', 'sass']
+      // }
       /**
        *  CSS Modules 配置方法
       {
@@ -68,7 +70,7 @@ if(TARGET === 'start' || !TARGET) {
       loaders: [
         {
           test: /\.jsx?$/,
-          loaders: ['react-hot', 'babel'],
+          loaders: [ 'babel'],
           include: path.resolve(ROOT_PATH, 'app')
         }
       ]
