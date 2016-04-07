@@ -30,3 +30,18 @@ npm i -D webpack webpack-dev-server webpack-merge clean-webpack-plugin open-brow
 
 * TODO
 
+## project structure
+
+按照feature区分
+
+* /app: 放置前端代码的地方
+  * work: 作品组件
+    * actions:
+    * reducers:
+    * layouts:
+  * grapher: 摄影师组件
+  * user: 用户组件
+  * common: 通用组件
+  * util: 工具类
+  * config:
+  * index.js: 主入口
