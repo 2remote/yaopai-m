@@ -37,8 +37,3 @@ const App = () => (
     </Router>
   </Provider>
 );
-
-ReactDOM.render(
-  <App/>,
-  document.getElementById('app')
-);
