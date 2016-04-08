@@ -8,12 +8,27 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 
-let sampleReducer = combineReducers({
-  name: (name='John', action) => name,
+/**
+ * 所以Reducers可以多层嵌套的吧
+ */
+const nameReducers = combineReducers({
+  firstName: (firstName='John', action) => firstName,
+  lastName: (lastName='Porter', action) => lastName
+});
+
+const sampleReducer = combineReducers({
+  name: nameReducers,
   routing: routerReducer
 });
 
-let store = createStore(sampleReducer);
+let store = createStore(
+  /* 1. 创建store用的reducer */
+  sampleReducer,
+  /* 2. 默认state */
+  {},
+  /* 3. Middleware */
+  window.devToolsExtension ? window.devToolsExtension() : f => f // 这个用来启动Redux开发者工具
+);
 
 const history = syncHistoryWithStore(hashHistory, store);
 
