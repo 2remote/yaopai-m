@@ -28,10 +28,11 @@ npm i -S react-router react-router-redux
 ### Webpack
 
 ```
-# 写3行只是为了好看
+# 写好几行只是为了好看
 npm i -D webpack webpack-dev-server
 npm i -D webpack-merge clean-webpack-plugin
 npm i -D open-browser-webpack-plugin html-webpack-plugin
+npm i -D eslint-loader
 ```
 
 解释说明：
@@ -41,6 +42,7 @@ npm i -D open-browser-webpack-plugin html-webpack-plugin
 * clean-webpack-plugin: 清空之前的builds
 * open-browser-webpack-plugin: webpack处理完之后自动在浏览器中打开
 * html-webpack-plugin: HTML模板预处理（之前用的版本1，现在升级到2）
+* eslint-loader：这货给Webpack加载ESLint
 
 ### babel
 
@@ -51,7 +53,10 @@ npm i -D babel-preset-es2015 babel-preset-react
 
 ### ESLint
 
-**TODO**
+```
+npm i -D eslint eslint-plugin-react # ESLint两件套
+npm i -D eslint-config-airbnb # airbnb的规范
+```
 
 ## 三、项目组织结构
 
