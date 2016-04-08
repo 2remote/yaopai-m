@@ -6,8 +6,9 @@ var merge = require('webpack-merge');
 var Clean = require('clean-webpack-plugin');
 // TODO: temporary hack fix
 // import { TITLE } from './app/components/Tools.js';
-var TITLE = "TODO";
-var pkg = require('./package.json');
+var TITLE = {
+  indexPage: "TODO"
+};
 
 var TARGET = process.env.npm_lifecycle_event;
 var ROOT_PATH = path.resolve(__dirname);
@@ -86,7 +87,7 @@ if(TARGET === 'start' || !TARGET) {
       new webpack.HotModuleReplacementPlugin(),
       new HtmlwebpackPlugin({
         title: APP_TITLE,
-        template: 'app/templates/index.tpl'
+        template: 'app/index.tpl'
       }),
       new OpenBrowserPlugin({
         url: 'http://localhost:8080'
@@ -101,8 +102,7 @@ if(TARGET === 'start' || !TARGET) {
 if(TARGET === 'build') {
   module.exports = merge(common, {
     entry: {
-      app: path.resolve(ROOT_PATH, 'app'),
-      vendor: Object.keys(pkg.dependencies)
+      app: path.resolve(ROOT_PATH, 'app')
     },
     output: {
       path: path.resolve(ROOT_PATH, 'build'),
@@ -124,7 +124,6 @@ if(TARGET === 'build') {
       new Clean(['build']),
       /* important! */
       new webpack.optimize.CommonsChunkPlugin(
-        'vendor',
         '[name].js?[chunkhash]'
       ),
       new webpack.optimize.UglifyJsPlugin({
@@ -134,7 +133,7 @@ if(TARGET === 'build') {
       }),
       new HtmlwebpackPlugin({
         title: APP_TITLE,
-        template: 'app/templates/index.tpl'
+        template: 'app/index.tpl'
       })
     ]
   });

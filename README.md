@@ -2,37 +2,60 @@
 
 YAOPAI移动端 Redux 版
 
-## npm dependencies
+## 一、开发前的准备步骤
+
+1. 克隆项目：`git clone https://github.com/2remote/yaopai-m.git`
+2. 安装 [Node.js](https://nodejs.org/)
+3. 安装依赖项：`npm install`
+4. 启动dev-server：`npm start`
+
+## 二、npm依赖项说明
 
 ### Express related
 
-* npm i -S express express-session
+```
+npm i -S express express-session
+```
 
 ### React, Redux, Router and related
 
-* npm i -S react react-dom redux react-redux react-router react-router-redux
+```
+npm i -S react react-dom
+npm i -S redux react-redux
+npm i -S react-router react-router-redux
+```
 
 ### Webpack
 
-npm i -D webpack webpack-dev-server webpack-merge clean-webpack-plugin open-browser-webpack-plugin html-webpack-plugin
+```
+# 写3行只是为了好看
+npm i -D webpack webpack-dev-server
+npm i -D webpack-merge clean-webpack-plugin
+npm i -D open-browser-webpack-plugin html-webpack-plugin
+```
 
-* webpack, wepack-dev-server: basic webpack stfuff
-* webpapck-merge: merges weebpack config obj
-* clean-webpack-plugin: cleans builds
-* open-browser-webpack-plugin: opens browser after webpack build
-* html-webpack-plugin: HTML preprocessing plugin
+解释说明：
+
+* webpack, wepack-dev-server: webpack两件套
+* webpapck-merge: 合并webpack中的配置
+* clean-webpack-plugin: 清空之前的builds
+* open-browser-webpack-plugin: webpack处理完之后自动在浏览器中打开
+* html-webpack-plugin: HTML模板预处理（之前用的版本1，现在升级到2）
 
 ### babel
 
-* npm i -D babel-core babel-loader babel-preset-es2015 babel-preset-react
+```
+npm i -D babel-core babel-loader
+npm i -D babel-preset-es2015 babel-preset-react
+```
 
 ### ESLint
 
-* TODO
+**TODO**
 
-## project structure
+## 三、项目组织结构
 
-按照feature区分
+按照feature区分（[参考文档](http://jaysoo.ca/2016/02/28/organizing-redux-application/)）
 
 * /app: 放置前端代码的地方
   * work: 作品组件
@@ -45,3 +68,10 @@ npm i -D webpack webpack-dev-server webpack-merge clean-webpack-plugin open-brow
   * util: 工具类
   * config:
   * index.js: 主入口
+
+## 四、辣么多TODO
+
+* 整理webpack config
+* 测试相关
+* ESLint和各种编码规范
+* more to come

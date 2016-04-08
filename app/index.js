@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class App extends React.Component {
-  render() {
+var App = React.createClass({
+  render(){
     return (
-      <div>App</div>
+      <div className="container">
+        Welcome To Facebook
+      </div>
     );
   }
-}
+});
+
 
 ReactDOM.render(
   <App/>,
