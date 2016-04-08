@@ -2,23 +2,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 /* 2. 路由相关 */
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { Router, Route, hashHistory } from 'react-router';
 /* 3. 接入redux */
 import { Provider } from 'react-redux';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 
 /**
  * 所以Reducers可以多层嵌套的吧
  */
 const nameReducers = combineReducers({
-  firstName: (firstName='John', action) => firstName,
-  lastName: (lastName='Porter', action) => lastName
+  firstName: (firstName = 'John') => firstName,
+  lastName: (lastName = 'Porter') => lastName,
 });
 
 const sampleReducer = combineReducers({
   name: nameReducers,
-  routing: routerReducer
+  routing: routerReducer,
 });
 
 let store = createStore(
@@ -32,14 +32,13 @@ let store = createStore(
 
 const history = syncHistoryWithStore(hashHistory, store);
 
-const Sample = props => (
+const Sample = () => (
   <div>
     <h1>Sample Container</h1>
-    {props.children}
   </div>
 );
 
-const SampleContent = props => (
+const SampleContent = () => (
   <div>Hello from sample content</div>
 );
 
@@ -54,6 +53,6 @@ const App = () => (
 );
 
 ReactDOM.render(
-  <App/>,
+  <App />,
   document.getElementById('app')
 );
