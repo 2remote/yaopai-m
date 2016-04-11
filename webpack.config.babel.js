@@ -81,7 +81,9 @@ if(TARGET === 'start' || !TARGET) {
       hot: true,
       inline: true,
       progress: true,
-      proxy: { '/imgs/*' : 'http://localhost:5000/' }
+      port: 8000,
+      proxy: { '/imgs/*' : 'http://localhost:5000/' },
+      host: '0.0.0.0' // 允许局域网访问
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
@@ -90,7 +92,7 @@ if(TARGET === 'start' || !TARGET) {
         template: 'app/index.tpl'
       }),
       new OpenBrowserPlugin({
-        url: 'http://localhost:8080'
+        url: 'http://localhost:8000'
         // 这里写要打开的浏览器名字，若不填，会打开默认浏览器
         // Mac系统下可以选：Safari, Google Chrome, Firefox
         // ,browser: 'Firefox'
