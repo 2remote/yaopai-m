@@ -74,7 +74,28 @@ npm i -D eslint-config-airbnb # airbnb的规范
   * config:
   * index.js: 主入口
 
-## 四、辣么多TODO
+## 四、Route配置
+
+* /: 跳转 /main
+  * /main: 主页，有下面fixed菜单
+    * /: 跳转 /work
+    * /work: 作品列表
+    * /discovery: 发现
+    * /grapher: 摄影师列表
+    * /user: 用户
+  * /work: 作品模块
+    * /:
+    * /:wid: 作品详情
+  * /grapher: 摄影师模块
+    * /:
+    * /gid: 摄影师详情
+  * /user: 用户模块
+    * /: 跳转 /login
+    * login: 登陆相关
+    * order: 订单
+  * /about: 关于模块
+
+## 零、辣么多TODO
 
 * 整理webpack config
 * 测试相关
