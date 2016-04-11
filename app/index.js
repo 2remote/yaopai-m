@@ -2,16 +2,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 /* 2. 路由相关 */
-import { Router, Route, hashHistory } from 'react-router';
+import { Router, Route, hashHistory, IndexRedirect } from 'react-router';
 /* 3. 接入redux */
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 
+/* 4. 开始引入不同模块 */
+import { MainRoute, mainReducers} from './main';
+import WorkRoute from './work';
+import GrapherRoute from './grapher';
+import UserRoute from './user';
+import AboutRoute from './about';
+
 /**
  * 所以Reducers可以多层嵌套的吧
  */
 const nameReducers = combineReducers({
+  work: mainReducers,
   firstName: (firstName = 'John') => firstName,
   lastName: (lastName = 'Porter') => lastName,
 });
@@ -32,21 +40,16 @@ let store = createStore(
 
 const history = syncHistoryWithStore(hashHistory, store);
 
-const Sample = () => (
-  <div>
-    <h1>Sample Container</h1>
-  </div>
-);
-
-const SampleContent = () => (
-  <div>Hello from sample content</div>
-);
-
 const App = () => (
   <Provider store={store}>
     <Router history={history}>
-      <Route path="/" component={Sample}>
-        <Route path="content" component={SampleContent} />
+      <Route path="/">
+        <IndexRedirect to="main" />
+        { /* 主页 */MainRoute }
+        { /* 作品 */WorkRoute }
+        { /* 摄影师 */GrapherRoute }
+        { /* 用户 */UserRoute }
+        { /* 关于 */AboutRoute }
       </Route>
     </Router>
   </Provider>
