@@ -10,7 +10,6 @@ const UserRoute = (
     <IndexRedirect to="login" />
     <Route path="login" component={LoginLayout} />
     <Route path="order" component={OrderLayout} />
-    <Route path="purse" component={PurseLayout} />
   </Route>
 );
 
