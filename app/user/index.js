@@ -3,7 +3,6 @@ import { Route, IndexRedirect } from 'react-router';
 
 import LoginLayout from './LoginLayout';
 import OrderLayout from './OrderLayout';
-import PurseLayout from './PurseLayout';
 
 const UserRoute = (
   <Route path="user">
