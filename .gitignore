@@ -5,3 +5,4 @@ build
 .idea
 *.sublime-project
 *.sublime-workspace
+.sass-cache
