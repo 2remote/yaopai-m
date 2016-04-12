@@ -2,6 +2,8 @@
 
 YAOPAI移动端 Redux 版
 
+[![Circle CI](https://circleci.com/gh/2remote/yaopai-m.svg?style=svg)](https://circleci.com/gh/2remote/yaopai-m)
+
 ## 一、开发前的准备步骤
 
 1. 克隆项目：`git clone https://github.com/2remote/yaopai-m.git`
