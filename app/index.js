@@ -21,7 +21,7 @@ const sampleReducer = combineReducers({
   routing: routerReducer,
 });
 
-let store = createStore(
+const store = createStore(
   /* 1. 创建store用的reducer */
   sampleReducer,
   /* 2. 默认state */
