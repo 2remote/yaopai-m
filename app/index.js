@@ -9,7 +9,7 @@ import { createStore, combineReducers } from 'redux';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 
 /* 4. 开始引入不同模块 */
-import { MainRoute, mainReducers} from './main';
+import { MainRoute, mainReducers } from './main';
 import WorkRoute from './work';
 import GrapherRoute from './grapher';
 import UserRoute from './user';
