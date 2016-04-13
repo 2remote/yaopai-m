@@ -5,8 +5,10 @@ import ReactDOM from 'react-dom';
 import { Router, Route, hashHistory, IndexRedirect } from 'react-router';
 /* 3. 接入redux */
 import { Provider } from 'react-redux';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
+/* 4. Async Redux */
+import thunk from 'redux-thunk';
 
 /* 4. 开始引入不同模块 */
 import { MainRoute, mainReducers } from './main';
@@ -35,7 +37,10 @@ let store = createStore(
   /* 2. 默认state */
   {},
   /* 3. Middleware */
-  window.devToolsExtension ? window.devToolsExtension() : f => f // 这个用来启动Redux开发者工具
+  compose(
+    window.devToolsExtension ? window.devToolsExtension() : f => f, // 这个用来启动Redux开发者工具
+    applyMiddleware(thunk)
+  )
 );
 
 const history = syncHistoryWithStore(hashHistory, store);
