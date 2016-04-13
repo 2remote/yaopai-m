@@ -6,7 +6,7 @@ import DiscoveryContainer from './containers/DiscoveryContainer';
 import GrapherContainer from './containers/GrapherContainer';
 import UserContainer from './containers/UserContainer';
 /* 引入reducers */
-import mainReducers from './reducers';
+import mainReducers from './reducers/reducers';
 
 const MainRoute = (
   <Route path="main">
