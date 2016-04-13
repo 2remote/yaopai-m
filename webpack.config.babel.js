@@ -7,11 +7,12 @@ var Clean = require('clean-webpack-plugin');
 // TODO: temporary hack fix
 // import { TITLE } from './app/components/Tools.js';
 var TITLE = {
-  indexPage: "TODO"
+  indexPage: 'TODO'
 };
 
 var TARGET = process.env.npm_lifecycle_event;
 var ROOT_PATH = path.resolve(__dirname);
+var APP_PATH = path.resolve(ROOT_PATH, 'app');
 
 const APP_TITLE = TITLE.indexPage;
 
@@ -19,8 +20,9 @@ var common = {
   entry: path.resolve(ROOT_PATH, 'app'),
   resolve: {
     extensions: ['', '.js', '.jsx'],
-    alias: {
-      app: 'app'
+    alias: { // 目测这个选项不过是赤果果的替换
+      app: APP_PATH,
+      common: path.resolve(APP_PATH, 'common')
     }
   },
   output: {
@@ -64,14 +66,14 @@ var common = {
   }
 };
 
-if(TARGET === 'start' || !TARGET) {
+if (TARGET === 'start' || !TARGET) {
   module.exports = merge(common, {
     devtool: 'source-map',
     module: {
       loaders: [
         {
           test: /\.jsx?$/,
-          loaders: [ 'babel'],
+          loaders: ['babel'],
           include: path.resolve(ROOT_PATH, 'app')
         }
       ]
@@ -101,7 +103,7 @@ if(TARGET === 'start' || !TARGET) {
   });
 }
 
-if(TARGET === 'build') {
+if (TARGET === 'build') {
   module.exports = merge(common, {
     entry: {
       app: path.resolve(ROOT_PATH, 'app')
@@ -141,7 +143,7 @@ if(TARGET === 'build') {
   });
 }
 
-if(TARGET === 'test' || TARGET === 'tdd') {
+if (TARGET === 'test' || TARGET === 'tdd') {
   module.exports = merge(common, {
     entry: {}, // karma will set this
     output: {}, // karma will set this
