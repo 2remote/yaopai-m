@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 
 import AutoList from 'common/AutoList';
 
@@ -16,9 +17,9 @@ const tempList = [{
   text: 'fourth',
 }];
 
-const WorkLayout = () => (
+const WorkLayout = props => (
   <div>
-    <h3>WorkLayout</h3>
+    <h3>WorkLayout for {`${props.name.firstName} ${props.name.lastName}`}</h3>
     <AutoList updateCallback={tempFetch}>
       {
         tempList.map((item, key) => (
@@ -29,4 +30,24 @@ const WorkLayout = () => (
   </div>
 );
 
-export default WorkLayout;
+WorkLayout.propTypes = {
+  name: PropTypes.shape({
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
+  }).isRequired,
+};
+
+const mapStateToProps = state => ({
+  name: state.name,
+});
+
+
+// const caonima = state.name;
+// return {
+//   name: caonima,
+// };
+const WorkContainer = connect(
+  mapStateToProps
+)(WorkLayout);
+
+export default WorkContainer;
