@@ -103,3 +103,7 @@ npm i -D eslint-config-airbnb # airbnb的规范
 * 测试相关
 * ESLint和各种编码规范
 * more to come
+
+## License
+
+[GPLv3](http://www.gnu.org/licenses/gpl-3.0.en.html)
