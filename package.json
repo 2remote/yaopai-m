@@ -4,7 +4,7 @@
   "description": "use for web app with CI for YAOPAI",
   "main": "index.js",
   "engines": {
-    "node": "0.12.7"
+    "node": "5.10.1"
   },
   "scripts": {
     "build": "webpack -p",
