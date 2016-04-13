@@ -1,8 +1,31 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 
-const WorkLayout = props => (
+import AutoList from 'common/AutoList';
+
+const tempFetch = () => {
+  // console.log('Fetch more, please.', msg);
+};
+
+const tempList = [{
+  text: 'first',
+}, {
+  text: 'second',
+}, {
+  text: 'third',
+}, {
+  text: 'fourth',
+}];
+
+const WorkLayout = () => (
   <div>
-    WorkLayout
+    <h3>WorkLayout</h3>
+    <AutoList updateCallback={tempFetch}>
+      {
+        tempList.map((item, key) => (
+          <div key={key}>{ item.text }</div>
+        ))
+      }
+    </AutoList>
   </div>
 );
 

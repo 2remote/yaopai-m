@@ -1,6 +1,6 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 
-const OrderLayout = props => (
+const OrderLayout = () => (
   <div>
     OrderLayout
   </div>

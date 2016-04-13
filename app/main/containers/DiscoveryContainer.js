@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DiscoveryLayout = props => (
+const DiscoveryLayout = () => (
   <div>
     DiscoveryLayout
   </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UserLayout = props => (
+const UserLayout = () => (
   <div>
     UserLayout
   </div>

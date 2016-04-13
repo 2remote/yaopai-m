@@ -1,6 +1,6 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 
-const AboutLayout = props => (
+const AboutLayout = () => (
   <div>
     AboutLayout
   </div>

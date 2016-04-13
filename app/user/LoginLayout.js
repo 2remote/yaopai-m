@@ -1,6 +1,6 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 
-const LoginLayout = props => (
+const LoginLayout = () => (
   <div>
     LoginLayout
   </div>

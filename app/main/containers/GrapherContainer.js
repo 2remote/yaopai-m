@@ -1,6 +1,6 @@
 import React from 'react';
 
-const GrapherLayout = props => (
+const GrapherLayout = () => (
   <div>
     GrapherLayout
   </div>

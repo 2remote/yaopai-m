@@ -6,4 +6,10 @@ const GrapherShowLayout = props => (
   </div>
 );
 
+GrapherShowLayout.propTypes = {
+  params: PropTypes.shape({
+    gid: PropTypes.string.isRequired,
+  }).isRequired,
+};
+
 export default GrapherShowLayout;
