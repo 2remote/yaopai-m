@@ -31,6 +31,28 @@ const sampleReducer = combineReducers({
   routing: routerReducer,
 });
 
+/**
+ * 临时放这里一个logger，测试用
+ */
+const logger = store => next => action => {
+  console.log('dispatching', action);
+  const result = next(action);
+  console.log('next state', store.getState());
+  return result;
+};
+
+/* 这是另外一种（旧的）写法 */
+// const logger = function (store) {
+//   return function (next) {
+//     return function (action) {
+//       console.log('dispatching', action);
+//       const result = next(action);
+//       console.log('next state', store.getState());
+//       return result;
+//     };
+//   };
+// };
+
 let store = createStore(
   /* 1. 创建store用的reducer */
   sampleReducer,
@@ -38,6 +60,7 @@ let store = createStore(
   {},
   /* 3. Middleware */
   compose(
+    applyMiddleware(logger),
     window.devToolsExtension ? window.devToolsExtension() : f => f, // 这个用来启动Redux开发者工具
     applyMiddleware(thunk)
   )
