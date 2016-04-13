@@ -29,7 +29,7 @@
 .pure-u-11-12,
 .pure-u-12-12 {
     display: inline-block;
-    *display: inline;
+    *display: inline; //属性前缀加上* 是表明该属性只有在IE浏览器中才有效，而在其余浏览器中无效
     zoom: 1;
     letter-spacing: normal;
     word-spacing: normal;

@@ -29,6 +29,7 @@ const fetchReducer = (state = [], action) => {
 /**
  * route变动后会dispatch一个 @@router/LOCATION_CHANGE 类型的action
  * 其中action.payload.pathname是跳转后的url，可以用来捕获和处理
+ * action.payload.query是_k之后的get参数
  */
 const initReducer = (state = '', action) => {
   if (action.type === '@@router/LOCATION_CHANGE' && action.payload.pathname === '/main/work') {

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Route, IndexRedirect } from 'react-router';
+/* 引入layouts */
+import MainLayout from './layouts/MainLayout';
 /* 引入containers */
 import WorkContainer from './containers/WorkContainer';
 import DiscoveryContainer from './containers/DiscoveryContainer';
@@ -9,7 +11,7 @@ import UserContainer from './containers/UserContainer';
 import mainReducers from './reducers/reducers';
 
 const MainRoute = (
-  <Route path="main">
+  <Route path="main" component={MainLayout}>
     <IndexRedirect to="work" />
     <Route path="work" component={WorkContainer} />
     <Route path="discovery" component={DiscoveryContainer} />

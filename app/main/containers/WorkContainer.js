@@ -37,9 +37,13 @@ WorkLayout.propTypes = {
   }).isRequired,
 };
 
-const mapStateToProps = state => ({
-  name: state.name,
-});
+const mapStateToProps = state => {
+  // state.routing.locationBeforeTransitions.pathname;
+  console.log('[Map]', state.routing.locationBeforeTransitions.pathname);
+  return {
+    name: state.name,
+  };
+};
 
 
 // const caonima = state.name;
