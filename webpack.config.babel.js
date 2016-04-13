@@ -30,13 +30,11 @@ var common = {
     filename: 'bundle.js'
   },
   module: {
-    preLoaders: [
-      {
-        test: /\.jsx?$/,
-        loaders: ['eslint'],
-        include: path.resolve(ROOT_PATH, 'app')
-      }
-    ],
+    preLoaders: [{
+      test: /\.jsx?$/,
+      loaders: ['eslint'],
+      include: path.resolve(ROOT_PATH, 'app')
+    }],
     loaders: [
       // {
       //   test: /\.css$/,
@@ -70,13 +68,11 @@ if (TARGET === 'start' || !TARGET) {
   module.exports = merge(common, {
     devtool: 'source-map',
     module: {
-      loaders: [
-        {
-          test: /\.jsx?$/,
-          loaders: ['babel'],
-          include: path.resolve(ROOT_PATH, 'app')
-        }
-      ]
+      loaders: [{
+        test: /\.jsx?$/,
+        loaders: ['babel'],
+        include: path.resolve(ROOT_PATH, 'app')
+      }]
     },
     devServer: {
       histroyApiFallback: true,
@@ -84,7 +80,9 @@ if (TARGET === 'start' || !TARGET) {
       inline: true,
       progress: true,
       port: 8000,
-      proxy: { '/imgs/*' : 'http://localhost:5000/' },
+      proxy: {
+        '/imgs/*': 'http://localhost:5000/'
+      },
       host: '0.0.0.0' // 允许局域网访问
     },
     plugins: [
@@ -95,9 +93,9 @@ if (TARGET === 'start' || !TARGET) {
       }),
       new OpenBrowserPlugin({
         url: 'http://localhost:8000'
-        // 这里写要打开的浏览器名字，若不填，会打开默认浏览器
-        // Mac系统下可以选：Safari, Google Chrome, Firefox
-        // ,browser: 'Firefox'
+          // 这里写要打开的浏览器名字，若不填，会打开默认浏览器
+          // Mac系统下可以选：Safari, Google Chrome, Firefox
+          // ,browser: 'Firefox'
       })
     ]
   });
@@ -115,14 +113,14 @@ if (TARGET === 'build') {
     devtool: 'source-map',
     module: {
       noParse: /validate\.js/,
-      loaders: [
-        {
-          test: /\.jsx?$/,
-          loaders: ['babel'],
-          include: path.resolve(ROOT_PATH, 'app')
-        },
-        { test: /\.json$/, loader: 'json-loader' }
-      ]
+      loaders: [{
+        test: /\.jsx?$/,
+        loaders: ['babel'],
+        include: path.resolve(ROOT_PATH, 'app')
+      }, {
+        test: /\.json$/,
+        loader: 'json-loader'
+      }]
     },
     plugins: [
       new Clean(['build']),
@@ -140,37 +138,5 @@ if (TARGET === 'build') {
         template: 'app/index.tpl'
       })
     ]
-  });
-}
-
-if (TARGET === 'test' || TARGET === 'tdd') {
-  module.exports = merge(common, {
-    entry: {}, // karma will set this
-    output: {}, // karma will set this
-    devtool: 'inline-source-map',
-    resolve: {
-      alias: {
-        'app': path.resolve(ROOT_PATH, 'app')
-      }
-    },
-    module: {
-      preLoaders: [
-        {
-          test: /\.jsx?$/,
-          loaders: ['isparta-instrumenter'],
-          include: path.resolve(ROOT_PATH, 'app')
-        }
-      ],
-      loaders: [
-        {
-          test: /\.jsx?$/,
-          loaders: ['babel'],
-          include: [
-            path.resolve(ROOT_PATH, 'app'),
-            path.resolve(ROOT_PATH, 'tests')
-          ]
-        }
-      ]
-    }
   });
 }
