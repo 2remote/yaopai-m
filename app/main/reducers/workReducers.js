@@ -31,9 +31,11 @@ const fetchReducer = (state = [], action) => {
  * 其中action.payload.pathname是跳转后的url，可以用来捕获和处理
  * action.payload.query是_k之后的get参数
  */
+ // TODO: eslint-disable no-console
+ /* eslint-disable no-console */
 const initReducer = (state = '', action) => {
-  if (action.type === 'main/work/init') {
-    console.log('[action.type]', action.type, action.msg);
+  if (action.type === 'load_more_work') {
+    console.log('[load_more_work]', action.msg);
   }
   return state;
 };
