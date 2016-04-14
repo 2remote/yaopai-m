@@ -7,18 +7,14 @@ import WorkContainer from './containers/WorkContainer';
 import DiscoveryContainer from './containers/DiscoveryContainer';
 import GrapherContainer from './containers/GrapherContainer';
 import UserContainer from './containers/UserContainer';
-/* 引入reducers */
-import mainReducers from './reducers/reducers';
+import { loadMoreWorkAsync } from './actions';
 
 /**
  * mainRoute factory
  */
-const mainRoute = store => {
+const mainRouteFactory = store => {
   const { dispatch } = store;
-  const dispatchInit = () => dispatch({
-    type: 'main/work/init',
-    msg: 'hell yeah!',
-  });
+  const dispatchInit = () => dispatch(loadMoreWorkAsync('what work?'));
   return (
     <Route path="main" component={MainLayout}>
       <IndexRedirect to="work" />
@@ -30,4 +26,9 @@ const mainRoute = store => {
   );
 };
 
-export { mainRoute, mainReducers };
+const mainRoute = {
+  root: 'main', // 默认接入地址（并没有什么卵用，但是偶尔有用）
+  route: mainRouteFactory, // route配置
+};
+
+export default mainRoute;
