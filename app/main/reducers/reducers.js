@@ -32,8 +32,8 @@ const fetchReducer = (state = [], action) => {
  * action.payload.query是_k之后的get参数
  */
 const initReducer = (state = '', action) => {
-  if (action.type === '@@router/LOCATION_CHANGE' && action.payload.pathname === '/main/work') {
-    console.log('[initReducer]', action);
+  if (action.type === 'main/work/init') {
+    console.log('[action.type]', action.type, action.msg);
   }
   return state;
 };

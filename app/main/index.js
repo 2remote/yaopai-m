@@ -10,14 +10,24 @@ import UserContainer from './containers/UserContainer';
 /* 引入reducers */
 import mainReducers from './reducers/reducers';
 
-const MainRoute = (
-  <Route path="main" component={MainLayout}>
-    <IndexRedirect to="work" />
-    <Route path="work" component={WorkContainer} />
-    <Route path="discovery" component={DiscoveryContainer} />
-    <Route path="grapher" component={GrapherContainer} />
-    <Route path="user" component={UserContainer} />
-  </Route>
-);
+/**
+ * mainRoute factory
+ */
+const mainRoute = store => {
+  const { dispatch } = store;
+  const dispatchInit = () => dispatch({
+    type: 'main/work/init',
+    msg: 'hell yeah!',
+  });
+  return (
+    <Route path="main" component={MainLayout}>
+      <IndexRedirect to="work" />
+      <Route path="work" component={WorkContainer} />
+      <Route onEnter={dispatchInit} path="discovery" component={DiscoveryContainer} />
+      <Route path="grapher" component={GrapherContainer} />
+      <Route path="user" component={UserContainer} />
+    </Route>
+  );
+};
 
-export { MainRoute, mainReducers };
+export { mainRoute, mainReducers };

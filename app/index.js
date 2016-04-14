@@ -11,7 +11,7 @@ import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import thunk from 'redux-thunk';
 
 /* 4. 开始引入不同模块 */
-import { MainRoute, mainReducers } from './main';
+import { mainRoute, mainReducers } from './main';
 import WorkRoute from './work';
 import GrapherRoute from './grapher';
 import UserRoute from './user';
@@ -73,7 +73,7 @@ const App = () => (
     <Router history={history}>
       <Route path="/">
         <IndexRedirect to="main" />
-        { /* 主页 */MainRoute }
+        { /* 主页 */ mainRoute(store) }
         { /* 作品 */WorkRoute }
         { /* 摄影师 */GrapherRoute }
         { /* 用户 */UserRoute }
