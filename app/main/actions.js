@@ -1,8 +1,9 @@
 /* For Async Actions */
 import fetch from 'isomorphic-fetch';
 /* Action Types */
-const LOAD_MORE_WORK = 'load_more_work';
-const LOAD_MORE_GRAPHER = 'load_more_grapher';
+import { ACTION_TYPE } from './constant';
+const { LOAD_MORE_WORK, LOAD_MORE_GRAPHER } = ACTION_TYPE;
+
 /* Actions */
 export const loadMoreWork = msg => ({
   type: LOAD_MORE_WORK,
