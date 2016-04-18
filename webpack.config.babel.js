@@ -25,6 +25,7 @@ const common = {
     alias: { // 目测这个选项不过是赤果果的替换
       app: APP_PATH,
       common: path.resolve(APP_PATH, 'common'),
+      main: path.resolve(APP_PATH, 'main'),
     },
   },
   output: {
@@ -92,12 +93,15 @@ if (TARGET === 'start' || !TARGET) {
       new HtmlwebpackPlugin({
         title: APP_TITLE,
         template: 'app/index.tpl',
+        minify: {
+          removeComments: true,
+        },
       }),
       new OpenBrowserPlugin({
         url: 'http://localhost:8000',
         // 这里写要打开的浏览器名字，若不填，会打开默认浏览器
         // Mac系统下可以选：Safari, Google Chrome, Firefox
-        // ,browser: 'Firefox'
+        // browser: 'Firefox',
       }),
     ],
   });
