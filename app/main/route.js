@@ -17,13 +17,37 @@ const { ROOT, ROUTE_TO_WORK, ROUTE_TO_DISCOVERY, ROUTE_TO_GRAPHER, ROUTE_TO_USER
  */
 const mainRouteFactory = store => {
   const { dispatch } = store;
-  const dispatchInit = () => dispatch(loadMoreWorkAsync('what work?'));
+  const dispatchInit = type => {
+    switch (type) {
+      case ROUTE_TO_WORK: // 初始化作品
+        dispatch(loadMoreWorkAsync('what work?'));
+        break;
+      case ROUTE_TO_DISCOVERY: // 初始化作品
+        dispatch(loadMoreWorkAsync('what work?'));
+        break;
+      case ROUTE_TO_GRAPHER: // 初始化作品
+        dispatch(loadMoreWorkAsync('what work?'));
+        break;
+      default:
+    }
+  };
+   /* 使用onEnter来做初始化 */
   return (
     <Route path={ ROOT } component={MainLayout}>
       <IndexRedirect to={ ROUTE_TO_WORK } />
-      <Route path={ ROUTE_TO_WORK } component={WorkContainer} />
-      <Route onEnter={dispatchInit} path={ ROUTE_TO_DISCOVERY } component={DiscoveryContainer} />
-      <Route path={ ROUTE_TO_GRAPHER } component={GrapherContainer} />
+      { /* 作品列表 */ }
+      <Route path={ ROUTE_TO_WORK } component={WorkContainer}
+        onEnter={ () => dispatchInit(ROUTE_TO_WORK) }
+      />
+      { /* 发现 */ }
+      <Route path={ ROUTE_TO_DISCOVERY } component={DiscoveryContainer}
+        onEnter={ () => dispatchInit(ROUTE_TO_WORK) }
+      />
+      { /* 摄影师列表 */ }
+      <Route path={ ROUTE_TO_GRAPHER } component={GrapherContainer}
+        onEnter={ () => dispatchInit(ROUTE_TO_WORK) }
+      />
+      { /* 用户 */ }
       <Route path={ ROUTE_TO_USER } component={UserContainer} />
     </Route>
   );
