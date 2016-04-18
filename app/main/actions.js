@@ -1,14 +1,18 @@
 /* For Async Actions */
 import fetch from 'isomorphic-fetch';
+/* 用于生成 action creator 的函数*/
+import { makeActionCreator } from '../tool/tool.js';/* @王路怎么省去前面的‘../’ */
 /* Action Types */
 import { ACTION_TYPE } from './constant';
 const { LOAD_MORE_WORK, LOAD_MORE_GRAPHER } = ACTION_TYPE;
 
 /* Actions */
-export const loadMoreWork = msg => ({
-  type: LOAD_MORE_WORK,
-  msg,
-});
+export const loadMoreWork = makeActionCreator(LOAD_MORE_WORK, 'msg');
+/* 上面那行代码其实和下面的效果一样*/
+// export const loadMoreWork = msg => ({
+//   type: LOAD_MORE_WORK,
+//   msg,
+// });
 
 /**
  * Sample Async Action namely: the thunk
