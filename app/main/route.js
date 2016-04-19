@@ -20,13 +20,13 @@ const mainRouteFactory = store => {
   const dispatchInit = type => {
     switch (type) {
       case ROUTE_TO_WORK: // 初始化作品
-        dispatch(loadMoreWorkAsync('what work?'));
+        dispatch(loadMoreWorkAsync(1, 10));
         break;
       case ROUTE_TO_DISCOVERY: // 初始化作品
-        dispatch(loadMoreWorkAsync('what work?'));
+        dispatch(loadMoreWorkAsync(1, 10));
         break;
       case ROUTE_TO_GRAPHER: // 初始化作品
-        dispatch(loadMoreWorkAsync('what work?'));
+        dispatch(loadMoreWorkAsync(1, 10));
         break;
       default:
     }
