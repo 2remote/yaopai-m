@@ -97,6 +97,11 @@ npm i -D eslint-config-airbnb # airbnb的规范
     * order: 订单
   * /about: 关于模块
 
+## 五、设计的那些文档
+
+* [v2.0原型图](https://modao.cc/app/CkzEf0JcX2bFNKDRISLDJd2aSLolzik)
+* [v2.0设计图](http://2remote.github.io/yaopai-sketch)
+
 ## 零、辣么多TODO
 
 * 整理webpack config
