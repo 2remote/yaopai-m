@@ -1,17 +1,20 @@
+.color_coffee    { @include font_color($coffee) }
 .color_red       { @include font_color($red) }
 .color_green     { @include font_color($green) }
-.color_lightgray { @include font_color($light_gray) }
+.color_silver    { @include font_color($silver) }
 .color_gray      { @include font_color($gray) }
-.color_dark      { @include font_color($dark) }
+.color_dim_black { @include font_color($dim_black) }
+.color_black     { @include font_color($black) }
 .color_white     { @include font_color(white) }
 
 /* background colors */
 .bg_red          { @include bg_color($red) }
 .bg_green        { @include bg_color($green) }
-.bg_lightgray    { @include bg_color($light_gray) }
+.bg_silver       { @include bg_color($silver) }
 .bg_gray         { @include bg_color($gray) }
-.bg_dark         { @include bg_color($dark) }
-.bg_white         { @include bg_color(white) }
+.bg_dim_black    { @include bg_color($dim_black) }
+.bg_black        { @include bg_color($black) }
+.bg_white        { @include bg_color(white) }
 
 /* text align */
 .text_center { text-align: center; }
