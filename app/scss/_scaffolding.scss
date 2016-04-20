@@ -1,7 +1,11 @@
-/*
- * 全局应用的样式
- */
+// 全局应用的样式
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+body {
+  color: $body-bg;
+  font-family: $body-font-family;
+  font-size: $font-size-base;
 }
