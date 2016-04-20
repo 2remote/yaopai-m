@@ -103,6 +103,15 @@ npm i -D node-sass sass-loader #sass-loader 依赖 node-sass
     * login: 登陆相关
     * order: 订单
   * /about: 关于模块
+  * /SCSS: 项目样式
+    * /components: 公共的 component 样式
+    * /grid: 网格布局
+    * /mixin: mixins
+    * /scaffolding: Scaffolding
+    * /type: Typography
+    * /utility: Utility classes
+    * /variables: 全局变量
+    * TODO
 
 ## 五、设计的那些文档
 
