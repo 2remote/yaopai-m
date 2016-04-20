@@ -26,7 +26,7 @@ const addMoreWork = (state = workDefault, action) => {
       index: action.index,
       pages: action.pages,
       size: action.size,
-      list: state.list.concat(action.list),
+      list: action.index > 1 ? state.list.concat(action.list) : action.list,
     });
   }
   return state;
