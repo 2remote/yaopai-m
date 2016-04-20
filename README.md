@@ -8,8 +8,9 @@ YAOPAI移动端 Redux 版
 
 1. 克隆项目：`git clone https://github.com/2remote/yaopai-m.git`
 2. 安装 [Node.js](https://nodejs.org/)
-3. 安装依赖项：`npm install`
-4. 启动dev-server：`npm start`
+3. 安装 [Ruby](https://www.ruby-lang.org/en/)（OS X 自带Ruby，可省略这步），然后安装 [SASS](http://sass-lang.com/)，`gem install sass`
+4. 安装依赖项：`npm install`
+5. 启动dev-server：`npm start`
 
 ## 二、npm依赖项说明
 
@@ -58,6 +59,12 @@ npm i -D babel-preset-es2015 babel-preset-react
 ```
 npm i -D eslint eslint-plugin-react # ESLint两件套
 npm i -D eslint-config-airbnb # airbnb的规范
+```
+
+### css & scss
+```
+npm i -D style-loader css-loader #css 两件套
+npm i -D node-sass sass-loader #sass-loader 依赖 node-sass
 ```
 
 ## 三、项目组织结构
