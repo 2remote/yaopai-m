@@ -10,12 +10,20 @@ const MainLayout = props => (
     { props.children }
     <nav>
       <hr />
-      <ul className="navbar">
-        <li><Link to="/main/work" activeStyle={active}>作品</Link></li>
-        <li><Link to="/main/discovery" activeStyle={active}>发现</Link></li>
-        <li><Link to="/main/grapher" activeStyle={active}>摄影师</Link></li>
-        <li><Link to="/main/user" activeStyle={active}>我的</Link></li>
-      </ul>
+      <div className="pure-g">
+        <div className="pure-u-1-4" style={{ textAlign: 'center' }}>
+          <Link to="/main/work" activeStyle={active}>作品</Link>
+        </div>
+        <div className="pure-u-1-4" style={{ textAlign: 'center' }}>
+          <Link to="/main/discovery" activeStyle={active}>发现</Link>
+        </div>
+        <div className="pure-u-1-4" style={{ textAlign: 'center' }}>
+          <Link to="/main/grapher" activeStyle={active}>摄影师</Link>
+        </div>
+        <div className="pure-u-1-4" style={{ textAlign: 'center' }}>
+          <Link to="/main/user" activeStyle={active}>我的</Link>
+        </div>
+      </div>
     </nav>
   </div>
 );

@@ -29,18 +29,20 @@ export const loadMoreWork = ({ total, index, pages, size, nickname, list }) => (
  * 要配合redux-thunk这个middleware一起食用
  * ref: https://github.com/gaearon/redux-thunk
  */
-export const loadMoreWorkAsync = (idx, size) => dispatch => {
+export const loadMoreWorkAsync = (idx, size, conditions) => dispatch => {
   /* TODO: 请暂时无视我如此拙劣的dispatch行为 */
   /* 1. fetch之前，可以先发个pending的action */
   // dispatch({
   //   type: LOAD_MORE_WORK,
   //   msg: 'pending',
   // });
-  post(API.WORK.SEARCH, {
+  let postData = {
     Fields: 'Title,Views,Display,Price,Cover,Photographer.NickName',
     PageIndex: idx,
     PageSize: size,
-  }).then(data => {
+  };
+  postData = Object.assign({}, postData, conditions);
+  post(API.WORK.SEARCH, postData).then(data => {
     /**
      * 作品列表中的展示数据：
      * - Title: 标题

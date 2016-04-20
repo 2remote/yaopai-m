@@ -5,11 +5,12 @@ import { loadMoreWorkAsync } from 'main/actions';
 
 const mapStateToProps = state => ({
   work: state.main.work,
+  lbt: state.routing.locationBeforeTransitions,
 });
 
 const mapDispatchToProps = dispatch => ({
-  onLoadMore: (idx, size) => {
-    dispatch(loadMoreWorkAsync(idx, size));
+  onLoadMore: (idx, size, conditions) => {
+    dispatch(loadMoreWorkAsync(idx, size, conditions));
   },
 });
 
