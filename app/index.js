@@ -1,3 +1,5 @@
+/* 引入scss */
+import './index.scss';
 /* 1. 基本React引入 */
 import React from 'react';
 import { render } from 'react-dom';
