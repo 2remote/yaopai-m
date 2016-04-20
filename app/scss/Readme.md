@@ -15,46 +15,26 @@ sass的默认变量仅需要在值后面加上!default即可。
 ```scss
 //sass style
 //-------------------------------
-$baseLineHeight:        1.5 !default;
-body{
-    line-height: $baseLineHeight;
-}
+$baseLineHeight: .5 !default;
+body{ line-height: $baseLineHeight; }
 
 //css style
 //-------------------------------
-body{
-    line-height:1.5;
-}
+body{ line-height:1.5; }
 ```
 sass的默认变量一般是用来设置默认值，然后根据需求来覆盖的，覆盖的方式也很简单，只需要在默认变量之前重新声明下变量即可
 ```scss
 //sass style
 //-------------------------------
-$baseLineHeight:        2;
-$baseLineHeight:        1.5 !default;
-body{
-    line-height: $baseLineHeight;
-}
+$baseLineHeight: 2;
+$baseLineHeight: 1.5 !default;
+body{ line-height: $baseLineHeight; }
 
 //css style
 //-------------------------------
-body{
-    line-height:2;
-}
+body{ line-height:2; }
 ```
-//sass style
-//-------------------------------
-$baseLineHeight:        2;
-$baseLineHeight:        1.5 !default;
-body{
-    line-height: $baseLineHeight;
-}
-
-//css style
-//-------------------------------
-body{
-    line-height:2;
-}可以看出现在编译后的line-height为2，而不是我们默认的1.5。默认变量的价值在进行组件化开发的时候会非常有用。
+可以看出现在编译后的line-height为2，而不是我们默认的1.5。默认变量的价值在进行组件化开发的时候会非常有用。
 
 ### 函数
 实际项目中我们使用最多的应该是颜色函数，而颜色函数中又以lighten减淡和darken加深为最。  
@@ -62,8 +42,8 @@ body{
 ````scss
 //sass style
 //-------------------------------                     
-$baseFontSize:      10px !default;
-$gray:              #ccc !defualt;        
+$baseFontSize: 10px !default;
+$gray:         #ccc !defualt;        
 
 // pixels to rems
 @function pxToRem($px) {
@@ -99,57 +79,38 @@ sass 规范选择器嵌套不能超过 3 层。默认所有的嵌套，继承所
 //没有跳出
 .parent-1 {
   color:#f00;
-  .child {
-    width:100px;
-  }
+
+  .child { width:100px; }
 }
 
 //单个选择器跳出
 .parent-2 {
   color:#f00;
-  @at-root .child {
-    width:200px;
-  }
+
+  @at-root .child { width:200px; }
 }
 
 //多个选择器跳出
 .parent-3 {
   background:#f00;
+
   @at-root {
-    .child1 {
-      width:300px;
-    }
-    .child2 {
-      width:400px;
-    }
+    .child1 { width:300px; }
+    .child2 { width:400px; }
   }
 }
 
 //css style
 //-------------------------------
-.parent-1 {
-  color: #f00;
-}
-.parent-1 .child {
-  width: 100px;
-}
+.parent-1        { color: #f00; }
+.parent-1 .child { width: 100px; }
 
-.parent-2 {
-  color: #f00;
-}
-.child {
-  width: 200px;
-}
+.parent-2 { color: #f00; }
+.child    { width: 200px; }
 
-.parent-3 {
-  background: #f00;
-}
-.child1 {
-  width: 300px;
-}
-.child2 {
-  width: 400px;
-}
+.parent-3 { background: #f00; }
+.child1   { width: 300px; }
+.child2   { width: 400px; }
 ```
 
 TOOD:
