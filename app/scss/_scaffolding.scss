@@ -1,8 +1,19 @@
-// 全局应用的样式
-* {
+//
+// Scaffolding
+// --------------------------------------------------
+
+*，
+*:before,
+*:after {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+
+//TODO 是否使用 rem 单位
+// html {
+//   font-size: 10px;
+//   -webkit-tap-highlight-color: rgba(0,0,0,0);
+// }
 
 body {
   color: $text-color;
