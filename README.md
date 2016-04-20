@@ -8,8 +8,9 @@ YAOPAI移动端 Redux 版
 
 1. 克隆项目：`git clone https://github.com/2remote/yaopai-m.git`
 2. 安装 [Node.js](https://nodejs.org/)
-3. 安装依赖项：`npm install`
-4. 启动dev-server：`npm start`
+3. 安装 [Ruby](https://www.ruby-lang.org/en/)（OS X 自带Ruby，可省略这步），然后安装 [SASS](http://sass-lang.com/)，`gem install sass`
+4. 安装依赖项：`npm install`
+5. 启动dev-server：`npm start`
 
 ## 二、npm依赖项说明
 
@@ -60,6 +61,12 @@ npm i -D eslint eslint-plugin-react # ESLint两件套
 npm i -D eslint-config-airbnb # airbnb的规范
 ```
 
+### css & scss
+```
+npm i -D style-loader css-loader #css 两件套
+npm i -D node-sass sass-loader #sass-loader 依赖 node-sass
+```
+
 ## 三、项目组织结构
 
 按照feature区分（[参考文档](http://jaysoo.ca/2016/02/28/organizing-redux-application/)）
@@ -96,6 +103,15 @@ npm i -D eslint-config-airbnb # airbnb的规范
     * login: 登陆相关
     * order: 订单
   * /about: 关于模块
+  * /SCSS: 项目样式
+    * /components: 公共的 component 样式
+    * /grid: 网格布局
+    * /mixin: mixins
+    * /scaffolding: Scaffolding
+    * /type: Typography
+    * /utility: Utility classes
+    * /variables: 全局变量
+    * TODO
 
 ## 五、设计的那些文档
 

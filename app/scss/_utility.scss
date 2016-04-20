@@ -1,3 +1,7 @@
+//
+// Utility classes
+// --------------------------------------------------
+
 .color-coffee    { @include font-color($coffee) }
 .color-red       { @include font-color($red) }
 .color-green     { @include font-color($green) }
@@ -18,5 +22,12 @@
 
 
 //float
-.fl { float: left; }
-.fr { float: right; }
+.fl { float: left !important; }
+.fr { float: right !important; }
+
+// Toggling content
+// -------------------------
+
+.hide      { display: none !important; }
+.show      { display: block !important; }
+.invisible { visibility: hidden; }
