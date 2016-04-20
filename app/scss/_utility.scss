@@ -1,40 +1,22 @@
-.color_red       { @include font_color($red) }
-.color_green     { @include font_color($green) }
-.color_lightgray { @include font_color($light_gray) }
-.color_gray      { @include font_color($gray) }
-.color_dark      { @include font_color($dark) }
-.color_white     { @include font_color(white) }
+.color-coffee    { @include font-color($coffee) }
+.color-red       { @include font-color($red) }
+.color-green     { @include font-color($green) }
+.color-silver    { @include font-color($silver) }
+.color-gray      { @include font-color($gray) }
+.color-dim-black { @include font-color($dim-black) }
+.color-black     { @include font-color($black) }
+.color-white     { @include font-color($white) }
 
-/* background colors */
-.bg_red          { @include bg_color($red) }
-.bg_green        { @include bg_color($green) }
-.bg_lightgray    { @include bg_color($light_gray) }
-.bg_gray         { @include bg_color($gray) }
-.bg_dark         { @include bg_color($dark) }
-.bg_white         { @include bg_color(white) }
+// background colors
+.bg-red          { @include bg-color($red) }
+.bg-green        { @include bg-color($green) }
+.bg-silver       { @include bg-color($silver) }
+.bg-gray         { @include bg-color($gray) }
+.bg-dim-black    { @include bg-color($dim-black) }
+.bg-black        { @include bg-color($black) }
+.bg-white        { @include bg-color($white) }
 
-/* text align */
-.text_center { text-align: center; }
-.text_left   { text-align: left; }
-.text_right  { text-align: right; }
 
-/*float*/
+//float
 .fl { float: left; }
 .fr { float: right; }
-
-.separator {
-  display: block;
-  margin: 0 15px;
-  padding: 0;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-}
-
-.align_items_start { @include flex_align(start) }
-
-/* aside */
-.footer {
-  display: block;
-  padding: 15px;
-}

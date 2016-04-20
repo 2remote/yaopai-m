@@ -17,11 +17,13 @@
   <title><%=htmlWebpackPlugin.options.title %></title>
   <!-- http://iconfont.cn/ -->
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1458528282_0916994.css" />
-  <link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/slick-carousel/1.3.15/slick.css" />
+  <!-- <link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/slick-carousel/1.3.15/slick.css" /> -->
   <!-- 插入favicon -->
   <% if(htmlWebpackPlugin.files.favicon) { %>
   <link rel="shortcut icon" href="{%=htmlWebpackPlugin.files.favicon%}" />
   <% } %>
+  <!-- pure css -->
+  <link rel="stylesheet" href="http://cdn.bootcss.com/pure/0.6.0/pure-min.css" />
   <!-- 插入依赖的css -->
   <% for (var css in htmlWebpackPlugin.files.css) { %>
   <link href="{%=htmlWebpackPlugin.files.css[css]%}" ref="stylesheet" />
@@ -30,8 +32,8 @@
 <body>
   <div id="app"></div>
 </body>
-<script type="text/javascript" src="/imgs/ua-parser.min.js"></script>
-<script src="http://cdn.staticfile.org/plupload/2.1.8/plupload.full.min.js"></script>
-<script src="http://cdn.staticfile.org/plupload/2.1.8/i18n/zh_CN.js"></script>
-<script type="text/javascript" src="/imgs/js/qiniu.js"></script>
+<!-- <script type="text/javascript" src="/imgs/ua-parser.min.js"></script> -->
+<!-- <script src="http://cdn.staticfile.org/plupload/2.1.8/plupload.full.min.js"></script> -->
+<!-- <script src="http://cdn.staticfile.org/plupload/2.1.8/i18n/zh_CN.js"></script> -->
+<!-- <script type="text/javascript" src="/imgs/js/qiniu.js"></script> -->
 </html>

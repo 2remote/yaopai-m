@@ -1,0 +1,127 @@
+/*
+ * 自定义 Pure 使用5列和12列的栅格系统
+ */
+//TODO 自定义栅格媒体查询吗？还是用 Pure 默认的？
+.pure-u-1,
+.pure-u-1-1,
+.pure-u-1-5,
+.pure-u-2-5,
+.pure-u-3-5,
+.pure-u-4-5,
+.pure-u-5-5,
+.pure-u-1-2,
+.pure-u-1-3,
+.pure-u-2-3,
+.pure-u-1-4,
+.pure-u-3-4,
+.pure-u-1-6,
+.pure-u-5-6,
+.pure-u-1-12,
+.pure-u-2-12,
+.pure-u-3-12,
+.pure-u-4-12,
+.pure-u-5-12,
+.pure-u-6-12,
+.pure-u-7-12,
+.pure-u-8-12,
+.pure-u-9-12,
+.pure-u-10-12,
+.pure-u-11-12,
+.pure-u-12-12 {
+    display: inline-block;
+    *display: inline; //属性前缀加上* 是表明该属性只有在IE浏览器中才有效，而在其余浏览器中无效
+    zoom: 1;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
+}
+
+.pure-u-1-5 {
+    width: 20%;
+    *width: 19.9690%;
+}
+
+.pure-u-2-5 {
+    width: 40%;
+    *width: 39.9690%;
+}
+
+.pure-u-3-5 {
+    width: 60%;
+    *width: 59.9690%;
+}
+
+.pure-u-4-5 {
+    width: 80%;
+    *width: 79.9690%;
+}
+
+.pure-u-1-12 {
+    width: 8.3333%;
+    *width: 8.3023%;
+}
+
+.pure-u-1-6,
+.pure-u-2-12 {
+    width: 16.6667%;
+    *width: 16.6357%;
+}
+
+.pure-u-1-4,
+.pure-u-3-12 {
+    width: 25%;
+    *width: 24.9690%;
+}
+
+.pure-u-1-3,
+.pure-u-4-12 {
+    width: 33.3333%;
+    *width: 33.3023%;
+}
+
+.pure-u-5-12 {
+    width: 41.6667%;
+    *width: 41.6357%;
+}
+
+.pure-u-1-2,
+.pure-u-6-12 {
+    width: 50%;
+    *width: 49.9690%;
+}
+
+.pure-u-7-12 {
+    width: 58.3333%;
+    *width: 58.3023%;
+}
+
+.pure-u-2-3,
+.pure-u-8-12 {
+    width: 66.6667%;
+    *width: 66.6357%;
+}
+
+.pure-u-3-4,
+.pure-u-9-12 {
+    width: 75%;
+    *width: 74.9690%;
+}
+
+.pure-u-5-6,
+.pure-u-10-12 {
+    width: 83.3333%;
+    *width: 83.3023%;
+}
+
+.pure-u-11-12 {
+    width: 91.6667%;
+    *width: 91.6357%;
+}
+
+.pure-u-1,
+.pure-u-1-1,
+.pure-u-5-5,
+.pure-u-12-12 {
+    width: 100%;
+}

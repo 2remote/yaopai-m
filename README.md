@@ -8,8 +8,9 @@ YAOPAI移动端 Redux 版
 
 1. 克隆项目：`git clone https://github.com/2remote/yaopai-m.git`
 2. 安装 [Node.js](https://nodejs.org/)
-3. 安装依赖项：`npm install`
-4. 启动dev-server：`npm start`
+3. 安装 [Ruby](https://www.ruby-lang.org/en/)（OS X 自带Ruby，可省略这步），然后安装 [SASS](http://sass-lang.com/)，`gem install sass`
+4. 安装依赖项：`npm install`
+5. 启动dev-server：`npm start`
 
 ## 二、npm依赖项说明
 
@@ -60,6 +61,12 @@ npm i -D eslint eslint-plugin-react # ESLint两件套
 npm i -D eslint-config-airbnb # airbnb的规范
 ```
 
+### css & scss
+```
+npm i -D style-loader css-loader #css 两件套
+npm i -D node-sass sass-loader #sass-loader 依赖 node-sass
+```
+
 ## 三、项目组织结构
 
 按照feature区分（[参考文档](http://jaysoo.ca/2016/02/28/organizing-redux-application/)）
@@ -76,9 +83,39 @@ npm i -D eslint-config-airbnb # airbnb的规范
   * config:
   * index.js: 主入口
 
-## 四、辣么多TODO
+## 四、Route配置
+
+* /: 跳转 /main
+  * /main: 主页，有下面fixed菜单
+    * /: 跳转 /work
+    * /work: 作品列表
+    * /discovery: 发现
+    * /grapher: 摄影师列表
+    * /user: 用户
+  * /work: 作品模块
+    * /:
+    * /:wid: 作品详情
+  * /grapher: 摄影师模块
+    * /:
+    * /gid: 摄影师详情
+  * /user: 用户模块
+    * /: 跳转 /login
+    * login: 登陆相关
+    * order: 订单
+  * /about: 关于模块
+
+## 五、设计的那些文档
+
+* [v2.0原型图](https://modao.cc/app/CkzEf0JcX2bFNKDRISLDJd2aSLolzik)
+* [v2.0设计图](http://2remote.github.io/yaopai-sketch)
+
+## 零、辣么多TODO
 
 * 整理webpack config
 * 测试相关
 * ESLint和各种编码规范
 * more to come
+
+## License
+
+[GPLv3](http://www.gnu.org/licenses/gpl-3.0.en.html)
