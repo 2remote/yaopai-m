@@ -39,14 +39,14 @@ const common = {
       include: path.resolve(ROOT_PATH, 'app'),
     }],
     loaders: [
-      // {
-      //   test: /\.css$/,
-      //   loaders: ['style', 'css'],
-      //   include: path.resolve(ROOT_PATH, 'app')
-      // },
-      // { test: /\.scss$/,
-      //   loaders: ['style', 'css', 'sass']
-      // }
+      {
+        test: /\.css$/,
+        loaders: ['style', 'css'],
+        include: path.resolve(ROOT_PATH, 'app'),
+      },
+      { test: /\.scss$/,
+        loaders: ['style', 'css', 'sass'],
+      },
       /**
        *  CSS Modules 配置方法
       {
@@ -101,7 +101,7 @@ if (TARGET === 'start' || !TARGET) {
         url: 'http://localhost:8000',
         // 这里写要打开的浏览器名字，若不填，会打开默认浏览器
         // Mac系统下可以选：Safari, Google Chrome, Firefox
-        // browser: 'Firefox',
+        // browser: 'Google Chrome',
       }),
     ],
   });
