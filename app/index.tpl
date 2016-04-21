@@ -23,7 +23,7 @@
   <link rel="shortcut icon" href="{%=htmlWebpackPlugin.files.favicon%}" />
   <% } %>
   <!-- pure css -->
-  <link rel="stylesheet" href="http://cdn.bootcss.com/pure/0.6.0/pure-min.css" />
+  <link rel="stylesheet" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css" />
   <!-- 插入依赖的css -->
   <% for (var css in htmlWebpackPlugin.files.css) { %>
   <link href="{%=htmlWebpackPlugin.files.css[css]%}" ref="stylesheet" />
