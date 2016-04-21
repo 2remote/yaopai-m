@@ -20,3 +20,17 @@ body {
   font-family: $body-font-family;
   font-size: $font-size-base;
 }
+
+// icon-font
+i .icon {
+  font-size: $font-size-base;
+}
+
+a {
+  color: $text-color;
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
