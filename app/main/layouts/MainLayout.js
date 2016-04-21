@@ -4,21 +4,22 @@ import { Link } from 'react-router';
 const MainLayout = props => (
   <div>
     { props.children }
-    <nav>
-      <hr />
-      <div className="pure-g">
-        <div className="pure-u-1-4" style={{ textAlign: 'center' }}>
-          <Link to="/main/work" activeClassName="active">作品</Link>
-        </div>
-        <div className="pure-u-1-4" style={{ textAlign: 'center' }}>
-          <Link to="/main/discovery" activeClassName="active">发现</Link>
-        </div>
-        <div className="pure-u-1-4" style={{ textAlign: 'center' }}>
-          <Link to="/main/grapher" activeClassName="active">摄影师</Link>
-        </div>
-        <div className="pure-u-1-4" style={{ textAlign: 'center' }}>
-          <Link to="/main/user" activeClassName="active">我的</Link>
-        </div>
+    <nav className="pure-g text-center">
+      <div className="pure-u-1-4">
+        <i className="icon phone" /><br />
+        <Link to="/main/work" activeClassName="active">推荐</Link>
+      </div>
+      <div className="pure-u-1-4">
+        <i className="icon phone" /><br />
+        <Link to="/main/discovery" activeClassName="active">求拍</Link>
+      </div>
+      <div className="pure-u-1-4">
+        <i className="icon phone" /><br />
+        <Link to="/main/grapher" activeClassName="active">消息</Link>
+      </div>
+      <div className="pure-u-1-4">
+        <i className="icon phone" /><br />
+        <Link to="/main/user" activeClassName="active">我的</Link>
       </div>
     </nav>
   </div>
