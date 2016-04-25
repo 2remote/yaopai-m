@@ -26,6 +26,8 @@ const common = {
       app: APP_PATH,
       common: path.resolve(APP_PATH, 'common'),
       main: path.resolve(APP_PATH, 'main'),
+      work: path.resolve(APP_PATH, 'work'),
+      model: path.resolve(APP_PATH, 'model'),
     },
   },
   output: {
@@ -44,7 +46,8 @@ const common = {
         loaders: ['style', 'css'],
         include: path.resolve(ROOT_PATH, 'app'),
       },
-      { test: /\.scss$/,
+      {
+        test: /\.scss$/,
         loaders: ['style', 'css', 'sass'],
       },
       /**
