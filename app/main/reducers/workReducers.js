@@ -21,20 +21,14 @@ const workDefault = {
  */
 const addMoreWork = (state = workDefault, action) => {
   if (action.type === LOAD_MORE_WORK) {
-    console.log('ref', action);
     const result = Object.assign({}, state, {
       total: action.total,
       index: action.index,
       pages: action.pages,
       size: action.size,
-      list: [55, 96, 117],
-      // list: action.index > 1 ? state.list.concat(action.list) : action.list,
+      list: action.index > 1 ? state.list.concat(action.list) : action.list,
     });
-    console.log('state', state);
-    console.log('result', result);
-    // TODO: this bug is super shit
-    // return result;
-    return state;
+    return result;
   }
   return state;
 };

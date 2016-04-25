@@ -6,7 +6,7 @@ import { loadMoreWorkAsync } from 'main/actions';
 
 const mapStateToProps = state => {
   const result = {
-    work: state.main.work,
+    work: Object.assign({}, state.main.work),
     lbt: state.routing.locationBeforeTransitions,
   };
   result.work.list = getWorks(state, result.work.list);
