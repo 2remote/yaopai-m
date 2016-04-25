@@ -4,8 +4,7 @@ import AutoList from 'common/AutoList';
 import WorkCardLayout from 'main/layouts/WorkCardLayout';
 
 const WorkLayout = props => (
-  <div id="main">
-    <h3>WorkLayout</h3>
+  <div>
     <AutoList
       paging={{
         index: props.work.index,
