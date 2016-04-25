@@ -1,12 +1,17 @@
 import { connect } from 'react-redux';
+import getWorks from 'model/work/refToObj';
 
 import WorkLayout from 'main/layouts/WorkLayout';
 import { loadMoreWorkAsync } from 'main/actions';
 
-const mapStateToProps = state => ({
-  work: state.main.work,
-  lbt: state.routing.locationBeforeTransitions,
-});
+const mapStateToProps = state => {
+  const result = {
+    work: state.main.work,
+    lbt: state.routing.locationBeforeTransitions,
+  };
+  result.work.list = getWorks(state, result.work.list);
+  return result;
+};
 
 const mapDispatchToProps = dispatch => ({
   onLoadMore: (idx, size, conditions) => {

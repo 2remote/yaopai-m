@@ -2,13 +2,13 @@ import React, { PropTypes } from 'react';
 
 const WorkShowLayout = props => (
   <div>
-    WorkShowLayout at { props.params.gid }
+    WorkShowLayout at { props.params.wid }
   </div>
 );
 
 WorkShowLayout.propTypes = {
   params: PropTypes.shape({
-    gid: PropTypes.string.isRequired,
+    wid: PropTypes.string.isRequired,
   }).isRequired,
 };
 

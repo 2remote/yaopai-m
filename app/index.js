@@ -11,8 +11,8 @@ import { syncHistoryWithStore } from 'react-router-redux';
 /* 4. Redux store -- 有且仅有一个 */
 import store from './store';
 /* 5. 开始引入不同模块 */
-import mainRoute from './main/route';
-import WorkRoute from './work';
+import mainRoute from 'main/route';
+import workRoute from 'work/route';
 import GrapherRoute from './grapher';
 import UserRoute from './user';
 import AboutRoute from './about';
@@ -30,7 +30,7 @@ const App = () => (
       <Route path="/">
         <IndexRedirect to={mainRoute.root} />
         { /* 主页 */ mainRoute.route(store) }
-        { /* 作品 */ WorkRoute }
+        { /* 作品 */ workRoute.route(store) }
         { /* 摄影师 */ GrapherRoute }
         { /* 用户 */ UserRoute }
         { /* 关于 */ AboutRoute }

@@ -10,39 +10,35 @@ import API from 'app/API';
 import post from 'app/HttpFactory';
 /* Action Types */
 import { ACTION_TYPE } from './constant';
-import updateWorkPool from 'model/work/actions';
-const { LOAD_MORE_WORK, LOAD_MORE_GRAPHER } = ACTION_TYPE;
+const { LOAD_WORK_DETAIL } = ACTION_TYPE;
 
 /* Actions */
-export const loadMoreWork = ({ total, index, pages, size, list }) => ({
-  type: LOAD_MORE_WORK,
+export const initWork = ({ total, index, pages, size, nickname, list }) => ({
+  type: LOAD_WORK_DETAIL,
   total,
   index,
   pages,
   size,
+  nickname,
   list,
 });
-
 
 /**
  * Sample Async Action namely: the thunk
  * 要配合redux-thunk这个middleware一起食用
  * ref: https://github.com/gaearon/redux-thunk
  */
-export const loadMoreWorkAsync = (idx, size, conditions) => dispatch => {
+export const initWorkAsync = wid => dispatch => {
   /* TODO: 请暂时无视我如此拙劣的dispatch行为 */
   /* 1. fetch之前，可以先发个pending的action */
   // dispatch({
   //   type: LOAD_MORE_WORK,
   //   msg: 'pending',
   // });
-  let postData = {
-    Fields: 'Id,Title,Views,Display,Price,Cover,Photographer.NickName',
-    PageIndex: idx,
-    PageSize: size,
-  };
-  postData = Object.assign({}, postData, conditions);
-  post(API.WORK.SEARCH, postData).then(data => {
+  post(API.WORK.GET, {
+    Fields: 'Title,Views,Display,Price,Cover,Photographer.NickName',
+    Id: wid,
+  }).then(data => {
     /**
      * 作品列表中的展示数据：
      * - Title: 标题
@@ -52,24 +48,19 @@ export const loadMoreWorkAsync = (idx, size, conditions) => dispatch => {
      * - Price: 价格
      * - Cover: 封面
      */
-    const convertedList = data.Result.map(result => ({
-      id: result.Id,
-      title: result.Title,
-      views: result.Views,
-      display: result.Display,
-      price: result.Price,
-      cover: result.Cover,
-      nickname: result.Photographer.NickName,
-    }));
-    /* 更新已保存作品 */
-    dispatch(updateWorkPool(convertedList));
-    /* 加载作品列表 */
-    dispatch(loadMoreWork({
+    dispatch(initWork({
       total: data.Count,
       index: data.PageIndex,
       pages: data.PageCount,
       size: data.PageSize,
-      list: convertedList.map(converted => converted.id),
+      list: data.Result.map(result => ({
+        title: result.Title,
+        views: result.Views,
+        display: result.Display,
+        price: result.Price,
+        cover: result.Cover,
+        nickname: result.Photographer.NickName,
+      })),
     }));
     // throw new Error('What The Facebook');
     return data;
@@ -77,9 +68,3 @@ export const loadMoreWorkAsync = (idx, size, conditions) => dispatch => {
     console.error(error);
   });
 };
-
-export const loadMoreGrapher = () => ({
-  type: LOAD_MORE_GRAPHER,
-});
-
-// export default { loadMoreWork, loadMoreGrapher };

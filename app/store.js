@@ -5,11 +5,13 @@ import { routerReducer } from 'react-router-redux';
 import thunk from 'redux-thunk';
 /* 3. 引入reducers */
 import mainReducers from './main/reducer';
+import workReducers from 'model/work/reducer';
 
 /* 这里组装reducers */
 const reducers = {
   routing: routerReducer,
   [mainReducers.mount]: mainReducers.reducer,
+  [workReducers.mount]: workReducers.reducer,
 };
 /* reducers 组装完毕后， state 结构也生成了 😄
 
@@ -26,7 +28,7 @@ state = {
 */
 
 
-/* **************************************************************** */
+/* ---------------------------------------------------------------- */
 /**
  * 临时放这里一个logger，测试用
  */
@@ -50,7 +52,7 @@ const logger = store => next => action => {
 //     };
 //   };
 // };
-/* **************************************************************** */
+/* ---------------------------------------------------------------- */
 
 /* 这里创建store */
 const store = createStore(
