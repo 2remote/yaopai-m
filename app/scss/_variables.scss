@@ -9,18 +9,16 @@ $silver                   : #ececec;
 $gray                     : #bebebe;
 $black                    : #000;
 $dim-black                : #282828;
-$coffee                   : #cc7b7b; //== Scaffolding
-//
+$coffee                   : #cc7b7b;
+
 //## Settings for some of the most global styles.
 //** Background color for `<body>`.
-$body-bg                  : $silver; //** Global text color on `<body>`.
-$text-color               : $dim-black; //** Global font-family on `<body>`.
-$body-font-family         : "PingFang SC", "Microsoft Yahei", Arial, sans-serif; //**TODO Global textual link color.
-//$link-color:            $bran d-primary;
-//** Link hover color set via `darken()` function.
-//$link-hover-color:      darken($link-color, 15%);
-//** Link hover decoration.
-//$link-hover-decoration: underline;
+$body-bg                  : $silver;
+//** Global text color on `<body>`.
+$text-color               : $dim-black;
+//** Global font-family on `<body>`.
+$body-font-family         : "PingFang SC", "Microsoft Yahei", Arial, sans-serif;
+
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
@@ -37,61 +35,81 @@ $font-size-h6             : ceil(($font-size-base * .85)); // ~12px
 $line-height-base         : 1.428571429; // 20px ÷ 14px = 1.428571429
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
 $line-height-computed     : floor(($font-size-base * $line-height-base)); // ~20px
+
 //== Z-index
 $zindex-menu-link         : 1010;
 $zindex-mask-background   : 1020;
 $zindex-navbar            : 1030;
 $zindex-popover           : 1060;
 $zindex-tooltip           : 1070;
+
 /* *CardComponent 作品库列表Card组件***************************************** */
 /* thumbnail 缩略图 */
 $thumbnail-width          : 100%;
 $thumbnail-height         : 255px;
+
 /* panel-des 描述面板 */
 $panel-des-padding        : 15px 10px;
 $panel-des-color          : $white;
+
 /* title 标题文字 */
 $title-size               : 16px;
 $title-line-height        : 24px;
 $title-color              : $dim-black;
+
 /* caption 说明文字 */
 $caption-size             : 12px;
 $caption-line-height      : 24px;
 $caption-color            : $gray;
+
 /* avatar 头像 */
 $avatar-width             : 50px;
 $avatar-height            : 50px;
 $avatar-radius            : 50%;
+
 /* tags 标签 */
 $tags-bg                  : rgba(0,0,0,0.8);
 $tags-line-height         : 35px;
+
 /* PagerComponent 翻页组件***************************************** */
 $pager-height             : 50px;
 $pager-width              : 100%;
 $pager-bg-color           : #ffffff;
-/* MenuBarComponent 菜单组件***************************************** */
+
+/* *菜单导航nav-slide***************************************** */
+/*  actionsheet  */
 $menu-bg-color            : $dim-black;
 $menu-mask-color          : rgba(0,0,0,0.8);
 $menu-width               : 70%;
-/* 菜单头像 */
+$menu-margin-left         : 35px;
+$menu-margin-bottom       : 42px;
+
+/* 菜单头像 portrait*/
 $menu-avatar-width        : 90px;
 $menu-avatar-height       : 90px;
-/* 用户状态（昵称） */
+
+/* menu-icon */
+$menu-icon-size           : $font-size-h3;
+
+/* 用户状态 nickname */
 $menu-username-size       : 16px;
 $menu-username-line-height: 24px;
 $menu-username-color      : $white;
-/* 菜单字体 */
+
+/* 菜单字体 menu-slide-nav*/
 $menu-font-size           : $font-size-small;
 $menu-line-height         : 60px;
+
 /* 菜单点击，悬停 */
 $menu-color               : #5a5a5a;
 $menu-hover-color         : $white;
 $menu-active-color        : $white;
-/* tags 标签 */
-$menu-icon-width          : 15px;
-$menu-icon-height         : 15px; //== Navs-toggle
-//TODO
-//
+
+/* 菜单客服 footer */
+$menu-footer-lineheight   : 25px;
+
+/* TODO menu-Link-icon */
+
 // Basics of a navbar
 // TODO
 // like:

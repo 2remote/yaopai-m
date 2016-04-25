@@ -27,36 +27,48 @@ class MainLayout extends Component {
         {this.props.children}
         {/* Hamburger icon */}
         <a href="#menu" id="menuLink" className="menu-link">
-          <i className="icon menu_icon" id="menuIcon" />
+          <i className="grid" id="menuIcon" />
         </a>
         <div id="actionSheet_wrap">
           { /* 透明遮罩层 */ }
           <div className="mask_transition" id="mask"></div>
 
-          <nav className="actionsheet" id="menu">
-            <div className="pure-menu">
-              <a className="pure-menu-heading" href="#">YAOPAI</a>
+          <div className="actionsheet" id="menu">
+            <header className="menu-slide-header">
+              <div className="portrait"><img src="" alt="" /></div>
+              <div className="nickname">张晓明</div>
+            </header>
+
+            <nav className="menu-slide-nav pure-menu">
               <ul className="pure-menu-list">
                 <li className="pure-menu-item">
-                  <i className="icon phone" />
-                  <Link to="/main/work" activeClassName="active">推荐</Link>
+                  <Link to="/main/work" activeClassName="active">
+                    <i className="home" />首页&nbsp;&nbsp;HOME
+                  </Link>
                 </li>
                 <li className="pure-menu-item">
-                  <i className="icon phone" />
-                  <Link to="/main/discovery" activeClassName="active">求拍</Link>
+                  <Link to="/main/discovery" activeClassName="active">
+                    <i className="grid" />作品&nbsp;&nbsp;LIBRARY
+                  </Link>
                 </li>
-                <li className="pure-menu-item" className="menu-item-divided pure-menu-selected">
-                  <i className="icon phone" />
-                  <Link to="/main/grapher" activeClassName="active">消息</Link>
-                </li>
-
                 <li className="pure-menu-item">
-                  <i className="icon phone" /> {/* <a href="#" className="pure-menu-link">我的</a> */}
-                  <Link to="/main/user" activeClassName="active">我的</Link>
+                  <Link to="/main/grapher" activeClassName="active">
+                    <i className="camera" />摄影师&nbsp;&nbsp;PARAGRAPHER
+                  </Link>
+                </li>
+                <li className="pure-menu-item">
+                  <Link to="/main/user" activeClassName="active">
+                    <i className="settings" />个人中心&nbsp;&nbsp;USER
+                  </Link>
                 </li>
               </ul>
-            </div>
-          </nav>
+            </nav>
+
+            <footer className="menu-slide-footer">
+              客服热线<br />
+              <a href="tel:400-1122-3323">400-1122-3323</a>
+            </footer>
+          </div>
         </div>
       </div>
     );
