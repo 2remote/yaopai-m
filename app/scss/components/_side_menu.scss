@@ -3,56 +3,55 @@
 //   height: auto;
 // }
 .menu-link {
-  position: fixed;
-  z-index: $zindex-menu-link;
-  top: 20px;
-  left: 20px;
-  height: 30px;
-  width: 30px;
+  position  : fixed;
+  z-index   : $zindex-menu-link;
+  top       : 20px;
+  left      : 20px;
+  height    : 30px;
+  width     : 30px;
   background: #f60;
 
   i {
-    display: block;
+    display  : block;
     font-size: 24px;
   }
 }
 
 .mask_transition {
-  display: none;
-  position: fixed;
-  z-index: $zindex-mask-background;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0);
+  display           : none;
+  position          : fixed;
+  z-index           : $zindex-mask-background;
+  width             : 100%;
+  height            : 100%;
+  top               : 0;
+  left              : 0;
+  background        : rgba(0, 0, 0, 0);
   -webkit-transition: background 0.2s;
-  transition: background 0.2s;
+  transition        : background 0.2s;
 }
-
-.fade_toggle {
+· .fade_toggle {
   background: rgba(0, 0, 0, .6);
 }
 
 .actionsheet {
-  position: fixed;
-  left: 0;
-  top: 0;
+  position                   : fixed;
+  left                       : 0;
+  top                        : 0;
   // -webkit-transform: translate(-100%, 0);
-  transform: translate(-100%, 0);
+  transform                  : translate(-100%, 0);
   -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  z-index: $zindex-navbar;
-  width: 60%;
-  height: 100%;
-  background-color: #EFEFF4;
-  -webkit-transition: -webkit-transform 0.2s ease-in-out;
-  transition: -webkit-transform 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out;
-  transition: transform 0.2s, -webkit-transform 0.2s ease-in-out;
+  backface-visibility        : hidden;
+  z-index                    : $zindex-navbar;
+  width                      : 60%;
+  height                     : 100%;
+  background-color           : #EFEFF4;
+  -webkit-transition         : -webkit-transform 0.2s ease-in-out;
+  transition                 : -webkit-transform 0.2s ease-in-out;
+  transition                 : transform 0.2s ease-in-out;
+  transition                 : transform 0.2s, -webkit-transform 0.2s ease-in-out;
 }
 
 .actionsheet_toggle {
   -webkit-transform: translate(0, 0);
-  transform: translate(0, 0);
+  transform        : translate(0, 0);
 }
