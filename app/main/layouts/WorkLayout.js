@@ -5,8 +5,16 @@ import WorkCardLayout from 'main/layouts/WorkCardLayout';
 
 const WorkLayout = props => (
   <div>
-    <h3>WorkLayout</h3>
-    <AutoList updateCallback={props.onLoadMore}>
+    <AutoList
+      paging={{
+        index: props.work.index,
+        pages: props.work.pages,
+        total: props.work.total,
+        size: props.work.size,
+      }}
+      cons={ props.lbt ? props.lbt.query : undefined }
+      updateCallback={ props.onLoadMore }
+    >
       {
         props.work.list.map((item, key) => (
           <WorkCardLayout
@@ -32,8 +40,15 @@ WorkLayout.propTypes = {
       views: PropTypes.number.isRequired,
       nickname: PropTypes.string.isRequired,
     })),
+    index: PropTypes.number,
+    pages: PropTypes.number,
+    total: PropTypes.number,
+    size: PropTypes.number,
   }).isRequired,
   onLoadMore: PropTypes.func.isRequired,
+  lbt: PropTypes.shape({
+    query: PropTypes.object,
+  }),
 };
 
 export default WorkLayout;

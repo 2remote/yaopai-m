@@ -9,8 +9,22 @@ import mainReducers from './main/reducer';
 /* 这里组装reducers */
 const reducers = {
   routing: routerReducer,
+  [mainReducers.mount]: mainReducers.reducer,
 };
-reducers[mainReducers.mount] = mainReducers.reducer;
+/* reducers 组装完毕后， state 结构也生成了 😄
+
+state = {
+  routing: {
+    locationBeforeTransitions: {...}
+  },
+  main: {
+    work: {...}
+  },
+  ...
+};
+
+*/
+
 
 /* **************************************************************** */
 /**

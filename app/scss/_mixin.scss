@@ -1,15 +1,19 @@
 // color & background
-@mixin font-color($color) { color: $color; }
-@mixin bg-color($color)   { background-color: $color; }
+@mixin font-color($color) {
+  color: $color;
+}
+@mixin bg-color($color) {
+  background-color: $color;
+}
 
 // 箭头向右的三角形
 @mixin triangle-right ($size, $color) {
-  content: '';
-  width: 0;
-  height: 0;
-  font-size: 0;
-  line-height: 0;
+  content      : '';
+  width        : 0;
+  height       : 0;
+  font-size    : 0;
+  line-height  : 0;
   border-bottom: $size solid transparent;
-  border-top: $size solid transparent;
-  border-left: $size solid $color;
+  border-top   : $size solid transparent;
+  border-left  : $size solid $color;
 }
