@@ -116,14 +116,20 @@ sass 规范选择器嵌套不能超过 3 层。默认所有的嵌套，继承所
 ### 混合宏（mixin） VS 继承（extends） VS 占位符（%）
 什么时候用混合宏，什么时候用继承，什么时候使用占位符？
 
-> mixin 不会自动合并相同的样式代码，如果在样式文件中调用同一个混合宏，会产生多个对应的样式代码，造成代码的冗余。他还可以传参数。  
+![mixin](http://7xte7j.com2.z0.glb.clouddn.com/Sass%E5%8D%A0%E4%BD%8D%E7%AC%A6.png)
+总结：不会自动合并相同的样式代码，如果在样式文件中调用同一个混合宏，会产生多个对应的样式代码，造成代码的冗余。他还可以传参数。
+** 如果你的代码块中涉及到变量，建议使用混合宏来创建相同的代码块。**
 
-* ** 如果你的代码块中涉及到变量，建议使用混合宏来创建相同的代码块。**    
-TOOD:
-* mixin（混合器）
-* content
-* extends（继承）
-* %（占位选择器）
+![extends](http://7xte7j.com2.z0.glb.clouddn.com/Sass%E7%BB%A7%E6%89%BF.png)
+总结：使用继承后，编译出来的 CSS 会将使用继承的代码块合并到一起，通过组合选择器的方式展现，比如 .mt, .block, .block span, .header, .header span。这样编译出来的代码相对于混合宏来说要干净的多。但是他不能传变量参数。
+** 如果你的代码块不需要专任何变量参数，而且有一个基类已在文件中存在，那么建议使用 Sass 的继承。**
+
+![%placeholder](http://7xte7j.com2.z0.glb.clouddn.com/Sass%E5%8D%A0%E4%BD%8D%E7%AC%A6.png)
+总结：编译出来的 CSS 代码和使用继承基本上是相同，只是不会在代码中生成占位符 mt 的选择器。那么占位符和继承的主要区别的，**占位符是独立定义，不调用的时候是不会在 CSS 中产生任何代码；**继承是首先有一个基类存在，不管调用与不调用，基类的样式都将会出现在编译出来的 CSS 代码中。”
+
+![总结](http://7xte7j.com2.z0.glb.clouddn.com/sass%E6%80%BB%E7%BB%93.jpg)
 
 
-以上参考：[Sass Guide](http://www.w3cplus.com/sassguide/syntax.html)
+以上参考：
+* [Sass Guide](http://www.w3cplus.com/sassguide/syntax.html)
+* [Sass混同宏、继承、占位符](http://www.myexception.cn/HTML-CSS/2037440.html)
