@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import $ from 'jquery';
+import SelectLayout from './SelectLayout.jsx';
 
 class MainLayout extends Component {
   componentDidMount() {
@@ -23,8 +24,10 @@ class MainLayout extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ paddingTop: 50, backgroundColor: 'red', position: 'relative' }}>
+
         {this.props.children}
+        <SelectLayout />
         {/* Hamburger icon */}
         <a href="#menu" id="menuLink" className="menu-link">
           <i className="menu" id="menuIcon" />
