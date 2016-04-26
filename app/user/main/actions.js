@@ -10,16 +10,16 @@ import API from 'app/API';
 import post from 'app/HttpFactory';
 /* Action Types */
 import { ACTION_TYPE } from './constant';
+import updateWorkPool from 'model/work/actions';
 const { LOAD_MORE_WORK, LOAD_MORE_GRAPHER } = ACTION_TYPE;
 
 /* Actions */
-export const loadMoreWork = ({ total, index, pages, size, nickname, list }) => ({
+export const loadMoreWork = ({ total, index, pages, size, list }) => ({
   type: LOAD_MORE_WORK,
   total,
   index,
   pages,
   size,
-  nickname,
   list,
 });
 
@@ -37,7 +37,7 @@ export const loadMoreWorkAsync = (idx, size, conditions) => dispatch => {
   //   msg: 'pending',
   // });
   let postData = {
-    Fields: 'Title,Views,Display,Price,Cover,Photographer.NickName',
+    Fields: 'Id,Title,Views,Display,Price,Cover,Photographer.NickName',
     PageIndex: idx,
     PageSize: size,
   };
@@ -52,19 +52,24 @@ export const loadMoreWorkAsync = (idx, size, conditions) => dispatch => {
      * - Price: 价格
      * - Cover: 封面
      */
+    const convertedList = data.Result.map(result => ({
+      id: result.Id,
+      title: result.Title,
+      views: result.Views,
+      display: result.Display,
+      price: result.Price,
+      cover: result.Cover,
+      nickname: result.Photographer.NickName,
+    }));
+    /* 更新已保存作品 */
+    dispatch(updateWorkPool(convertedList));
+    /* 加载作品列表 */
     dispatch(loadMoreWork({
       total: data.Count,
       index: data.PageIndex,
       pages: data.PageCount,
       size: data.PageSize,
-      list: data.Result.map(result => ({
-        title: result.Title,
-        views: result.Views,
-        display: result.Display,
-        price: result.Price,
-        cover: result.Cover,
-        nickname: result.Photographer.NickName,
-      })),
+      list: convertedList.map(converted => converted.id),
     }));
     // throw new Error('What The Facebook');
     return data;

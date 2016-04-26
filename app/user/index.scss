@@ -1,0 +1,15 @@
+//必须保证引入的基础 _scss 文件按照一定的依赖顺序排练
+
+// 第一优先级
+@import '../scss/grid';
+@import '../scss/variables';
+@import '../scss/mixin';
+@import '../scss/placeholder';
+
+// 第二优先级（依赖最顶层的变量，方法等）
+@import '../scss/utility';
+@import '../scss/type';
+@import '../scss/scaffolding';
+
+// 第三优先级
+@import '../scss/components';

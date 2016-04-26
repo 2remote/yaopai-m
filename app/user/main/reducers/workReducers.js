@@ -21,13 +21,14 @@ const workDefault = {
  */
 const addMoreWork = (state = workDefault, action) => {
   if (action.type === LOAD_MORE_WORK) {
-    return Object.assign({}, state, {
+    const result = Object.assign({}, state, {
       total: action.total,
       index: action.index,
       pages: action.pages,
       size: action.size,
       list: action.index > 1 ? state.list.concat(action.list) : action.list,
     });
+    return result;
   }
   return state;
 };

@@ -113,11 +113,20 @@ sass 规范选择器嵌套不能超过 3 层。默认所有的嵌套，继承所
 .child2   { width: 400px; }
 ```
 
-TOOD:
-* mixin（混合器）
-* content
-* extends（继承）
-* %（占位选择器）
+### 混合宏（mixin） VS 继承（extends） VS 占位符（%）
+什么时候用混合宏，什么时候用继承，什么时候使用占位符？
 
 
-以上参考：[Sass Guide](http://www.w3cplus.com/sassguide/syntax.html)
+![总结](http://7xte7j.com2.z0.glb.clouddn.com/sass%E6%80%BB%E7%BB%93.jpg)
+
+**1.如果你的代码块中涉及到变量，建议使用混合宏来创建相同的代码块。**
+
+**2.如果你的代码块不需要专任何变量参数，而且有一个基类已在文件中存在，那么建议使用 Sass 的继承。**
+
+**3.占位符是独立定义，不调用的时候是不会在 CSS 中产生任何代码。**
+
+
+***
+以上参考：
+* [Sass Guide](http://www.w3cplus.com/sassguide/syntax.html)
+* [Sass混同宏、继承、占位符](http://www.myexception.cn/HTML-CSS/2037440.html)

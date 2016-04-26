@@ -15,17 +15,24 @@ const TITLE = {
 const TARGET = process.env.npm_lifecycle_event;
 const ROOT_PATH = path.resolve(__dirname);
 const APP_PATH = path.resolve(ROOT_PATH, 'app');
+const USER_PATH = path.resolve(APP_PATH, 'user');
+// const GRAPHER_PATH = path.resolve(APP_PATH, 'grapher');
 
 const APP_TITLE = TITLE.indexPage;
 
 const common = {
-  entry: path.resolve(ROOT_PATH, 'app'),
+  entry: USER_PATH,
   resolve: {
     extensions: ['', '.js', '.jsx'],
     alias: { // 目测这个选项不过是赤果果的替换
       app: APP_PATH,
       common: path.resolve(APP_PATH, 'common'),
-      main: path.resolve(APP_PATH, 'main'),
+      main: path.resolve(USER_PATH, 'main'),
+      work: path.resolve(USER_PATH, 'work'),
+      grapher: path.resolve(USER_PATH, 'grapher'),
+      model: path.resolve(USER_PATH, 'model'),
+      user: path.resolve(USER_PATH, 'user'),
+      about: path.resolve(USER_PATH, 'about'),
     },
   },
   output: {
@@ -44,7 +51,8 @@ const common = {
         loaders: ['style', 'css'],
         include: path.resolve(ROOT_PATH, 'app'),
       },
-      { test: /\.scss$/,
+      {
+        test: /\.scss$/,
         loaders: ['style', 'css', 'sass'],
       },
       /**
@@ -92,7 +100,7 @@ if (TARGET === 'start' || !TARGET) {
       new webpack.HotModuleReplacementPlugin(),
       new HtmlwebpackPlugin({
         title: APP_TITLE,
-        template: 'app/index.tpl',
+        template: 'app/user/index.tpl',
         minify: {
           removeComments: true,
         },
