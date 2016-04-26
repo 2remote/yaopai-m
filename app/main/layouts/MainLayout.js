@@ -41,24 +41,28 @@ class MainLayout extends Component {
 
             <nav className="menu-slide-nav pure-menu">
               <ul className="pure-menu-list">
-                <li className="pure-menu-item">
+                <li className="pure-menu-item nav-list-bar">
                   <Link to="/main/work" activeClassName="active">
-                    <i className="home" />首页&nbsp;&nbsp;HOME
+                    <i className="menu-icon home" />
+                    <div className="menu-button"><span>首页&nbsp;&nbsp;HOME</span></div>
                   </Link>
                 </li>
-                <li className="pure-menu-item">
+                <li className="pure-menu-item nav-list-bar">
                   <Link to="/main/discovery" activeClassName="active">
-                    <i className="grid" />作品&nbsp;&nbsp;LIBRARY
+                    <i className="menu-icon grid" />
+                    <div className="menu-button"><span>作品&nbsp;&nbsp;LIBRARY</span></div>
                   </Link>
                 </li>
-                <li className="pure-menu-item">
+                <li className="pure-menu-item nav-list-bar">
                   <Link to="/main/grapher" activeClassName="active">
-                    <i className="camera" />摄影师&nbsp;&nbsp;PARAGRAPHER
+                    <i className="menu-icon camera" />
+                    <div className="menu-button"><span>摄影师&nbsp;&nbsp;PARAGRAPHER</span></div>
                   </Link>
                 </li>
-                <li className="pure-menu-item">
+                <li className="pure-menu-item nav-list-bar">
                   <Link to="/main/user" activeClassName="active">
-                    <i className="settings" />个人中心&nbsp;&nbsp;USER
+                    <i className="menu-icon settings" />
+                    <div className="menu-button"><span>个人中心&nbsp;&nbsp;USER</span></div>
                   </Link>
                 </li>
               </ul>

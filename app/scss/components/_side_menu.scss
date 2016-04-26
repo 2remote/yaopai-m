@@ -84,35 +84,39 @@
   }
 }
 
-.menu-slide-nav ul li {
-  margin-left  : $menu-margin-left;
-  line-height  : $menu-line-height;
-  border-bottom: 1px lighten($dim-black, 4%) solid;
+.nav-list-bar {
+  line-height: $menu-line-height;
 
   a {
+    @extend %flex-align;
     color: $menu-color;
 
-    span {
+    &.active {
+      color: $menu-active-color;
+    }
+
+    .menu-icon  {
       display       : inline-block;
       vertical-align: bottom;
+      margin        : 0 $menu-icon-margin;
+      font-size     : $menu-icon-size;
     }
-  }
 
-  i {
-    display       : inline-block;
-    vertical-align: bottom;
-    padding-right : 30px;
-    font-size     : $menu-icon-size;
-  }
+    .menu-button {
+      @extend %flex-1;
+      border-bottom: 1px lighten($dim-black, 4%) solid;
 
-  .active {
-    color: $menu-active-color;
+      span {
+        display       : inline-block;
+        vertical-align: bottom;
+      }
+    }
   }
 }
 
 .menu-slide-footer {
   position   : absolute;
-  left       : $menu-margin-left;
+  left       : $menu-icon-margin;
   bottom     : $menu-margin-bottom;
   line-height: $menu-footer-lineheight;
 
