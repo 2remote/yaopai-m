@@ -27,7 +27,7 @@ class MainLayout extends Component {
         {this.props.children}
         {/* Hamburger icon */}
         <a href="#menu" id="menuLink" className="menu-link">
-          <i className="grid" id="menuIcon" />
+          <i className="menu" id="menuIcon" />
         </a>
         <div id="actionSheet_wrap">
           { /* 透明遮罩层 */ }

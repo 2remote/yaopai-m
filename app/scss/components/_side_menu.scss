@@ -1,48 +1,47 @@
-/* *菜单导航nav-slide***************************************** */
-/*  actionsheet  */
-$menu-bg-color            : $dim-black;
-$menu-mask-color          : rgba(0,0,0,0.8);
-$menu-width               : 70%;
-$menu-icon-margin         : 33px;
-$menu-margin-bottom       : 42px;
+//* *菜单导航nav-slide*****************************************
+//*  actionsheet
+$menu-bg-color     : $dim-black;
+$menu-mask-color   : rgba(0,0,0,0.8);
+$menu-width        : 70%;
+$menu-icon-margin  : 33px;
+$menu-margin-bottom: 42px;
 
-/* 菜单头像 portrait*/
-$menu-avatar-width        : 90px;
-$menu-avatar-height       : 90px;
+//* 菜单头像 portrait
+$menu-avatar-width : 90px;
+$menu-avatar-height: 90px;
 
-/* menu-icon */
-$menu-icon-size           : $font-size-h3;
+//* menu-icon
+$menu-icon-size    : $font-size-h3;
+$menu-link-size    : 30px;
 
-/* 用户状态 nickname */
+//* 用户状态 nickname
 $menu-username-size       : 16px;
 $menu-username-line-height: 24px;
 $menu-username-color      : $white;
 
-/* 菜单字体 menu-slide-nav*/
+//* 菜单字体 menu-slide-nav*/
 $menu-font-size           : $font-size-small;
 $menu-line-height         : 60px;
 
-/* 菜单点击，悬停 */
+//* 菜单点击，悬停 */
 $menu-color               : #5a5a5a;
 $menu-hover-color         : $white;
 $menu-active-color        : $white;
 
-/* 菜单客服 footer */
-$menu-footer-lineheight   : 25px;
-
+//* 菜单客服 footer */
+$menu-footer-lineheight: 25px;
 
 .menu-link {
-  position  : fixed;
-  z-index   : $zindex-menu-link;
-  top       : 75px;
-  left      : 20px;
-  width     : 25px;
-  height    : 20px;
-  color     : $white;
+  color   : $white;
+  position: fixed;
+  z-index : $zindex-menu-link;
+  top     : 75px;
+  left    : 20px;
+  width   : 25px;
+  height  : 20px;
 
   i {
-    display  : block;
-    font-size: 24px;
+    font-size: $menu-link-size;
   }
 }
 
@@ -55,8 +54,8 @@ $menu-footer-lineheight   : 25px;
   top               : 0;
   left              : 0;
   background        : rgba(0, 0, 0, 0);
-  -webkit-transition: background 0.2s;
-  transition        : background 0.2s;
+  -webkit-transition: background .2s;
+  transition        : background .2s;
 }
 
 .fade_toggle {
@@ -75,10 +74,10 @@ $menu-footer-lineheight   : 25px;
   width                      : $menu-width;
   height                     : 100%;
   background-color           : $dim-black;
-  -webkit-transition         : -webkit-transform 0.2s ease-in-out;
-  transition                 : -webkit-transform 0.2s ease-in-out;
-  transition                 : transform 0.2s ease-in-out;
-  transition                 : transform 0.2s, -webkit-transform 0.2s ease-in-out;
+  -webkit-transition         : -webkit-transform .2s ease-in-out;
+  transition                 : -webkit-transform .2s ease-in-out;
+  transition                 : transform .2s ease-in-out;
+  transition                 : transform .2s, -webkit-transform .2s ease-in-out;
   color                      : $menu-color;
   font-size                  : $menu-font-size;
 }
@@ -124,7 +123,7 @@ $menu-footer-lineheight   : 25px;
       color: $menu-active-color;
     }
 
-    .menu-icon  {
+    .menu-icon {
       display       : inline-block;
       vertical-align: bottom;
       margin        : 0 $menu-icon-margin;
