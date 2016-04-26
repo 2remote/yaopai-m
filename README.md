@@ -72,16 +72,27 @@ npm i -D node-sass sass-loader #sass-loader 依赖 node-sass
 按照feature区分（[参考文档](http://jaysoo.ca/2016/02/28/organizing-redux-application/)）
 
 * /app: 放置前端代码的地方
-  * work: 作品组件
-    * actions:
-    * reducers:
-    * layouts:
-  * grapher: 摄影师组件
-  * user: 用户组件
   * common: 通用组件
-  * util: 工具类
-  * config:
-  * index.js: 主入口
+  * /user: 用户端代码
+    * work: 作品组件
+      * actions:
+      * reducers:
+      * layouts:
+    * grapher: 摄影师组件
+    * user: 用户组件
+    * util: 工具类
+    * config:
+    * index.js: 主入口
+  * /grapher: 摄影师端代码
+  * /scss: 项目样式
+    * /components: 公共的 component 样式
+    * /grid: 网格布局
+    * /mixin: mixins
+    * /scaffolding: Scaffolding
+    * /type: Typography
+    * /utility: Utility classes
+    * /variables: 全局变量
+    * TODO
 
 ## 四、Route配置
 
@@ -103,15 +114,6 @@ npm i -D node-sass sass-loader #sass-loader 依赖 node-sass
     * login: 登陆相关
     * order: 订单
   * /about: 关于模块
-  * /SCSS: 项目样式
-    * /components: 公共的 component 样式
-    * /grid: 网格布局
-    * /mixin: mixins
-    * /scaffolding: Scaffolding
-    * /type: Typography
-    * /utility: Utility classes
-    * /variables: 全局变量
-    * TODO
 
 ## 五、设计的那些文档
 
