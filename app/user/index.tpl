@@ -16,7 +16,7 @@
   <meta name="format-detection" content="email=no" />
   <title><%=htmlWebpackPlugin.options.title %></title>
   <!-- http://iconfont.cn/ -->
-  <link rel="stylesheet" href="//at.alicdn.com/t/font_1461562338_4527202.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1461656298_3889573.css" />
   <!-- <link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/slick-carousel/1.3.15/slick.css" /> -->
   <!-- 插入favicon -->
   <% if(htmlWebpackPlugin.files.favicon) { %>
