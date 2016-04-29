@@ -31,7 +31,7 @@ const common = {
       work: path.resolve(USER_PATH, 'work'),
       grapher: path.resolve(USER_PATH, 'grapher'),
       model: path.resolve(USER_PATH, 'model'),
-      user: path.resolve(USER_PATH, 'user'),
+      user: path.resolve(GRAPHER_PATH, 'user'),
       about: path.resolve(USER_PATH, 'about'),
     },
   },

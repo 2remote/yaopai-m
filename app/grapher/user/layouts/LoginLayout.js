@@ -19,8 +19,8 @@ const LoginLayout = props => {
         <button type="submit">提交</button>
       </form>
 
-      // <h1>{props.user.name}</h1>
-      // <h1>{props.user.password}</h1>
+      <h1>{props.user.nickname}</h1>
+      <h1>{props.user.userSex}</h1>
     </div>
   );
 };

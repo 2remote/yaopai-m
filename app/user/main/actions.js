@@ -50,7 +50,7 @@ export const loadMoreWorkAsync = (idx, size, conditions) => dispatch => {
      * - Photographer: 摄影师
      * - Display: 是否显示
      * - Price: 价格
-     * - Cover: 封面
+     * - Cover: 封面A
      */
     const convertedList = data.Result.map(result => ({
       id: result.Id,

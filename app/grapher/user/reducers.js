@@ -1,12 +1,16 @@
- const loginReducer = (state = {}, action) => {
-   if (action.type === 'SUBMIT') {
-     const result = {
-       name: action.name,
-       password: action.password,
-     };
-     return result;
-   }
-   return state;
- };
+import SAVE_USERINFO from './constant';
 
- export default loginReducer;
+const userDataDefault = {
+  userData: {},
+};
+
+const loginReducer = (state = userDataDefault, action) => {
+  if (action.type === SAVE_USERINFO) {
+    return {
+      userData: action.userData,
+    };
+  }
+  return state;
+};
+
+export default loginReducer;
