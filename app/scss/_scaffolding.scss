@@ -6,29 +6,35 @@
   -webkit-box-sizing: border-box;
   box-sizing        : border-box;
 }
+
 //TODO 是否使用 rem 单位
 // html {
 //   font-size: 10px;
 //   -webkit-tap-highlight-color: rgba(0,0,0,0);
 // }
+
 body {
   color                 : $text-color;
   font-family           : $body-font-family;
   font-size             : $font-size-base;
   -webkit-font-smoothing: antialiased;
 }
-// icon-font
+
+// TODO 放到type.scss 里
 i .icon {
   font-size: $font-size-base;
 }
+
 a {
   color          : $text-color;
   text-decoration: none;
 }
+
 ul li {
   list-style: none;
 }
+
 ul {
-  padding           : 0;
-  margin            : 0;
+  padding: 0;
+  margin : 0;
 }
