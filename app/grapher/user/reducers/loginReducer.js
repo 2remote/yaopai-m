@@ -1,4 +1,4 @@
-import SAVE_USERINFO from './constant';
+import { SAVE_USERINFO } from '../constant';
 
 const userDataDefault = {
   userData: {},
