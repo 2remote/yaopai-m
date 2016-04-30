@@ -2,12 +2,9 @@ import { connect } from 'react-redux';
 import LoginLayout from 'user/layouts/LoginLayout';
 import { userLoginActionAsync } from 'user/actions';
 
-const mapStateToProps = state => {
-  const result = {
-    user: state.user.userData,
-  };
-  return result;
-};
+const mapStateToProps = state => ({
+  user: state.user.userData,
+});
 
 const mapDispatchToProps = dispatch => ({
   onSubmit: (loginname, password) => {
