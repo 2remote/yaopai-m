@@ -4,14 +4,12 @@ import { routerReducer } from 'react-router-redux';
 /* 2. Middlewares */
 import thunk from 'redux-thunk';
 /* 3. 引入reducers */
-import loginReducer from './user/reducers';
+import userReducers from './user/reducer';
 
 /* 这里组装reducers */
 const reducers = {
   routing: routerReducer,
-  // [mainReducers.mount]: mainReducers.reducer,
-  // [workReducers.mount]: workReducers.reducer,
-  user: loginReducer,
+  [userReducers.mount]: userReducers.reducer,
 };
 /* reducers 组装完毕后， state 结构也生成了 😄
 
@@ -19,10 +17,10 @@ state = {
   routing: {
     locationBeforeTransitions: {...}
   },
-  main: {
-    work: {...}
+  user: {
+    userData: {...},
+    // TODO
   },
-  ...
 };
 
 */
