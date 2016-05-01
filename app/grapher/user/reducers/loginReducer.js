@@ -1,14 +1,8 @@
 import { SAVE_USERINFO } from '../constant';
 
-const userDataDefault = {
-  userData: {},
-};
-
-const loginReducer = (state = userDataDefault, action) => {
+const loginReducer = (state = {}, action) => {
   if (action.type === SAVE_USERINFO) {
-    return {
-      userData: action.userData,
-    };
+    return action.userData;
   }
   return state;
 };
