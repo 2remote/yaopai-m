@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import RegisterLayout from 'user/layouts/RegisterLayout';
-import { sendTelRegisterActionAsync, receiveTelRegisterActionAsync } from 'user/actons';
+import { sendTelRegisterActionAsync, receiveTelRegisterActionAsync } from 'user/actions';
 
 const mapStateToProps = state => ({
-  register: state.user,
+  register: state.user.register,
 });
 
 const mapDispatchToPros = dispatch => ({
