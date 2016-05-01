@@ -16,12 +16,12 @@ const TARGET = process.env.npm_lifecycle_event;
 const ROOT_PATH = path.resolve(__dirname);
 const APP_PATH = path.resolve(ROOT_PATH, 'app');
 const USER_PATH = path.resolve(APP_PATH, 'user');
-const GRAPHER_PATH = path.resolve(APP_PATH, 'grapher');
+// const GRAPHER_PATH = path.resolve(APP_PATH, 'grapher');
 
 const APP_TITLE = TITLE.indexPage;
 
 const common = {
-  entry: GRAPHER_PATH,
+  entry: USER_PATH,
   resolve: {
     extensions: ['', '.js', '.jsx'],
     alias: { // 目测这个选项不过是赤果果的替换
@@ -31,7 +31,7 @@ const common = {
       work: path.resolve(USER_PATH, 'work'),
       grapher: path.resolve(USER_PATH, 'grapher'),
       model: path.resolve(USER_PATH, 'model'),
-      user: path.resolve(GRAPHER_PATH, 'user'),
+      user: path.resolve(USER_PATH, 'user'),
       about: path.resolve(USER_PATH, 'about'),
     },
   },
@@ -100,7 +100,7 @@ if (TARGET === 'start' || !TARGET) {
       new webpack.HotModuleReplacementPlugin(),
       new HtmlwebpackPlugin({
         title: APP_TITLE,
-        template: 'app/grapher/index.tpl',
+        template: 'app/user/index.tpl',
         minify: {
           removeComments: true,
         },
