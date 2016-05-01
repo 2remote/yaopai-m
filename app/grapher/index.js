@@ -4,7 +4,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 /* 2. 路由相关 */
-import { Router, Route, hashHistory, IndexRedirect } from 'react-router';
+import { Router, Route, hashHistory/** , IndexRedirect **/ } from 'react-router';
 /* 3. 接入redux */
 import { Provider } from 'react-redux';
 import { syncHistoryWithStore } from 'react-router-redux';
