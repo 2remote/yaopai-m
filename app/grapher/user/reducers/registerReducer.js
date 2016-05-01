@@ -1,27 +1,23 @@
 import { combineReducers } from 'redux';
 import { SEND_TEL_REGISTER, RECEIVE_TEL_REGISTER } from '../constant';
 
-const sendTelRegisterReducer = (state = false, action) => {
+const sendTelRegister = (state = false, action) => {
   if (action.type === SEND_TEL_REGISTER) {
-    return {
-      isSendTelSuccess: action.isSendTelSuccess,
-    };
+    return action.isSendTelSuccess;
   }
   return state;
 };
 
-const receiveTelRegisterReducer = (state = false, action) => {
+const receiveTelRegister = (state = false, action) => {
   if (action.type === RECEIVE_TEL_REGISTER) {
-    return {
-      isReceiveTelSuccess: action.isReceiveTelSuccess,
-    };
+    return action.isReceiveTelSuccess;
   }
   return state;
 };
 
 const registerReducer = combineReducers({
-  sendTelRegisterReducer,
-  receiveTelRegisterReducer
+  sendTelRegister,
+  receiveTelRegister,
 });
 
-export default sendTelRegisterReducer;
+export default registerReducer;
