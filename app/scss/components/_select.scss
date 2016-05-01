@@ -13,11 +13,14 @@ $link-height: 30px;
   top             : 0;
   width           : 100%;
   text-align      : center;
+
   li {
     @extend %flex-1;
-    line-height: $base-height;
+    margin: 10px 0;
+    line-height: $link-height;
+    border-right: 1px solid $silver;
 
-    &:last-child a {
+    &:last-child  {
       border-right: none;
     }
 
@@ -31,7 +34,6 @@ $link-height: 30px;
       height: $link-height;
       line-height: $link-height;
       display: inline-block;
-      border-right: 1px solid $silver;
       padding: 0 10px;
     }
 

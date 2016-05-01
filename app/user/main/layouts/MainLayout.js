@@ -4,7 +4,7 @@ import MenuLayout from './MenuLayout';
 
 const MainLayout = props => {
   return (
-    <div style={{ paddingTop: 50, backgroundColor: 'red', position: 'relative' }}>
+    <div style={{ paddingTop: 50, position: 'relative' }}>
       {props.children}
       <SelectLayout />
       <MenuLayout />
