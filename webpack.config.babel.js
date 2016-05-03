@@ -10,7 +10,6 @@ import webpack from 'webpack';
 import merge from 'webpack-merge';
 /* 清理build用 */
 import Clean from 'clean-webpack-plugin';
-import pkg from './package.json';
 
 // 配置思路
 // 4个环境：
