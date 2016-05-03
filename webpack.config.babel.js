@@ -14,25 +14,10 @@ import pkg from './package.json';
 
 // 配置思路
 // 4个环境：
-// 1. dev环境：user端
-// 2. dev环境：grapher端
-// 3. prod环境：user端
-// 4. prod环境：grapher端
-
-// 所有配置列举：
-// entry: 取决于user还是grapher: 变量: 路径
-// resolve.extensions: 相同
-// resolve.alias: user还是grapher: 配置
-// output: TODO:
-// module:
-//   preLoader: dev还是prod user还是grapher: dev有，路径
-//   loader: TODO: 相同？build下的json？路径
-// plugins:
-//   HTML template: user还是grapher: 变量: 路径
-//   HotModuleReplacement: 仅dev
-//   OpenBrowser: 仅dev
-// devtool: 相同
-// devServer: 仅dev
+// 1. dev环境 - user端
+// 2. dev环境 - grapher端
+// 3. prod环境 - user端
+// 4. prod环境 - grapher端
 
 // HACK: Temporary hack fix. But what on earth is this?
 // import { TITLE } from './app/components/Tools.js';
@@ -106,10 +91,7 @@ common = {
   /* ================================================================ */
   entry: CONTENT_PATH,
   /* ================================================================ */
-  /* 产出: 生成的各种bundle */
-  /* TODO: */
-  /* 1. 这个要在prod环境下分包; */
-  /* 2. user和grapher要不要分开？ */
+  /* 输出 */
   /* ================================================================ */
   output: {
     path: path.resolve(ROOT_PATH, 'build'),
@@ -131,7 +113,7 @@ common = {
   },
   module: {
     /* ================================================================ */
-    /* TODO: 这是啥 */
+    /* XXX: 这是啥 */
     /* ================================================================ */
     noParse: /validate\.js/,
     loaders: [
@@ -144,14 +126,14 @@ common = {
         // include: path.resolve(CONTENT_PATH, 'app'),
       },
       /* ================================================================ */
-      /* 处理scss代码 TODO: @可乐 这个要不要增加处理sass, css的扩展名 */
+      /* 处理scss代码 IDEA: @可乐 这个要不要增加处理sass, css的扩展名 */
       /* ================================================================ */
       {
         test: /\.scss$/,
         loaders: ['style', 'css', 'sass'],
       },
       /* ================================================================ */
-      /* TODO: 这个是什么鬼 */
+      /* XXX: 这个是什么鬼 */
       /* ================================================================ */
       {
         test: /\.json$/,
@@ -187,7 +169,6 @@ if(target_env === 'dev') { // dev
       preLoaders: [{
         test: /\.jsx?$/,
         loaders: ['eslint'],
-        // include: path.resolve(CONTENT_PATH, 'app'), // REVIEW: 这个要看一下是否必须
       }],
     },
     /* ================================================================ */
@@ -198,7 +179,7 @@ if(target_env === 'dev') { // dev
       new webpack.HotModuleReplacementPlugin(),
       // 自动打开浏览器
       new OpenBrowserPlugin({
-        url: 'http://localhost:8000', // NOTE: 这个port能不能import进来？
+        url: 'http://localhost:8000', // IDEA: 这个port能不能import进来？
         // 这里写要打开的浏览器名字，若不填，会打开默认浏览器
         // Mac系统下可以选：Safari, Google Chrome, Firefox
         // browser: 'Google Chrome',
@@ -212,9 +193,9 @@ if(target_env === 'dev') { // dev
       hot: true,
       inline: true,
       progress: true,
-      port: 8000, // NOTE: 这个port能不能import进来？
-      proxy: {
-        '/imgs/*': 'http://localhost:5000/', // NOTE: 这个port能不能import进来？
+      port: 8000, // IDEA: 这个port能不能import进来？
+      proxy: { // IDEA: 这个port能不能import进来？
+        '/imgs/*': 'http://localhost:5000/',
       },
       host: '0.0.0.0', // 允许局域网访问
     },
@@ -248,10 +229,9 @@ if(target_env === 'prod') { // prod
     },
     plugins: [
       /* ================================================================ */
-      /* XXX: 这个要不要配置成路径？ */
+      /* IDEA: 这个要不要配置成路径？ */
       /* ================================================================ */
       new Clean(['build']),
-      /* important! */
       /* ================================================================ */
       /* 把公用的module抽出来放进vendor里 */
       /* （然后原本bundle.js中的这些来源于vendor的module就抽出来了） */
