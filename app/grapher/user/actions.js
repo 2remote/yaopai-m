@@ -10,11 +10,7 @@ export const userLoginAction = (userData) => ({
 });
 
 export const userLoginActionAsync = (loginname, password) => dispatch => {
-  const postData = {
-    loginname,
-    password,
-  };
-  post(API.USER.Login, postData).then(data => {
+  post(API.USER.Login, { loginname, password }).then(data => {
     if (data.Success) {
       const userData = {
         loginToken: data.LoginToken,
@@ -33,13 +29,16 @@ export const userLoginActionAsync = (loginname, password) => dispatch => {
   });
 };
 
+/* User.SendTelRegister 发送手机注册验证码
+ * 把用户手机号提交给后台，让后台发验证码到该手机号上
+ */
 export const sendTelRegisterAction = (isSendTelSuccess) => ({
   type: SEND_TEL_REGISTER,
   isSendTelSuccess,
 });
 
 export const sendTelRegisterActionAsync = tel => dispatch => {
-  post(API.USER.SendTelRegister, tel).then(data => {
+  post(API.USER.SendTelRegister, { tel }).then(data => {
     if (data.Success) {
       const isSendTelSuccess = data.Success;
       dispatch(sendTelRegisterAction(isSendTelSuccess));
@@ -51,6 +50,10 @@ export const sendTelRegisterActionAsync = tel => dispatch => {
   });
 };
 
+
+/* User.ReceiveTelRegister 接收手机注册验证码
+ * 验证用户输入的验证码是否正确
+ */
 export const receiveTelRegisterAction = (isReceiveTelSuccess) => ({
   type: RECEIVE_TEL_REGISTER,
   isReceiveTelSuccess,
