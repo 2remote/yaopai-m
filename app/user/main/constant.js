@@ -20,9 +20,10 @@ export const ROUTE = {
   ROUTE_TO_DISCOVERY,
   ROUTE_TO_GRAPHER,
   ROUTE_TO_USER,
+}
 
 
 export const ACTION_TYPE = {
   LOAD_MORE_WORK,
   LOAD_MORE_GRAPHER,
-
+}

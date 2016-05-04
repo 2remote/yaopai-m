@@ -9,8 +9,8 @@ const LOAD_WORK_DETAIL = 'load_work_detail'
 /* exports */
 export const ROUTE = {
   ROOT,
-
+}
 
 export const ACTION_TYPE = {
   LOAD_WORK_DETAIL,
-
+}

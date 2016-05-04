@@ -1,7 +1,7 @@
 /* For Async Actions */
-// import fetch from 'isomorphic-fetch';
+// import fetch from 'isomorphic-fetch'
 /* 用于生成 action creator 的函数*/
-// import { makeActionCreator } from '../tool/tool.js';/* @王路怎么省去前面的‘../’ */
+// import { makeActionCreator } from '../tool/tool.js'/* @王路怎么省去前面的‘../’ */
 // TODO: eslint-disable no-console
 /* eslint-disable no-console */
 /* API constants */
@@ -21,7 +21,7 @@ export const loadMoreWork = ({ total, index, pages, size, list }) => ({
   pages,
   size,
   list,
-}
+})
 
 
 /**
@@ -35,7 +35,7 @@ export const loadMoreWorkAsync = (idx, size, conditions) => dispatch => {
   // dispatch({
   //   type: LOAD_MORE_WORK,
   //   msg: 'pending',
-  // });
+  // })
   let postData = {
     Fields: 'Id,Title,Views,Display,Price,Cover,Photographer.NickName',
     PageIndex: idx,
@@ -71,15 +71,15 @@ export const loadMoreWorkAsync = (idx, size, conditions) => dispatch => {
       size: data.PageSize,
       list: convertedList.map(converted => converted.id),
     }))
-    // throw new Error('What The Facebook');
+    // throw new Error('What The Facebook')
     return data
   }).catch(error => {
     console.error(error)
   })
-
+}
 
 export const loadMoreGrapher = () => ({
   type: LOAD_MORE_GRAPHER,
-}
+})
 
-// export default { loadMoreWork, loadMoreGrapher };
+// export default { loadMoreWork, loadMoreGrapher }
