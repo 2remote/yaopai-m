@@ -42,6 +42,6 @@ const scrollEvent = (prewShow = () => {}, nextShow = () => {}) => {
       nextShow();
     }
   });
-}
+};
 
 export default scrollEvent;
