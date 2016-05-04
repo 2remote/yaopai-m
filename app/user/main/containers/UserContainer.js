@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
 const UserLayout = () => (
   <div>
     UserLayout
   </div>
-);
+)
 
-export default UserLayout;
+export default UserLayout

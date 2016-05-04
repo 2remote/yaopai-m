@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux';
-import loginReducer from './reducers/loginReducer';
-import registerReducer from './reducers/registerReducer';
+import { combineReducers } from 'redux'
+import loginReducer from './reducers/loginReducer'
+import registerReducer from './reducers/registerReducer'
 
 const userReducers = {
   mount: 'user',
@@ -8,6 +8,6 @@ const userReducers = {
     login: loginReducer,
     register: registerReducer,
   }),
-};
+}
 
-export default userReducers;
+export default userReducers

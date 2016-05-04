@@ -1,13 +1,13 @@
-import React from 'react';
+import React from 'react'
 
 const RegisterLayout = props => {
-  let tel;
-  let code;
-  let password;
+  let tel
+  let code
+  let password
   return (
     <section>
       <form onSubmit={() => {
-        props.onSendTel(tel.value.trim());
+        props.onSendTel(tel.value.trim())
       }}
       >
         <input type="number" ref={node => (tel = node)} />
@@ -17,7 +17,7 @@ const RegisterLayout = props => {
       </form>
       <br />
       <form onSubmit={() => {
-        props.onReceiveTel(tel.value, code.value, password.value);
+        props.onReceiveTel(tel.value, code.value, password.value)
       }}
       >
         <input type="password" ref={node => (password = node)} />
@@ -29,7 +29,7 @@ const RegisterLayout = props => {
         <button type="submit">注册</button>
       </form>
     </section>
-  );
-};
+  )
+}
 
-export default RegisterLayout;
+export default RegisterLayout

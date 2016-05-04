@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
 const OrderLayout = () => (
   <div>
     OrderLayout
   </div>
-);
+)
 
-export default OrderLayout;
+export default OrderLayout

@@ -11,37 +11,37 @@
  * 或者参照 ./app/user/main/layouts/SelectLayout.js
  */
 
-import $ from 'jquery';
+import $ from 'jquery'
 
 const scrollEvent = (prewShow = () => {}, nextShow = () => {}) => {
   const scrollFunc = e => { // 判断鼠标滚动方向并兼容浏览器
-    const event = e || window.event;
+    const event = e || window.event
     if (event.wheelDelta) { // IE/Opera/Chrome
       if (event.wheelDelta > 0) {
-        prewShow(); // 向上滚动
+        prewShow() // 向上滚动
       } else {
-        nextShow(); // 向下滚动
+        nextShow() // 向下滚动
       }
     } else if (event.detail) { // Firefox
       if (event.detail > 0) {
-        nextShow();
+        nextShow()
       } else {
-        prewShow();
+        prewShow()
       }
     }
-  };
+  }
 
-  const mousewheelevt = (/Firefox/i.test(navigator.userAgent)) ? 'DOMMouseScroll' : 'mousewheel';
-  document.addEventListener(mousewheelevt, scrollFunc, false);
+  const mousewheelevt = (/Firefox/i.test(navigator.userAgent)) ? 'DOMMouseScroll' : 'mousewheel'
+  document.addEventListener(mousewheelevt, scrollFunc, false)
 
   // 键盘上下键事件的判断
   $(document).keydown((e) => {
     if (e.keyCode === 38) { // ↑键代表38
-      prewShow();
+      prewShow()
     } else if (e.keyCode === 40) { // ↓键代表40
-      nextShow();
+      nextShow()
     }
-  });
-};
+  })
+}
 
-export default scrollEvent;
+export default scrollEvent

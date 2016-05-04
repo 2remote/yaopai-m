@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
 const LoginLayout = props => (
   <div>
     hello world!
   </div>
-);
+)
 
-export default LoginLayout;
+export default LoginLayout

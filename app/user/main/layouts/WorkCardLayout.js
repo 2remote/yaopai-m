@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes } from 'react'
 
 const WorkCardLayout = ({ cover, title, price, views, nickname }) => (
   <article style={{ border: '1px solid red', marginBottom: '3px' }}>
@@ -7,7 +7,7 @@ const WorkCardLayout = ({ cover, title, price, views, nickname }) => (
     <p>价格：{ price }</p>
     <p>访问量：{ views }</p>
   </article>
-);
+)
 
 WorkCardLayout.propTypes = {
   cover: PropTypes.string.isRequired,
@@ -15,6 +15,6 @@ WorkCardLayout.propTypes = {
   price: PropTypes.number.isRequired,
   views: PropTypes.number.isRequired,
   nickname: PropTypes.string.isRequired,
-};
+}
 
-export default WorkCardLayout;
+export default WorkCardLayout

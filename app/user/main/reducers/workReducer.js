@@ -1,6 +1,6 @@
 // import { combineReducers } from 'redux';
-import { ACTION_TYPE } from 'main/constant';
-const { LOAD_MORE_WORK } = ACTION_TYPE;
+import { ACTION_TYPE } from 'main/constant'
+const { LOAD_MORE_WORK } = ACTION_TYPE
 
 /**
  * route变动后会dispatch一个 @@router/LOCATION_CHANGE 类型的action
@@ -14,7 +14,7 @@ const workDefault = {
   pages: 0,
   size: 10,
   list: [],
-};
+}
 
 /**
  * 初始化作品页
@@ -27,12 +27,12 @@ const addMoreWork = (state = workDefault, action) => {
       pages: action.pages,
       size: action.size,
       list: action.index > 1 ? state.list.concat(action.list) : action.list,
-    });
-    return result;
+    })
+    return result
   }
-  return state;
-};
+  return state
+}
 
-const workReducer = addMoreWork;
+const workReducer = addMoreWork
 
-export default workReducer;
+export default workReducer

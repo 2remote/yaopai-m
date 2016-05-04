@@ -1,13 +1,13 @@
-import React from 'react';
+import React from 'react'
 
 const LoginLayout = props => {
-  let name;
-  let password;
-  const { user } = props;
+  let name
+  let password
+  const { user } = props
   return (
     <section>
       <form onSubmit={() => {
-        props.onSubmit(name.value.trim(), password.value.trim());
+        props.onSubmit(name.value.trim(), password.value.trim())
       }}
       >
         <input type="number" ref={node => (name = node)} />
@@ -21,7 +21,7 @@ const LoginLayout = props => {
 
       <h1>用户昵称：{user.nickname}</h1>
     </section>
-  );
-};
+  )
+}
 
-export default LoginLayout;
+export default LoginLayout

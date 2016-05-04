@@ -1,7 +1,7 @@
-import React from 'react';
-import { Route } from 'react-router';
-import LoginContainer from './containers/LoginContainer';
-import RegisterContainer from './containers/RegisterContainer';
+import React from 'react'
+import { Route } from 'react-router'
+import LoginContainer from './containers/LoginContainer'
+import RegisterContainer from './containers/RegisterContainer'
 
 const userFactory = store => {
   return (
@@ -9,7 +9,7 @@ const userFactory = store => {
       <Route path="login" component={ LoginContainer } />
       <Route path="register" component={ RegisterContainer } />
     </Route>
-  );
-};
+  )
+}
 
-export default userFactory;
+export default userFactory
