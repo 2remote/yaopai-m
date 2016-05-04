@@ -25,7 +25,7 @@ export const userLoginActionAsync = (loginname, password) => dispatch => {
   }).catch(error => {
     console.error(error)
   })
-
+}
 
 /* User.SendTelRegister 发送手机注册验证码
  * 把用户手机号提交给后台，让后台发验证码到该手机号上
@@ -46,7 +46,7 @@ export const sendTelRegisterActionAsync = tel => dispatch => {
   }).catch(error => {
     console.error(error)
   })
-
+}
 
 
 /* User.ReceiveTelRegister 接收手机注册验证码
@@ -67,4 +67,4 @@ export const receiveTelRegisterActionAsync = (tel, code, password) => dispatch =
   }).catch(error => {
     console.error(error)
   })
-
+}
