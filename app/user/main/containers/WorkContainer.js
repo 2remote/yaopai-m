@@ -1,23 +1,23 @@
-import { connect } from 'react-redux';
-import getWorks from 'model/work/refToObj';
+import { connect } from 'react-redux'
+import getWorks from 'model/work/refToObj'
 
-import WorkLayout from 'main/layouts/WorkLayout';
-import { loadMoreWorkAsync } from 'main/actions';
+import WorkLayout from 'main/layouts/WorkLayout'
+import { loadMoreWorkAsync } from 'main/actions'
 
 const mapStateToProps = state => {
   const result = {
     work: Object.assign({}, state.main.work),
     lbt: state.routing.locationBeforeTransitions,
-  };
-  result.work.list = getWorks(state, result.work.list);
-  return result;
-};
+  }
+  result.work.list = getWorks(state, result.work.list)
+  return result
+}
 
 const mapDispatchToProps = dispatch => ({
   onLoadMore: (idx, size, conditions) => {
-    dispatch(loadMoreWorkAsync(idx, size, conditions));
+    dispatch(loadMoreWorkAsync(idx, size, conditions))
   },
-});
+})
 
 /* 把 state 注入到 WorkLayout 上，此时的 state 结构为：
 
@@ -35,6 +35,6 @@ state = {
 const WorkContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(WorkLayout);
+)(WorkLayout)
 
-export default WorkContainer;
+export default WorkContainer

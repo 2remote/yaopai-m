@@ -1,18 +1,18 @@
 /* 1. 创建store用的 */
-import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
-import { routerReducer } from 'react-router-redux';
+import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
+import { routerReducer } from 'react-router-redux'
 /* 2. Middlewares */
-import thunk from 'redux-thunk';
+import thunk from 'redux-thunk'
 /* 3. 引入reducers */
-import mainReducers from './main/reducer';
-import workReducers from 'model/work/reducer';
+import mainReducers from './main/reducer'
+import workReducers from 'model/work/reducer'
 
 /* 这里组装reducers */
 const reducers = {
   routing: routerReducer,
   [mainReducers.mount]: mainReducers.reducer,
   [workReducers.mount]: workReducers.reducer,
-};
+}
 /* reducers 组装完毕后， state 结构也生成了 😄
 
 state = {
@@ -35,11 +35,11 @@ state = {
  // TODO: 临时关闭no-console选项
  /* eslint-disable no-console */
 const logger = store => next => action => {
-  console.log('[dispatching]', action);
-  const result = next(action);
-  console.log('[next state]', store.getState());
-  return result;
-};
+  console.log('[dispatching]', action)
+  const result = next(action)
+  console.log('[next state]', store.getState())
+  return result
+}
 
 /* 这是另外一种（旧的）写法 */
 // const logger = function (store) {
@@ -71,6 +71,6 @@ const store = createStore(
     // 这个用来启动Redux开发者工具，放最后
     window.devToolsExtension ? window.devToolsExtension() : f => f
   )
-);
+)
 
-export default store;
+export default store

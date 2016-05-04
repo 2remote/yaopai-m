@@ -1,7 +1,7 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes } from 'react'
 
-import AutoList from 'common/AutoList';
-import WorkCardLayout from 'main/layouts/WorkCardLayout';
+import AutoList from 'common/AutoList'
+import WorkCardLayout from 'main/layouts/WorkCardLayout'
 
 const WorkLayout = props => (
   <div>
@@ -29,7 +29,7 @@ const WorkLayout = props => (
       }
     </AutoList>
   </div>
-);
+)
 
 WorkLayout.propTypes = {
   work: PropTypes.shape({
@@ -49,6 +49,6 @@ WorkLayout.propTypes = {
   lbt: PropTypes.shape({
     query: PropTypes.object,
   }),
-};
+}
 
-export default WorkLayout;
+export default WorkLayout

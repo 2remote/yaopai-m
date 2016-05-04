@@ -1,8 +1,8 @@
-import React from 'react';
-import { Route, IndexRedirect } from 'react-router';
+import React from 'react'
+import { Route, IndexRedirect } from 'react-router'
 
-import LoginLayout from './LoginLayout';
-import OrderLayout from './OrderLayout';
+import LoginLayout from './LoginLayout'
+import OrderLayout from './OrderLayout'
 
 const UserRoute = (
   <Route path="user">
@@ -10,6 +10,6 @@ const UserRoute = (
     <Route path="login" component={LoginLayout} />
     <Route path="order" component={OrderLayout} />
   </Route>
-);
+)
 
-export default UserRoute;
+export default UserRoute

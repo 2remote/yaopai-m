@@ -1,9 +1,7 @@
-// color & background
-@mixin font-color($color) {
-  color: $color;
-}
-@mixin bg-color($color) {
-  background-color: $color;
+@mixin box-shadow($shadows...) {
+  -webkit-box-shadow: $shadows;
+     -moz-box-shadow: $shadows;
+          box-shadow: $shadows;
 }
 
 // 箭头向右的三角形

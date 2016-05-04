@@ -1,9 +1,9 @@
 //
 // Scaffolding
 // --------------------------------------------------
-*，
-*:after,
-*:before {
+*:before,
+*,
+*:after {
   -webkit-box-sizing: border-box;
   box-sizing        : border-box;
 }
@@ -15,13 +15,13 @@
 // }
 
 body {
-  color      : $text-color;
-  font-family: $body-font-family;
-  font-size  : $font-size-base;
+  color                 : $text-color;
+  font-family           : $body-font-family;
+  font-size             : $font-size-base;
   -webkit-font-smoothing: antialiased;
 }
 
-// icon-font
+// TODO 放到type.scss 里
 i .icon {
   font-size: $font-size-base;
 }
@@ -33,4 +33,9 @@ a {
 
 ul li {
   list-style: none;
+}
+
+ul {
+  padding: 0;
+  margin : 0;
 }
