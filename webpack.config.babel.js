@@ -91,7 +91,7 @@ common = {
   /* ================================================================ */
   /* 入口: entry */
   /* ================================================================ */
-  entry: CONTENT_PATH,
+  entry: contentPath,
   /* ================================================================ */
   /* 输出 */
   /* ================================================================ */
@@ -126,7 +126,7 @@ common = {
       {
         test: /\.jsx?$/,
         loaders: ['babel'],
-        // include: path.resolve(CONTENT_PATH, 'app'),
+        // include: path.resolve(contentPath, 'app'),
       },
       /* ================================================================ */
       /* 处理scss代码 IDEA: @可乐 这个要不要增加处理sass, css的扩展名 */
@@ -150,7 +150,7 @@ common = {
     /* ================================================================ */
     new HtmlwebpackPlugin({
       title: APP_TITLE,
-      template: path.resolve(CONTENT_PATH, 'index.tpl'),
+      template: path.resolve(contentPath, 'index.tpl'),
       minify: {
         removeComments: true, // 移除注释
       },
@@ -211,7 +211,7 @@ if(target_env === 'prod') { // prod
     /* 参考：http://webpack.github.io/docs/code-splitting.html */
     /* ================================================================ */
     entry: {
-      app: CONTENT_PATH,
+      app: contentPath,
       vendor: [
         'jquery',
         'react',
