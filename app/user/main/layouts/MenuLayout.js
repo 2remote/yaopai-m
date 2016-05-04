@@ -9,13 +9,13 @@ class MenuLayout extends Component {
       // TODO 打开侧边导航后禁止页面滚动
       // 在 Chrome 里测试正常，苹果手机测试失败，仍然可以滚动
       $('body').css({ height: winHeight, overflow: 'hidden' });
-      $('#mask').show().addClass('fade_toggle');
-      $('#menu').addClass('actionsheet_toggle');
+      $('#mask-menu').show().addClass('fade-toggle');
+      $('#menu').addClass('actionsheet-toggle');
     });
 
-    $('#mask').click(() => {
-      $('#mask').removeClass('fade_toggle').hide();
-      $('#menu').removeClass('actionsheet_toggle');
+    $('#mask-menu').click(() => {
+      $('#mask-menu').removeClass('fade-toggle').hide();
+      $('#menu').removeClass('actionsheet-toggle');
       $('body').css({ height: '100%', overflow: 'visible' });
     });
   }
@@ -27,9 +27,9 @@ class MenuLayout extends Component {
         <div id="menuLink" className="menu-link">
           <i className="menu" id="menuIcon" />
         </div>
-        <div id="actionSheet_wrap">
+        <div id="actionSheet-wrap">
           { /* 透明遮罩层 */ }
-          <div className="mask_transition" id="mask"></div>
+          <div className="mask-transition" id="mask-menu"></div>
 
           <div className="actionsheet" id="menu">
             <header className="menu-slide-header">
