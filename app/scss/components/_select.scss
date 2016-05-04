@@ -6,19 +6,23 @@ $link-height: 30px;
 .select-component {
   position          : fixed;
   top               : 0;
+  left              : 0;
+  z-index           : $zindex-selelct;
   width             : 100%;
   opacity           : 1;
   -webkit-transition: -webkit-transform .2s ease-in-out;
   transition        : opacity .2s ease-in-out;
+  background-color  : $white;
+  line-height       : $base-height;
+  font-size         : $font-size-small;
+  color             : $dim-black;
+  text-align        : center;
 }
 
 .select-list {
   @extend %flex-align;
-  background-color: $white;
-  line-height     : $base-height;
-  font-size       : $font-size-small;
-  color           : $dim-black;
-  text-align      : center;
+  border-bottom: 1px solid $silver;
+  @include box-shadow(0 1px 5px $silver);
 
   li {
     @extend %flex-1;
@@ -46,6 +50,16 @@ $link-height: 30px;
   }
 }
 /* 筛选下拉结果 */
-.select-item-panel {
-  background-color: $white;
+.select-detail-list {
+  width: 100%;
+  padding: 0 10px;
+
+  li {
+    height: $base-height;
+    border-bottom: 1px solid $silver;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
 }
