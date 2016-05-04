@@ -3,38 +3,44 @@ $base-height: 50px;
 $link-height: 30px;
 
 /* 筛选栏 */
-.select-panel {
+.select-component {
+  position          : fixed;
+  top               : 0;
+  width             : 100%;
+  opacity           : 1;
+  -webkit-transition: -webkit-transform .2s ease-in-out;
+  transition        : opacity .2s ease-in-out;
+}
+
+.select-list {
+  @extend %flex-align;
   background-color: $white;
   line-height     : $base-height;
   font-size       : $font-size-small;
   color           : $dim-black;
-  @extend %flex-align;
-  position        : absolute;
-  top             : 0;
-  width           : 100%;
   text-align      : center;
 
   li {
     @extend %flex-1;
-    margin: 10px 0;
-    line-height: $link-height;
+    margin      : 10px 0;
+    line-height : $link-height;
     border-right: 1px solid $silver;
 
-    &:last-child  {
+    &:last-child {
       border-right: none;
     }
 
     i {
       height     : 15px;
       line-height: 15px;
-      padding: 0 5px;
+      padding    : 0 5px;
     }
 
     a {
-      height: $link-height;
+      height     : $link-height;
       line-height: $link-height;
-      display: inline-block;
-      padding: 0 10px;
+      display    : inline-block;
+      padding    : 0 10px;
     }
 
   }
