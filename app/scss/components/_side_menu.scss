@@ -42,8 +42,7 @@ $menu-footer-lineheight: 25px;
 
   i {
     font-size: $menu-link-size;
-    -webkit-box-shadow: 0px 0px 5px $dim-black;
-            box-shadow: 0px 0px 5px $dim-black;
+    @include box-shadow(0px 0px 5px $dim-black);
   }
 }
 
