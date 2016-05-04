@@ -108,6 +108,7 @@ common = {
     alias: {
       app: APP_PATH, // app root
       common: path.resolve(APP_PATH, 'common'), // 通用组件
+      tool: path.resolve(APP_PATH, 'tool'),  
     },
   },
   module: {

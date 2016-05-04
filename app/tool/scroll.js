@@ -13,7 +13,7 @@
 
 import $ from 'jquery';
 
-export function scrollEvent(prewShow = () => {}, nextShow = () => {}) {
+const scrollEvent = (prewShow = () => {}, nextShow = () => {}) => {
   const scrollFunc = e => { // 判断鼠标滚动方向并兼容浏览器
     const event = e || window.event;
     if (event.wheelDelta) { // IE/Opera/Chrome
@@ -43,3 +43,5 @@ export function scrollEvent(prewShow = () => {}, nextShow = () => {}) {
     }
   });
 }
+
+export default scrollEvent;
