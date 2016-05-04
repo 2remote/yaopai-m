@@ -27,6 +27,7 @@ const common = {
     alias: { // 目测这个选项不过是赤果果的替换
       app: APP_PATH,
       common: path.resolve(APP_PATH, 'common'),
+      tool: path.resolve(APP_PATH, 'tool'),
       main: path.resolve(USER_PATH, 'main'),
       work: path.resolve(USER_PATH, 'work'),
       grapher: path.resolve(USER_PATH, 'grapher'),
