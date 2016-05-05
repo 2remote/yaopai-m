@@ -60,6 +60,8 @@ $link-height: 30px;
   display: none;
   width: 100%;
   padding: 0 10px;
+  max-height: 400px;
+  overflow: scroll;
 
   li {
     height: $base-height;
