@@ -6,7 +6,7 @@ const mapStateToProps = state => ({
   register: state.user.register,
 })
 
-const mapDispatchToPros = dispatch => ({
+const mapDispatchToProps = dispatch => ({
   onSendTel: tel => {
     dispatch(sendTelRegisterActionAsync(tel))
   },
@@ -17,7 +17,7 @@ const mapDispatchToPros = dispatch => ({
 
 const RegisterContainer = connect(
   mapStateToProps,
-  mapDispatchToPros
+  mapDispatchToProps
 )(RegisterLayout)
 
 export default RegisterContainer
