@@ -1,15 +1,15 @@
 /* 用于定位路径 */
-import path from 'path';
+import path from 'path'
 /* HTML template 处理 */
-import HtmlwebpackPlugin from 'html-webpack-plugin';
+import HtmlwebpackPlugin from 'html-webpack-plugin'
 /* 处理完自动打开浏览器 */
-import OpenBrowserPlugin from 'open-browser-webpack-plugin';
+import OpenBrowserPlugin from 'open-browser-webpack-plugin'
 /* The Webpack */
-import webpack from 'webpack';
+import webpack from 'webpack'
 /* 合并配置 */
-import merge from 'webpack-merge';
+import merge from 'webpack-merge'
 /* 清理build用 */
-import Clean from 'clean-webpack-plugin';
+import Clean from 'clean-webpack-plugin'
 
 // 配置思路
 // 4个环境：
@@ -22,42 +22,42 @@ import Clean from 'clean-webpack-plugin';
 // import { TITLE } from './app/components/Tools.js';
 const TITLE = {
   indexPage: 'TODO',
-};
+}
 
-const APP_TITLE = TITLE.indexPage;
+const APP_TITLE = TITLE.indexPage
 
 /* 1. 基本常量 */
-const ROOT_PATH = path.resolve(__dirname); // 根路径
-const APP_PATH = path.resolve(ROOT_PATH, 'app'); // 源码路径
-const USER_PATH = path.resolve(APP_PATH, 'user'); // user端路径
-const GRAPHER_PATH = path.resolve(APP_PATH, 'grapher'); // grapher端路径
+const ROOT_PATH = path.resolve(__dirname) // 根路径
+const APP_PATH = path.resolve(ROOT_PATH, 'app') // 源码路径
+const USER_PATH = path.resolve(APP_PATH, 'user') // user端路径
+const GRAPHER_PATH = path.resolve(APP_PATH, 'grapher') // grapher端路径
 /* 2. 决定环境的变量 */
-const TARGET = process.env.npm_lifecycle_event; // 从npm中获取目标环境
+const TARGET = process.env.npm_lifecycle_event // 从npm中获取目标环境
 // 从target转换成env和app信息
-console.log('************************************************************');
-console.log('GOT TARGET:', TARGET, typeof TARGET);
-console.log('************************************************************');
+console.log('************************************************************')
+console.log('GOT TARGET:', TARGET, typeof TARGET)
+console.log('************************************************************')
 const target_env = // startsWith('dev')
   TARGET.lastIndexOf('dev') === 0 ?
-  'dev' : 'prod';
+  'dev' : 'prod'
 const target_app = // endsWith('user')
   TARGET.lastIndexOf('user') + 'user'.length == TARGET.length ?
-  'user' : 'grapher';
+  'user' : 'grapher'
 // 这些变量存设置
-let contentPath = undefined; // 用这个变量存当前是USER_PATH还是GRAPHER_PATH
+let contentPath = undefined // 用这个变量存当前是USER_PATH还是GRAPHER_PATH
 let settingConfig = { // user || grapher
   resolve: {},
   module: {},
-};
-let common = { };// 通用
+}
+let common = { }// 通用
 let envConfig = { // dev || prod
   resolve: {},
   module: {},
   plugins: [],
-};
+}
 /* 3. 用户 || 摄影师 */
 if(target_app === 'user') { // user
-  contentPath = USER_PATH;
+  contentPath = USER_PATH
   settingConfig = {
     /* ================================================================ */
     /* 关联: alias */
@@ -72,10 +72,10 @@ if(target_app === 'user') { // user
         about: path.resolve(contentPath, 'about'), // 关于
       },
     },
-  };
+  }
 }
 if(target_app === 'grapher') { // grapher
-  contentPath = GRAPHER_PATH;
+  contentPath = GRAPHER_PATH
   settingConfig = {
     resolve: {
       alias: {
@@ -83,7 +83,7 @@ if(target_app === 'grapher') { // grapher
         user: path.resolve(contentPath, 'user'), // 用户
       },
     },
-  };
+  }
 }
 
 /* 4. 通用配置 */
@@ -161,7 +161,7 @@ common = {
   //   net: 'empty',
   //   tls: 'empty',
   // },
-};
+}
 /* 5. 开发 || 正式 */
 if(target_env === 'dev') { // dev
   envConfig = {
@@ -202,7 +202,7 @@ if(target_env === 'dev') { // dev
       },
       host: '0.0.0.0', // 允许局域网访问
     },
-  };
+  }
 }
 if(target_env === 'prod') { // prod
   envConfig = {
@@ -260,7 +260,7 @@ if(target_env === 'prod') { // prod
         'process.env.NODE_ENV': '"production"'
       }),
     ],
-  };
+  }
 }
 
 /**
@@ -270,4 +270,4 @@ if(target_env === 'prod') { // prod
  * @param: common: 通用配置
  * @param: envConfig: 根据是dev还是prod的配置定制
 **/
-module.exports = merge(settingConfig, common, envConfig);
+module.exports = merge(settingConfig, common, envConfig)

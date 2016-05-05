@@ -1,11 +1,11 @@
-import API from 'app/API';
-import post from 'app/HttpFactory';
-import { SAVE_USERINFO, SEND_TEL_REGISTER, RECEIVE_TEL_REGISTER } from './constant';
+import API from 'app/API'
+import post from 'app/HttpFactory'
+import { SAVE_USERINFO, SEND_TEL_REGISTER, RECEIVE_TEL_REGISTER } from './constant'
 
 const userLoginAction = (userData) => ({
   type: SAVE_USERINFO,
   userData,
-});
+})
 
 export const userLoginActionAsync = (loginname, password) => dispatch => {
   post(API.USER.Login, { loginname, password }).then(data => {
@@ -17,15 +17,15 @@ export const userLoginActionAsync = (loginname, password) => dispatch => {
         nickname: data.User.Name,
         avatar: data.User.Avatar,
         userSex: data.User.Sex,
-      };
-      dispatch(userLoginAction(userData));
+      }
+      dispatch(userLoginAction(userData))
     } else {
-      throw data.ErrorMsg;
+      throw data.ErrorMsg
     }
   }).catch(error => {
-    console.error(error);
-  });
-};
+    console.error(error)
+  })
+}
 
 /* User.SendTelRegister 发送手机注册验证码
  * 把用户手机号提交给后台，让后台发验证码到该手机号上
@@ -33,20 +33,20 @@ export const userLoginActionAsync = (loginname, password) => dispatch => {
 const sendTelRegisterAction = (isSendTelSuccess) => ({
   type: SEND_TEL_REGISTER,
   isSendTelSuccess,
-});
+})
 
 export const sendTelRegisterActionAsync = tel => dispatch => {
   post(API.USER.SendTelRegister, { tel }).then(data => {
     if (data.Success) {
-      const isSendTelSuccess = data.Success;
-      dispatch(sendTelRegisterAction(isSendTelSuccess));
+      const isSendTelSuccess = data.Success
+      dispatch(sendTelRegisterAction(isSendTelSuccess))
     } else {
-      throw data.ErrorMsg;
+      throw data.ErrorMsg
     }
   }).catch(error => {
-    console.error(error);
-  });
-};
+    console.error(error)
+  })
+}
 
 
 /* User.ReceiveTelRegister 接收手机注册验证码
@@ -55,16 +55,16 @@ export const sendTelRegisterActionAsync = tel => dispatch => {
 const receiveTelRegisterAction = (isReceiveTelSuccess) => ({
   type: RECEIVE_TEL_REGISTER,
   isReceiveTelSuccess,
-});
+})
 
 export const receiveTelRegisterActionAsync = (tel, code, password) => dispatch => {
-  const postData = { tel, code, password };
+  const postData = { tel, code, password }
   post(API.USER.ReceiveTelRegister, postData).then(data => {
     if (data.Success) {
-      const isReceiveTelSuccess = data.Success;
-      dispatch(receiveTelRegisterAction(isReceiveTelSuccess));
+      const isReceiveTelSuccess = data.Success
+      dispatch(receiveTelRegisterAction(isReceiveTelSuccess))
     }
   }).catch(error => {
-    console.error(error);
-  });
-};
+    console.error(error)
+  })
+}

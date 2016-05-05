@@ -5,12 +5,12 @@
 // TODO: eslint-disable no-console
 /* eslint-disable no-console */
 /* API constants */
-import API from 'app/API';
+import API from 'app/API'
 /* HttpFactory の post */
-import post from 'app/HttpFactory';
+import post from 'app/HttpFactory'
 /* Action Types */
-import { ACTION_TYPE } from './constant';
-const { LOAD_WORK_DETAIL } = ACTION_TYPE;
+import { ACTION_TYPE } from './constant'
+const { LOAD_WORK_DETAIL } = ACTION_TYPE
 
 /* Actions */
 export const initWork = ({ total, index, pages, size, nickname, list }) => ({
@@ -21,7 +21,7 @@ export const initWork = ({ total, index, pages, size, nickname, list }) => ({
   size,
   nickname,
   list,
-});
+}
 
 /**
  * Sample Async Action namely: the thunk
@@ -61,10 +61,10 @@ export const initWorkAsync = wid => dispatch => {
         cover: result.Cover,
         nickname: result.Photographer.NickName,
       })),
-    }));
+    }))
     // throw new Error('What The Facebook');
-    return data;
+    return data
   }).catch(error => {
-    console.error(error);
-  });
-};
+    console.error(error)
+  })
+

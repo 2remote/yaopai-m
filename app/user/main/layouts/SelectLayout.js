@@ -1,7 +1,7 @@
-import React, { Component/* ,PropTypes*/ } from 'react';
+import React, { Component/* ,PropTypes*/ } from 'react'
 // import { Link } from 'react-router';
-import $ from 'jquery';
-import scrollEvent from 'tool/scroll';
+import $ from 'jquery'
+import scrollEvent from 'tool/scroll'
 
 const listData = [
   {
@@ -58,53 +58,53 @@ const listData = [
       },
     ],
   },
-];
-const filterType = listData.map((data) => data.filterType);
+]
+const filterType = listData.map((data) => data.filterType)
 
 // TODO 1.点击筛选弹出筛选条件后，背景需要用蒙版盖着吗？ 2.弹出筛选条件后需要禁止页面滚动吗
 class SelectLayout extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       selectList: '',
       filterType,
-    };
+    }
   }
 
   componentDidMount() {
-    const scrollUp = () => $('#select-component').fadeIn('fast');// 往上滚动事件
-    const scrollDown = () => $('#select-component').fadeOut('fast');// 往下滚动事件
-    scrollEvent(scrollUp, scrollDown);
+    const scrollUp = () => $('#select-component').fadeIn('fast')// 往上滚动事件
+    const scrollDown = () => $('#select-component').fadeOut('fast')// 往下滚动事件
+    scrollEvent(scrollUp, scrollDown)
   }
 
   onSelect(index) {
-    $('#mask-select').show().addClass('fade-toggle');
-    $('#select-list').slideDown();
+    $('#mask-select').show().addClass('fade-toggle')
+    $('#select-list').slideDown()
     const selectList = listData[index].filterList.map((data, selectIndex) =>
       <li key={selectIndex} onClick={() => this.confirmSelect(data.text, index)}>
         <a>{data.text}</a>
       </li>
-    );
+    )
 
     this.setState({
       selectList,
-    });
+    })
 
-    $('#mask-select').click(this.hide);
+    $('#mask-select').click(this.hide)
   }
 
   confirmSelect(text, index) {
-    this.hide();
-    const newfilterType = this.state.filterType;
-    newfilterType[index] = text;
+    this.hide()
+    const newfilterType = this.state.filterType
+    newfilterType[index] = text
     this.setState({
       filterType: newfilterType,
-    });
+    })
   }
 
   hide() {
-    $('#mask-select').removeClass('fade-toggle').hide();
-    $('#select-list').slideUp();
+    $('#mask-select').removeClass('fade-toggle').hide()
+    $('#select-list').slideUp()
   }
 
   render() {
@@ -112,7 +112,7 @@ class SelectLayout extends Component {
       <li key={index} onClick={() => this.onSelect(index)}>
         <a>{data}<i className="down" /></a>
       </li>
-    );
+    )
     return (
       <div>
         <div className="select-component" id="select-component">
@@ -126,8 +126,8 @@ class SelectLayout extends Component {
         </div>
         <div className="mask-transition-select" id="mask-select"></div>
       </div>
-    );
+    )
   }
 }
 
-export default SelectLayout;
+export default SelectLayout

@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router';
-import $ from 'jquery';
+import React, { Component } from 'react'
+import { Link } from 'react-router'
+import $ from 'jquery'
 
 class MenuLayout extends Component {
   componentDidMount() {
     $('#menuLink').click(() => {
-      const winHeight = `${$(window).height()}px`;
+      const winHeight = `${$(window).height()}px`
       // TODO 打开侧边导航后禁止页面滚动
       // 在 Chrome 里测试正常，苹果手机测试失败，仍然可以滚动
-      $('body').css({ height: winHeight, overflow: 'hidden' });
-      $('#mask-menu').show().addClass('fade-toggle');
-      $('#menu').addClass('actionsheet-toggle');
-    });
+      $('body').css({ height: winHeight, overflow: 'hidden' })
+      $('#mask-menu').show().addClass('fade-toggle')
+      $('#menu').addClass('actionsheet-toggle')
+    })
 
     $('#mask-menu').click(() => {
-      $('#mask-menu').removeClass('fade-toggle').hide();
-      $('#menu').removeClass('actionsheet-toggle');
-      $('body').css({ height: '100%', overflow: 'visible' });
-    });
+      $('#mask-menu').removeClass('fade-toggle').hide()
+      $('#menu').removeClass('actionsheet-toggle')
+      $('body').css({ height: '100%', overflow: 'visible' })
+    })
   }
 
   render() {
@@ -73,8 +73,8 @@ class MenuLayout extends Component {
           </div>
         </div>
       </section>
-    );
+    )
   }
 }
 
-export default MenuLayout;
+export default MenuLayout
