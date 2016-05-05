@@ -1,6 +1,6 @@
 /* 判断浏览器滚动条的滚动方向
  * By @zaxlct
- * prewShow() 向下滚动
+ * prewShow() 向上滚动
  * nextShow() 向下滚动
 */
 
@@ -13,33 +13,44 @@
 
 import $ from 'jquery';
 
-const scrollEvent = (prewShow = () => {}, nextShow = () => {}) => {
-  const scrollFunc = e => { // 判断鼠标滚动方向并兼容浏览器
-    const event = e || window.event;
-    if (event.wheelDelta) { // IE/Opera/Chrome
-      if (event.wheelDelta > 0) {
-        prewShow(); // 向上滚动
-      } else {
-        nextShow(); // 向下滚动
+const scrollDirect = (fn = () => {}) => {
+  let beforeScrollTop = document.body.scrollTop;
+  window.addEventListener('scroll', () => {
+    const afterScrollTop = document.body.scrollTop;
+    const delta = afterScrollTop - beforeScrollTop;
+    beforeScrollTop = afterScrollTop;
+
+    if (afterScrollTop < 10 || afterScrollTop > $(document.body).height - 10) {
+      fn('up');
+    } else {
+      if (Math.abs(delta) < 10) {
+        return;
       }
-    } else if (event.detail) { // Firefox
-      if (event.detail > 0) {
-        nextShow();
-      } else {
-        prewShow();
-      }
+      fn(delta > 0 ? 'down' : 'up');
     }
+  }, false);
+};
+
+const scrollEvent = (prewShow = () => {}, nextShow = () => {}) => {
+  const lock = {//  scroll上下滑动时，prewShow()、nextShow()只执行一次
+    upflag: false,
+    downflag: true,
   };
 
-  const mousewheelevt = (/Firefox/i.test(navigator.userAgent)) ? 'DOMMouseScroll' : 'mousewheel';
-  document.addEventListener(mousewheelevt, scrollFunc, false);
-
-  // 键盘上下键事件的判断
-  $(document).keydown((e) => {
-    if (e.keyCode === 38) { // ↑键代表38
-      prewShow();
-    } else if (e.keyCode === 40) { // ↓键代表40
-      nextShow();
+  scrollDirect((direction) => {
+    if (direction === 'up') {
+      if (lock.upflag) {
+        prewShow();    // 往上滚动事件
+        lock.downflag = true;
+        lock.upflag = false;
+      }
+    }
+    if (direction === 'down') {
+      if (lock.downflag) {
+        nextShow();      // 往下滚动事件
+        lock.downflag = false;
+        lock.upflag = true;
+      }
     }
   });
 };

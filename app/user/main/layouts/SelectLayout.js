@@ -63,36 +63,10 @@ class SelectLayout extends Component {
   }
 
   componentDidMount() {
-    const lock = {
-      scrollEvent: false,
-      scrollUp: false,
-      scrollDown: false,
-    };
-    const scrollUp = () => {
-      if (lock.scrollEvent || lock.scrollUp) return;
-      lock.scrollEvent = true;
-      lock.scrollUp = true;
-      $('#select-component').fadeIn(200, () => {
-        lock.scrollDown = false;
-        setTimeout(() => {
-          lock.scrollEvent = false;
-        }, 300);
-      });
-    };
-    const scrollDown = () => {
-      if (lock.scrollEvent || lock.scrollDown) return;
-      lock.scrollEvent = true;
-      lock.scrollDown = true;
-      $('#select-component').fadeOut(200, () => {
-        lock.scrollUp = false;
-        setTimeout(() => {
-          lock.scrollEvent = false;
-        }, 300);
-      });
-    };
+    const scrollUp = () => $('#select-component').fadeIn('fast');// 往上滚动事件
+    const scrollDown = () => $('#select-component').fadeOut('fast');// 往下滚动事件
     scrollEvent(scrollUp, scrollDown);
   }
-
 
   onSelect(index) {
     $('#mask-select').show().addClass('fade-toggle');
