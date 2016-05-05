@@ -1,7 +1,7 @@
 import React, { Component/* ,PropTypes*/ } from 'react';
 // import { Link } from 'react-router';
 import $ from 'jquery';
-import { scrollEvent } from 'tool/scroll';
+import scrollEvent from 'tool/scroll';
 
 const listData = [
   {
