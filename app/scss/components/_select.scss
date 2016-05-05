@@ -29,6 +29,12 @@ $link-height: 30px;
     margin      : 10px 0;
     line-height : $link-height;
     border-right: 1px solid $silver;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    word-wrap: break-word;
+    word-break: break-all;
 
     &:last-child {
       border-right: none;
