@@ -44,7 +44,7 @@ const target_app = // endsWith('user')
   TARGET.lastIndexOf('user') + 'user'.length == TARGET.length ?
   'user' : 'grapher';
 // 这些变量存设置
-let CONTENT_PATH = undefined; // 用这个变量存当前是USER_PATH还是GRAPHER_PATH
+let contentPath = undefined; // 用这个变量存当前是USER_PATH还是GRAPHER_PATH
 let settingConfig = { // user || grapher
   resolve: {},
   module: {},
@@ -57,28 +57,31 @@ let envConfig = { // dev || prod
 };
 /* 3. 用户 || 摄影师 */
 if(target_app === 'user') { // user
-  CONTENT_PATH = USER_PATH;
+  contentPath = USER_PATH;
   settingConfig = {
     /* ================================================================ */
     /* 关联: alias */
     /* ================================================================ */
     resolve: {
       alias: {
-        main: path.resolve(USER_PATH, 'main'), // 主页
-        work: path.resolve(USER_PATH, 'work'), // 作品
-        grapher: path.resolve(USER_PATH, 'grapher'), // 摄影师
-        model: path.resolve(USER_PATH, 'model'), // 纯数据
-        user: path.resolve(USER_PATH, 'user'), // 用户
-        about: path.resolve(USER_PATH, 'about'), // 关于
+        main: path.resolve(contentPath, 'main'), // 主页
+        work: path.resolve(contentPath, 'work'), // 作品
+        grapher: path.resolve(contentPath, 'grapher'), // 摄影师
+        model: path.resolve(contentPath, 'model'), // 纯数据
+        user: path.resolve(contentPath, 'user'), // 用户
+        about: path.resolve(contentPath, 'about'), // 关于
       },
     },
   };
 }
 if(target_app === 'grapher') { // grapher
-  CONTENT_PATH = GRAPHER_PATH;
+  contentPath = GRAPHER_PATH;
   settingConfig = {
     resolve: {
-      alias: { },
+      alias: {
+        model: path.resolve(contentPath, 'model'), // 纯数据
+        user: path.resolve(contentPath, 'user'), // 用户
+      },
     },
   };
 }
@@ -88,7 +91,7 @@ common = {
   /* ================================================================ */
   /* 入口: entry */
   /* ================================================================ */
-  entry: CONTENT_PATH,
+  entry: contentPath,
   /* ================================================================ */
   /* 输出 */
   /* ================================================================ */
@@ -108,6 +111,7 @@ common = {
     alias: {
       app: APP_PATH, // app root
       common: path.resolve(APP_PATH, 'common'), // 通用组件
+      tool: path.resolve(APP_PATH, 'tool'),
     },
   },
   module: {
@@ -122,7 +126,7 @@ common = {
       {
         test: /\.jsx?$/,
         loaders: ['babel'],
-        // include: path.resolve(CONTENT_PATH, 'app'),
+        // include: path.resolve(contentPath, 'app'),
       },
       /* ================================================================ */
       /* 处理scss代码 IDEA: @可乐 这个要不要增加处理sass, css的扩展名 */
@@ -146,7 +150,7 @@ common = {
     /* ================================================================ */
     new HtmlwebpackPlugin({
       title: APP_TITLE,
-      template: path.resolve(CONTENT_PATH, 'index.tpl'),
+      template: path.resolve(contentPath, 'index.tpl'),
       minify: {
         removeComments: true, // 移除注释
       },
@@ -207,7 +211,7 @@ if(target_env === 'prod') { // prod
     /* 参考：http://webpack.github.io/docs/code-splitting.html */
     /* ================================================================ */
     entry: {
-      app: CONTENT_PATH,
+      app: contentPath,
       vendor: [
         'jquery',
         'react',

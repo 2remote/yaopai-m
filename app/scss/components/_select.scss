@@ -3,41 +3,87 @@ $base-height: 50px;
 $link-height: 30px;
 
 /* 筛选栏 */
-.select-panel {
-  background-color: $white;
-  line-height     : $base-height;
-  font-size       : $font-size-small;
-  color           : $dim-black;
+.select-component {
+  position          : fixed;
+  top               : 0;
+  left              : 0;
+  z-index           : $zindex-selelct;
+  width             : 100%;
+  opacity           : 1;
+  -webkit-transition: -webkit-transform .2s ease-in-out;
+  transition        : opacity .2s ease-in-out;
+  background-color  : $white;
+  line-height       : $base-height;
+  font-size         : $font-size-small;
+  color             : $dim-black;
+  text-align        : center;
+}
+
+.select-list {
   @extend %flex-align;
-  position        : absolute;
-  top             : 0;
-  width           : 100%;
-  text-align      : center;
+  border-bottom: 1px solid $silver;
+  @include box-shadow(0 1px 5px $silver);
+
   li {
     @extend %flex-1;
-    line-height: $base-height;
+    margin      : 10px 0;
+    line-height : $link-height;
+    border-right: 1px solid $silver;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    word-wrap: break-word;
+    word-break: break-all;
 
-    &:last-child a {
+    &:last-child {
       border-right: none;
     }
 
     i {
       height     : 15px;
       line-height: 15px;
-      padding: 0 5px;
+      padding    : 0 5px;
     }
 
     a {
-      height: $link-height;
+      height     : $link-height;
       line-height: $link-height;
-      display: inline-block;
-      border-right: 1px solid $silver;
-      padding: 0 10px;
+      display    : inline-block;
+      padding    : 0 10px;
     }
 
   }
 }
 /* 筛选下拉结果 */
-.select-item-panel {
-  background-color: $white;
+.select-detail-list {
+  display: none;
+  width: 100%;
+  padding: 0 10px;
+
+  li {
+    height: $base-height;
+    border-bottom: 1px solid $silver;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.mask-transition-select {
+  display           : none;
+  position          : fixed;
+  z-index           : $zindex-select-mask;
+  width             : 100%;
+  height            : 100%;
+  top               : 0;
+  left              : 0;
+  background        : rgba(0, 0, 0, 0);
+  -webkit-transition: background .1s;
+  transition        : background .1s;
+}
+
+.fade-toggle {
+  background: $menu-mask-color;
 }

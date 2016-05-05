@@ -42,13 +42,14 @@ $menu-footer-lineheight: 25px;
 
   i {
     font-size: $menu-link-size;
+    @include box-shadow(0px 0px 5px $dim-black);
   }
 }
 
-.mask_transition {
+.mask-transition {
   display           : none;
   position          : fixed;
-  z-index           : $zindex-mask-background;
+  z-index           : $zindex-menu-mask;
   width             : 100%;
   height            : 100%;
   top               : 0;
@@ -58,7 +59,7 @@ $menu-footer-lineheight: 25px;
   transition        : background .2s;
 }
 
-.fade_toggle {
+.fade-toggle {
   background: $menu-mask-color;
 }
 
@@ -82,7 +83,7 @@ $menu-footer-lineheight: 25px;
   font-size                  : $menu-font-size;
 }
 
-.actionsheet_toggle {
+.actionsheet-toggle {
   -webkit-transform: translate(0, 0);
   transform        : translate(0, 0);
 }

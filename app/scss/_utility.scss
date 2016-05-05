@@ -2,23 +2,23 @@
 // Utility classes
 // --------------------------------------------------
 
-.color-coffee    { @include font-color($coffee) }
-.color-red       { @include font-color($red) }
-.color-green     { @include font-color($green) }
-.color-silver    { @include font-color($silver) }
-.color-gray      { @include font-color($gray) }
-.color-dim-black { @include font-color($dim-black) }
-.color-black     { @include font-color($black) }
-.color-white     { @include font-color($white) }
-
-// background colors
-.bg-red          { @include bg-color($red) }
-.bg-green        { @include bg-color($green) }
-.bg-silver       { @include bg-color($silver) }
-.bg-gray         { @include bg-color($gray) }
-.bg-dim-black    { @include bg-color($dim-black) }
-.bg-black        { @include bg-color($black) }
-.bg-white        { @include bg-color($white) }
+// .color-coffee    { @include font-color($coffee) }
+// .color-red       { @include font-color($red) }
+// .color-green     { @include font-color($green) }
+// .color-silver    { @include font-color($silver) }
+// .color-gray      { @include font-color($gray) }
+// .color-dim-black { @include font-color($dim-black) }
+// .color-black     { @include font-color($black) }
+// .color-white     { @include font-color($white) }
+//
+// // background colors
+// .bg-red          { @include bg-color($red) }
+// .bg-green        { @include bg-color($green) }
+// .bg-silver       { @include bg-color($silver) }
+// .bg-gray         { @include bg-color($gray) }
+// .bg-dim-black    { @include bg-color($dim-black) }
+// .bg-black        { @include bg-color($black) }
+// .bg-white        { @include bg-color($white) }
 
 
 //float
