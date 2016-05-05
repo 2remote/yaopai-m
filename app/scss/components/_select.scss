@@ -10,8 +10,8 @@ $link-height: 30px;
   z-index           : $zindex-selelct;
   width             : 100%;
   opacity           : 1;
-  -webkit-transition: -webkit-transform .2s ease-in-out;
-  transition        : opacity .2s ease-in-out;
+  -webkit-transition: -webkit-transform .1s ease-in-out;
+  transition        : opacity .1s ease-in-out;
   background-color  : $white;
   line-height       : $base-height;
   font-size         : $font-size-small;
@@ -26,9 +26,15 @@ $link-height: 30px;
 
   li {
     @extend %flex-1;
-    margin      : 10px 0;
+    padding      : 10px 0;
     line-height : $link-height;
     border-right: 1px solid $silver;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    word-wrap: break-word;
+    word-break: break-all;
 
     &:last-child {
       border-right: none;
@@ -54,6 +60,8 @@ $link-height: 30px;
   display: none;
   width: 100%;
   padding: 0 10px;
+  max-height: 400px;
+  overflow: scroll;
 
   li {
     height: $base-height;

@@ -118,7 +118,7 @@ npm i -D node-sass sass-loader #sass-loader 依赖 node-sass
 ## 五、设计的那些文档
 
 * [v2.0原型图](https://modao.cc/app/CkzEf0JcX2bFNKDRISLDJd2aSLolzik)
-* [v2.0设计图](http://2remote.github.io/yaopai-sketch)
+* [v2.0设计图](http://2remote.github.io/yaopai-design/)
 
 ## 零、辣么多TODO
 
