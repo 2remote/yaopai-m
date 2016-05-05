@@ -2,6 +2,18 @@
 
 #### [sass 规范](https://github.com/Zhangjd/css-style-guide) （翻译自 Airbnb CSS / Sass Styleguide）
 
+### 浏览器报错
+> Cannot find module "!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./index.scss"  
+
+说明 sass 中某个地方语法不对，比如
+````scss
+div {
+  // 会报错，因为少一个分号
+  color: #fff
+  width: 100px;
+}
+````
+
 ### 命名方式
  所有的 sass 导入文件都可以忽略后缀名 `.scss`。一般来说基础的文件命名方法以_开头，如 `_mixin.scss`。这种文件在导入的时候可以不写下划线，可写成 `@import 'mixin'`（使用单引号）。
 

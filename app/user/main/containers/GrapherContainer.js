@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
 const GrapherLayout = () => (
   <div>
     GrapherLayout
   </div>
-);
+)
 
-export default GrapherLayout;
+export default GrapherLayout

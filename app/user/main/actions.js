@@ -1,17 +1,17 @@
 /* For Async Actions */
-// import fetch from 'isomorphic-fetch';
+// import fetch from 'isomorphic-fetch'
 /* 用于生成 action creator 的函数*/
-// import { makeActionCreator } from '../tool/tool.js';/* @王路怎么省去前面的‘../’ */
+// import { makeActionCreator } from '../tool/tool.js'/* @王路怎么省去前面的‘../’ */
 // TODO: eslint-disable no-console
 /* eslint-disable no-console */
 /* API constants */
-import API from 'app/API';
+import API from 'app/API'
 /* HttpFactory の post */
-import post from 'app/HttpFactory';
+import post from 'app/HttpFactory'
 /* Action Types */
-import { ACTION_TYPE } from './constant';
-import updateWorkPool from 'model/work/actions';
-const { LOAD_MORE_WORK, LOAD_MORE_GRAPHER } = ACTION_TYPE;
+import { ACTION_TYPE } from './constant'
+import updateWorkPool from 'model/work/actions'
+const { LOAD_MORE_WORK, LOAD_MORE_GRAPHER } = ACTION_TYPE
 
 /* Actions */
 export const loadMoreWork = ({ total, index, pages, size, list }) => ({
@@ -21,7 +21,7 @@ export const loadMoreWork = ({ total, index, pages, size, list }) => ({
   pages,
   size,
   list,
-});
+})
 
 
 /**
@@ -35,13 +35,13 @@ export const loadMoreWorkAsync = (idx, size, conditions) => dispatch => {
   // dispatch({
   //   type: LOAD_MORE_WORK,
   //   msg: 'pending',
-  // });
+  // })
   let postData = {
     Fields: 'Id,Title,Views,Display,Price,Cover,Photographer.NickName',
     PageIndex: idx,
     PageSize: size,
-  };
-  postData = Object.assign({}, postData, conditions);
+  }
+  postData = Object.assign({}, postData, conditions)
   post(API.WORK.SEARCH, postData).then(data => {
     /**
      * 作品列表中的展示数据：
@@ -50,7 +50,7 @@ export const loadMoreWorkAsync = (idx, size, conditions) => dispatch => {
      * - Photographer: 摄影师
      * - Display: 是否显示
      * - Price: 价格
-     * - Cover: 封面
+     * - Cover: 封面A
      */
     const convertedList = data.Result.map(result => ({
       id: result.Id,
@@ -60,9 +60,9 @@ export const loadMoreWorkAsync = (idx, size, conditions) => dispatch => {
       price: result.Price,
       cover: result.Cover,
       nickname: result.Photographer.NickName,
-    }));
+    }))
     /* 更新已保存作品 */
-    dispatch(updateWorkPool(convertedList));
+    dispatch(updateWorkPool(convertedList))
     /* 加载作品列表 */
     dispatch(loadMoreWork({
       total: data.Count,
@@ -70,16 +70,16 @@ export const loadMoreWorkAsync = (idx, size, conditions) => dispatch => {
       pages: data.PageCount,
       size: data.PageSize,
       list: convertedList.map(converted => converted.id),
-    }));
-    // throw new Error('What The Facebook');
-    return data;
+    }))
+    // throw new Error('What The Facebook')
+    return data
   }).catch(error => {
-    console.error(error);
-  });
-};
+    console.error(error)
+  })
+}
 
 export const loadMoreGrapher = () => ({
   type: LOAD_MORE_GRAPHER,
-});
+})
 
-// export default { loadMoreWork, loadMoreGrapher };
+// export default { loadMoreWork, loadMoreGrapher }

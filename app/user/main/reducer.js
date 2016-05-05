@@ -1,12 +1,13 @@
-import { combineReducers } from 'redux';
-/* 引入reducers */
-import workReducers from './reducers/workReducers';
+import { combineReducers } from 'redux'
 
-const mainRedux = {
+/* 引入reducers */
+import workReducer from './reducers/workReducer'
+
+const mainReducers = {
   mount: 'main', // 挂载点
   reducer: combineReducers({
-    work: workReducers,
+    work: workReducer,
   }), // reducers
-};
+}
 
-export default mainRedux;
+export default mainReducers

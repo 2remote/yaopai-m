@@ -1,25 +1,25 @@
-var express = require('express');
-var session = require('express-session');
-var Weixin = require('./weixin');
-var app = express();
-var router = express.Router();
+var express = require('express')
+var session = require('express-session')
+var Weixin = require('./weixin')
+var app = express()
+var router = express.Router()
 
-app.use(express.static('build'));
-app.use('/imgs', express.static('app/imgs'));
+app.use(express.static('build'))
+app.use('/imgs', express.static('app/imgs'))
 app.use(session({
   resave:false,
   saveUninitialized:false,
   secret: 'yaopai-mobile'
 }))
 app.use(function(err, req, res, next) {
-  console.error(err.stack);
-  res.status(500).send('Something broke!');
-});
+  console.error(err.stack)
+  res.status(500).send('Something broke!')
+})
 
 
 /*************************************** weixin start ***********************************************/
 /**
- * ÐèÒªÎ¢ÐÅ»·¾³±äÁ¿
+ * ï¿½ï¿½ÒªÎ¢ï¿½Å»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * WEIXIN_APPID
  * WEIXIN_SECRET
  * @type {Weixin}
@@ -27,7 +27,7 @@ app.use(function(err, req, res, next) {
 var weixin = Weixin.init({
   appid:process.env.WEIXIN_APPID,
   secret:process.env.WEIXIN_SECRET
-});
+})
 
 router.get('/signPackage', function(req, res, next) {
   if(!process.env.WEIXIN_APPID){
@@ -44,7 +44,7 @@ router.get('/signPackage', function(req, res, next) {
     signature:'',
   }
   if(req.session.ticket &&  req.session.ticket.expires > result.timestamp){
-    result.signature = weixin.getSignature(req.session.ticket.value, result.nonceStr, result.timestamp, result.url);
+    result.signature = weixin.getSignature(req.session.ticket.value, result.nonceStr, result.timestamp, result.url)
     res.json(result)
   }else{
     if(req.session.accessToken &&  req.session.accessToken.expires > result.timestamp){
@@ -53,8 +53,8 @@ router.get('/signPackage', function(req, res, next) {
         req.session.ticket = {
           value:r.ticket,
           expires:result.timestamp+parseInt(r.expires_in)
-        };
-        result.signature = weixin.getSignature(r.ticket, result.nonceStr, result.timestamp, result.url);
+        }
+        result.signature = weixin.getSignature(r.ticket, result.nonceStr, result.timestamp, result.url)
         res.json(result)
       })
     }else{
@@ -63,41 +63,41 @@ router.get('/signPackage', function(req, res, next) {
         req.session.accessToken = {
           value:r.access_token,
           expires:result.timestamp+parseInt(r.expires_in)
-        };
+        }
         weixin.getTicket(r.access_token,function (r) {
           console.log("ticket="+r)
           req.session.ticket = {
             value:r.ticket,
             expires:result.timestamp+parseInt(r.expires_in)
-          };
-          result.signature = weixin.getSignature(r.ticket, result.nonceStr, result.timestamp, result.url);
+          }
+          result.signature = weixin.getSignature(r.ticket, result.nonceStr, result.timestamp, result.url)
           res.json(result)
         })
       })
     }
   }
-});
+})
 /****************************************** end ********************************************/
 
 
-app.use('/', router);
+app.use('/', router)
 var server = app.listen(process.env.PORT || 5000, function () {
-  var host = server.address().address;
-  var port = server.address().port;
+  var host = server.address().address
+  var port = server.address().port
 
-  console.log('Example app listening at http://%s:%s', host, port);
-});
+  console.log('Example app listening at http://%s:%s', host, port)
+})
 
 /**
- * Èç¹û»·¾³±äÁ¿´æÔÚqcloud µÄSecretId ºÍ SecretKey ¾ÍÈÏÎªÐèÒªË¢ÐÂCDN
- * »·¾³±äÁ¿ÐèÒª:
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½qcloud ï¿½ï¿½SecretId ï¿½ï¿½ SecretKey ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ÒªË¢ï¿½ï¿½CDN
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òª:
  * QCLOUD_SECRETID : SecretId
  * QCLOUD_SECRETKEY : SecretKey
- * CDNURL : ÐèÒªË¢ÐÂµÄUrl
+ * CDNURL : ï¿½ï¿½ÒªË¢ï¿½Âµï¿½Url
  */
-var secretId = process.env.QCLOUD_SECRETID;
-var secretKey = process.env.QCLOUD_SECRETKEY;
-var cdnurl = process.env.CDNURL;
+var secretId = process.env.QCLOUD_SECRETID
+var secretKey = process.env.QCLOUD_SECRETKEY
+var cdnurl = process.env.CDNURL
 
 if(secretId && secretKey && cdnurl){
   var QcloudApi = require('./QcloudApi')
@@ -112,7 +112,7 @@ if(secretId && secretKey && cdnurl){
     Action: 'RefreshCdnUrl',
     'urls.0': cdnurl,
   }, function(error, data) {
-    console.log('Qcloud RefreshCdn result : ' + data);
+    console.log('Qcloud RefreshCdn result : ' + data)
   })
 }
 

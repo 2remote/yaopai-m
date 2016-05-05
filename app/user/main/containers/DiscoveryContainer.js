@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
 const DiscoveryLayout = () => (
   <div>
     DiscoveryLayout
   </div>
-);
+)
 
-export default DiscoveryLayout;
+export default DiscoveryLayout

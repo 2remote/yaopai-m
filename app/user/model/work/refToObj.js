@@ -2,16 +2,16 @@
  * refList: reference to a list of works
 **/
 const getWorks = (state, refList) => {
-  const result = [];
+  const result = []
   if (refList && refList.length) {
     for (let i = 0; i < refList.length; i++) {
-      const realObj = state.work[refList[i]];
+      const realObj = state.work[refList[i]]
       if (realObj) {
-        result.push(realObj);
+        result.push(realObj)
       }
     }
   }
-  return result;
-};
+  return result
+}
 
-export default getWorks;
+export default getWorks

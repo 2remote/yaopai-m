@@ -1,7 +1,7 @@
 /**
  * 基于jQuery的Promise封装
  */
-import $ from 'jquery';
+import $ from 'jquery'
 
 const post = (url, data) => {
   const promise = new Promise((resolve, reject) => {
@@ -17,17 +17,17 @@ const post = (url, data) => {
       },
       success: respData => {
         if (respData.Success) {
-          resolve(respData);
+          resolve(respData)
         } else {
-          reject(new Error(respData.ErrorMsg));
+          reject(new Error(respData.ErrorMsg))
         }
       },
       error: error => {
-        reject(new Error(error.statusText));
+        reject(new Error(error.statusText))
       },
-    });
-  });
-  return promise;
-};
+    })
+  })
+  return promise
+}
 
-export { post as default };
+export { post as default }
