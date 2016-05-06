@@ -61,7 +61,6 @@ const listData = [
 ]
 const filterType = listData.map((data) => data.filterType)
 
-// TODO 1.点击筛选弹出筛选条件后，背景需要用蒙版盖着吗？ 2.弹出筛选条件后需要禁止页面滚动吗
 class SelectLayout extends Component {
   constructor(props) {
     super(props)

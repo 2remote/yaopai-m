@@ -19,19 +19,6 @@ const mapDispatchToProps = dispatch => ({
   },
 })
 
-/* 把 state 注入到 WorkLayout 上，此时的 state 结构为：
-
-state = {
-  main: {
-    work: {...}
-  },
-  routing: {
-    locationBeforeTransitions: {...}
-  }
-  ...
-};
-
-*/
 const WorkContainer = connect(
   mapStateToProps,
   mapDispatchToProps
