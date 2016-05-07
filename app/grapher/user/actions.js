@@ -2,8 +2,6 @@ import API from 'app/API'
 import post from 'app/HttpFactory'
 import md5 from 'blueimp-md5'
 import base64encode from 'tool/base64'
-
-// console.log(base64encode('dadwa1213'))
 import { SAVE_USERINFO, SEND_TEL_REGISTER, RECEIVE_TEL_REGISTER } from './constant'
 
 const userLoginAction = (userData) => ({
