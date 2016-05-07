@@ -1,6 +1,7 @@
 /**
  * base64编码
  * @param {Object} str
+ * 使用方法：base64encode('dawdaw1213') //ZXADADAD1213ADAWAWDDAWDADAD
  */
 
 const base64EncodeChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'

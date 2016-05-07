@@ -37,8 +37,6 @@ export const userLoginActionAsync = (loginname, password) => dispatch => {
     if (data.Success) {
       const serverTime = data.ServerTime
       const sign = md5(base64encode(`${serverTime}${md5(password)}`))
-      console.log(sign)
-      console.log(serverTime)
       loginPost(loginname, sign, serverTime, dispatch)
     } else {
       throw data.ErrorMsg
