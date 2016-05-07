@@ -10,7 +10,7 @@ const userLoginAction = (userData) => ({
 })
 
 const loginPost = (loginname, sign, time, dispatch) => {
-  post(API.USER.Login, { loginname, sign, time }).then(data => {
+  post(API.USER.LoginWithSign, { loginname, sign, time }).then(data => {
     if (data.Success) {
       const userData = {
         loginToken: data.LoginToken,
