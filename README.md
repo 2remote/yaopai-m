@@ -127,6 +127,12 @@ npm i -D node-sass sass-loader #sass-loader 依赖 node-sass
 * ESLint和各种编码规范
 * more to come
 
-## License
+### License
 
-[GPLv3](http://www.gnu.org/licenses/gpl-3.0.en.html)
+The MIT License([http://opensource.org/licenses/MIT](http://opensource.org/licenses/MIT))
+ 
+请自由地享受和参与开源
+
+### 贡献
+
+如果你有好的意见或建议，欢迎给我们提 issue 或 pull request
