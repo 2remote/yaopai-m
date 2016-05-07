@@ -1,5 +1,7 @@
 import API from 'app/API'
 import post from 'app/HttpFactory'
+import md5 from 'blueimp-md5'
+import base64encode from 'tool/base64'
 import { SAVE_USERINFO, SEND_TEL_REGISTER, RECEIVE_TEL_REGISTER } from './constant'
 
 const userLoginAction = (userData) => ({
@@ -7,8 +9,8 @@ const userLoginAction = (userData) => ({
   userData,
 })
 
-export const userLoginActionAsync = (loginname, password) => dispatch => {
-  post(API.USER.Login, { loginname, password }).then(data => {
+const loginPost = (loginname, sign, time, dispatch) => {
+  post(API.USER.LoginWithSign, { loginname, sign, time }).then(data => {
     if (data.Success) {
       const userData = {
         loginToken: data.LoginToken,
@@ -19,6 +21,21 @@ export const userLoginActionAsync = (loginname, password) => dispatch => {
         userSex: data.User.Sex,
       }
       dispatch(userLoginAction(userData))
+    } else {
+      throw data.ErrorMsg
+    }
+  }).catch(error => {
+    console.error(error)
+  })
+}
+
+
+export const userLoginActionAsync = (loginname, password) => dispatch => {
+  post(API.USER.GetSysTime).then(data => {
+    if (data.Success) {
+      const serverTime = data.ServerTime
+      const sign = md5(base64encode(`${serverTime}${md5(password)}`))
+      loginPost(loginname, sign, serverTime, dispatch)
     } else {
       throw data.ErrorMsg
     }
