@@ -6,6 +6,10 @@
 *:after {
   -webkit-box-sizing: border-box;
   box-sizing        : border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
 }
 
 //TODO 是否使用 rem 单位

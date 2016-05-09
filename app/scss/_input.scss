@@ -1,0 +1,72 @@
+//
+// Buttons
+// --------------------------------------------------
+
+.input-group {
+  position: relative;
+  left    : 0;
+  top     : 0;
+
+  input {
+    padding: 0 100px 0 50px;
+  }
+
+  i {
+    position   : absolute;
+    left       : 0;
+    top        : 0;
+    width      : 50px;
+    height     : 50px;
+    color      : lighten($dim-black,20%);
+    line-height: 50px;
+    text-align : center;
+  }
+
+  a,
+  span {
+    position   : absolute;
+    right      : 0;
+    top        : 0;
+    height     : 50px;
+    line-height: 50px;
+    width      : 100px;
+    color      : lighten($dim-black,20%);
+    text-align : center;
+
+  }
+
+  a {
+    text-decoration: none;
+    color          : $white;
+  }
+
+  span {
+    visibility: hidden;
+    color     : $red;
+  }
+}
+
+.input,
+input {
+  display      : inline-block;
+  border       : none;
+  border-bottom: 1px lighten($dim-black, 20%) solid;
+  color        : $white;
+  white-space  : nowrap;
+  font-size    : $btn-font-base;
+  height       : $btn-height;
+  line-height  : $btn-line-height - 25;
+  background   : transparent;
+
+  &.focus,
+  &:focus {
+    outline       : none;
+    border-bottom : 1px solid $white;
+    letter-spacing: 5px;
+  }ß
+}
+
+.input-block {
+  display: block;
+  width  : 100%;
+}
