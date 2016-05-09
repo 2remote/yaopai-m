@@ -16,16 +16,17 @@
   <meta name="format-detection" content="email=no" />
   <title><%=htmlWebpackPlugin.options.title %></title>
   <!-- http://iconfont.cn/ -->
-  <link rel="stylesheet" href="//at.alicdn.com/t/font_1461562338_4527202.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1462784075_0278778.css" />
   <!-- <link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/slick-carousel/1.3.15/slick.css" /> -->
   <!-- 插入favicon -->
   <% if(htmlWebpackPlugin.files.favicon) { %>
   <link rel="shortcut icon" href="{%=htmlWebpackPlugin.files.favicon%}" />
   <% } %>
   <!-- pure css -->
-  <link rel="stylesheet" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css" />
+  <link rel="stylesheet" href="//cdn.bootcss.com/pure/0.6.0/base-min.css" />
+  <link rel="stylesheet" href="//cdn.bootcss.com/pure/0.6.0/buttons-min.css" />
 </head>
-<body>
+<body ontouchstart>
   <div id="app"></div>
 </body>
 <!-- <script type="text/javascript" src="/imgs/ua-parser.min.js"></script> -->
