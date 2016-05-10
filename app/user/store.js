@@ -1,32 +1,40 @@
 /* 1. 创建store用的 */
-import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
-import { routerReducer } from 'react-router-redux'
+import { createStore, compose, applyMiddleware } from 'redux'
+import { combineReducers } from 'redux-immutable'
+// once upon a time
+// import { routerReducer } from 'react-router-redux'
 /* 2. Middlewares */
 import thunk from 'redux-thunk'
 /* 3. 引入reducers */
 import mainReducers from './main/reducer'
 import workReducers from 'model/work/reducer'
+/* 4. Immutable下的react-router-redux的reducer */
+/* 参考：https://github.com/gajus/redux-immutable */
+import Immutable from 'immutable'
+import { LOCATION_CHANGE } from 'react-router-redux'
+
+/* Reducer for react-router-redux-immutable */
+/* REVIEW: 有时候真想说：这到底放哪 */
+const initialStateForRoute = Immutable.fromJS({
+  locationBeforeTransitions: null,
+})
+
+const routeReducer = (state = initialStateForRoute, action) => {
+  if (action.type === LOCATION_CHANGE) {
+    return state.merge({
+      locationBeforeTransitions: action.payload,
+    })
+  }
+  return state
+}
+
 
 /* 这里组装reducers */
 const reducers = {
-  routing: routerReducer,
+  routing: routeReducer, // redux-immutable给route用的reducer
   [mainReducers.mount]: mainReducers.reducer,
   [workReducers.mount]: workReducers.reducer,
 }
-/* reducers 组装完毕后， state 结构也生成了 😄
-
-state = {
-  routing: {
-    locationBeforeTransitions: {...}
-  },
-  main: {
-    work: {...}
-  },
-  ...
-};
-
-*/
-
 
 /* ---------------------------------------------------------------- */
 /**
@@ -53,14 +61,16 @@ const logger = store => next => action => {
 //   };
 // };
 /* ---------------------------------------------------------------- */
-
+/* HACK: */
+/* eslint-disable new-cap */
+const initState = Immutable.Map()
 /* 这里创建store */
 const store = createStore(
   /* 1. 创建store用的reducer */
-  combineReducers(reducers),
+  combineReducers(reducers), // redux-immutable的
   /* 2. 默认state */
   // TODO: 要不要做点文章？
-  {},
+  initState,
   /* 3. Middleware */
   compose(
     // thunk用来处理传入的thunk(就是明明是action，却是个function)

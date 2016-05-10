@@ -1,5 +1,7 @@
 import React from 'react'
 import { Route, IndexRedirect } from 'react-router'
+import Immutable from 'immutable'
+
 /* 引入layouts */
 import MainLayout from './layouts/MainLayout'
 /* 引入containers */
@@ -25,12 +27,16 @@ const mainRouteFactory = store => {
         /* 1. 城市：CityId */
         /* 2. 类型：CategoryId */
         /* 3. 价格区间：PriceStart - PriceEnd */
-        const conditions = {
+        /* FIXME: ESlint won't play alone with Immutable */
+        /* FIXME: https://github.com/eslint/eslint/issues/2023 */
+        /* HACK: */
+        /* eslint-disable new-cap */
+        const conditions = Immutable.Map({
           CityId: query.city, // 城市id
           CategoryId: query.cate, // 类型id
           PriceStart: query.pstart, // 价格：最低价格
           PriceEnd: query.pend, // 价格：最高价格
-        }
+        })
         dispatch(loadMoreWorkAsync(1, 10, conditions))
         break
       }

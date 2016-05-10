@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux-immutable'
 
 /* 引入reducers */
 import workReducer from './reducers/workReducer'
