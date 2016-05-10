@@ -7,7 +7,10 @@ const InputGroup = props => {
     <section className="input-group">
       <i className={ icon } />
       <input className="input input-block" type={ type }
-        ref={node => updateValue(node.value)} placeholder={ placeholder }
+        ref={ node => {
+          if (node) node.addEventListener('blur', () => updateValue(node.value.trim()))
+        }}
+        placeholder={ placeholder }
       />
     {
       href ?
