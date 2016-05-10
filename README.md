@@ -67,6 +67,12 @@ npm i -D style-loader css-loader #css 两件套
 npm i -D node-sass sass-loader #sass-loader 依赖 node-sass
 ```
 
+### immutable
+```
+npm i -S immutable # 函数式编程的数据类型
+npm i -S redux-immutable # 这货有Immutable版的combineReducers
+```
+
 ## 三、项目组织结构
 
 按照feature区分（[参考文档](http://jaysoo.ca/2016/02/28/organizing-redux-application/)）
@@ -130,7 +136,7 @@ npm i -D node-sass sass-loader #sass-loader 依赖 node-sass
 ### License
 
 The MIT License([http://opensource.org/licenses/MIT](http://opensource.org/licenses/MIT))
- 
+
 请自由地享受和参与开源
 
 ### 贡献
