@@ -1,4 +1,7 @@
 import React from 'react'
+import { RouteTransition, presets } from 'react-router-transition'
+import UserEntryLayout from './UserEntryLayout'
+import InputGroup from 'common/InputGroup'
 
 const LoginLayout = props => {
   let name
@@ -6,20 +9,37 @@ const LoginLayout = props => {
   const { user } = props
   return (
     <section>
-      <form onSubmit={() => {
-        props.onSubmit(name.value.trim(), password.value.trim())
-      }}
-      >
-        <input type="number" ref={node => (name = node)} />
-        <label>手机号</label>
-        <br />
-        <input type="password" ref={node => (password = node)} />
-        <label>密码</label>
-        <br />
-        <button type="submit">登陆</button>
-      </form>
+      <UserEntryLayout />
 
-      <h1>用户昵称：{user.nickname}</h1>
+      <RouteTransition { ...presets.slideLeft } >
+        <form className="form-box " onSubmit={() => {
+          props.onSubmit(name, password)
+        }}
+        >
+          <InputGroup
+            icon={ 'phone' }
+            type={ 'number' }
+            placeholder={ '请输入账号' }
+            link={{
+              text: '手机号输入错误',
+            }}
+            updateValue={ text => {name = text} }
+          />
+
+          <InputGroup
+            icon={ 'lockclosed' }
+            type={ 'password' }
+            placeholder={ '请输入密码' }
+            link={{
+              href: '//m.aiyaopai.com/#/find_my_pass_page1',
+              text: '忘记密码',
+            }}
+            updateValue={ text => {password = text} }
+          />
+
+          <button className="btn btn-block" type="submit">登陆</button>
+        </form>
+      </RouteTransition>
     </section>
   )
 }
