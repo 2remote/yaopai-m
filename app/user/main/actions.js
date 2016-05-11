@@ -4,6 +4,7 @@
 // import { makeActionCreator } from '../tool/tool.js'/* @王路怎么省去前面的‘../’ */
 // TODO: eslint-disable no-console
 /* eslint-disable no-console */
+import Immutable from 'immutable'
 /* API constants */
 import API from 'app/API'
 /* HttpFactory の post */
@@ -14,13 +15,9 @@ import updateWorkPool from 'model/work/actions'
 const { LOAD_MORE_WORK, LOAD_MORE_GRAPHER } = ACTION_TYPE
 
 /* Actions */
-export const loadMoreWork = ({ total, index, pages, size, list }) => ({
+export const loadMoreWork = workListRefInfo => ({
   type: LOAD_MORE_WORK,
-  total,
-  index,
-  pages,
-  size,
-  list,
+  payload: workListRefInfo,
 })
 
 
@@ -36,12 +33,14 @@ export const loadMoreWorkAsync = (idx, size, conditions) => dispatch => {
   //   type: LOAD_MORE_WORK,
   //   msg: 'pending',
   // })
-  let postData = {
+  /* HACK: */
+  /* eslint-disable new-cap */
+  const postDataPrep = Immutable.Map({
     Fields: 'Id,Title,Views,Display,Price,Cover,Photographer.NickName',
     PageIndex: idx,
     PageSize: size,
-  }
-  postData = Object.assign({}, postData, conditions)
+  })
+  const postData = conditions.merge(postDataPrep).toJS()
   post(API.WORK.SEARCH, postData).then(data => {
     /**
      * 作品列表中的展示数据：
@@ -51,8 +50,8 @@ export const loadMoreWorkAsync = (idx, size, conditions) => dispatch => {
      * - Display: 是否显示
      * - Price: 价格
      * - Cover: 封面A
-     */
-    const convertedList = data.Result.map(result => ({
+    **/
+    const convertedList = Immutable.fromJS(data.Result.map(result => ({
       id: result.Id,
       title: result.Title,
       views: result.Views,
@@ -60,17 +59,17 @@ export const loadMoreWorkAsync = (idx, size, conditions) => dispatch => {
       price: result.Price,
       cover: result.Cover,
       nickname: result.Photographer.NickName,
-    }))
+    })))
     /* 更新已保存作品 */
     dispatch(updateWorkPool(convertedList))
     /* 加载作品列表 */
-    dispatch(loadMoreWork({
+    dispatch(loadMoreWork(Immutable.fromJS({
       total: data.Count,
       index: data.PageIndex,
       pages: data.PageCount,
       size: data.PageSize,
-      list: convertedList.map(converted => converted.id),
-    }))
+      list: convertedList.map(converted => converted.get('id')), // 只留id
+    })))
     // throw new Error('What The Facebook')
     return data
   }).catch(error => {

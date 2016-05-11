@@ -43,7 +43,11 @@
     "blueimp-md5": "^2.3.0",
     "express": "^4.13.4",
     "express-session": "^1.13.0",
+<<<<<<< HEAD
     "fastclick": "^1.0.6",
+=======
+    "immutable": "^3.8.1",
+>>>>>>> feature/work
     "isomorphic-fetch": "^2.2.1",
     "jquery": "^2.2.3",
     "react": "^0.14.8",
@@ -54,6 +58,7 @@
     "react-router-redux": "^4.0.1",
     "react-router-transition": "0.0.5",
     "redux": "^3.3.1",
+    "redux-immutable": "^3.0.6",
     "redux-thunk": "^2.0.1"
   },
   "devDependencies": {
