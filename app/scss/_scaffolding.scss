@@ -1,15 +1,15 @@
 //
 // Scaffolding
 // --------------------------------------------------
-*:before,
 *,
-*:after {
-  -webkit-box-sizing: border-box;
-  box-sizing        : border-box;
-  margin: 0;
-  padding: 0;
+*:after,
+*:before {
+  -webkit-box-sizing   : border-box;
+  box-sizing           : border-box;
+  margin               : 0;
+  padding              : 0;
   -webkit-border-radius: 0;
-  border-radius: 0;
+  border-radius        : 0;
 }
 
 //TODO 是否使用 rem 单位
@@ -20,6 +20,7 @@
 
 body {
   color                 : $text-color;
+  background            : $body-bg;
   font-family           : $body-font-family;
   font-size             : $font-size-base;
   -webkit-font-smoothing: antialiased;

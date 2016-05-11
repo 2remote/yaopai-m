@@ -1,5 +1,8 @@
 /* 引入scss */
 import './index.scss'
+/* 解决移动端点击 300 毫秒延迟 */
+import 'react-fastclick'
+
 /* 1. 基本React引入 */
 import React from 'react'
 import { render } from 'react-dom'
