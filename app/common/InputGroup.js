@@ -8,7 +8,10 @@ const InputGroup = props => {
       <i className={ icon } />
       <input className="input input-block" type={ type }
         ref={ node => {
-          if (node) node.addEventListener('blur', () => updateValue(node.value.trim()))
+          if (node) {
+            updateValue(node.value.trim()) // 初始化的时候发送一次数据，假如浏览器帮助用户记住账号密码也不怕了
+            node.addEventListener('blur', () => updateValue(node.value.trim()))
+          }
         }}
         placeholder={ placeholder }
       />
