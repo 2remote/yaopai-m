@@ -2,16 +2,24 @@ import API from 'app/API'
 import post from 'app/HttpFactory'
 import md5 from 'blueimp-md5'
 import base64encode from 'tool/base64'
-import { SAVE_USERINFO, SEND_TEL_REGISTER, RECEIVE_TEL_REGISTER } from './constant'
+import { SAVE_USERINFO, SEND_TEL_REGISTER, RECEIVE_TEL_REGISTER, LOGIN_FAILED } from './constant'
 
-const userLoginAction = (userData) => ({
+const userLoginSuccessAction = (userData) => ({
   type: SAVE_USERINFO,
   userData,
 })
 
+// 如果用户登陆失败
+const userLoginFailedAction = (errorMsg) => ({
+  type: LOGIN_FAILED,
+  errorMsg,
+})
+
 const loginPost = (loginname, sign, time, dispatch) => {
+  console.log('dadwadwadadwada')
   post(API.USER.LoginWithSign, { loginname, sign, time }).then(data => {
     if (data.Success) {
+      console.log(12131313131)
       const userData = {
         loginToken: data.LoginToken,
         sessionToken: data.SessionToken,
@@ -20,8 +28,11 @@ const loginPost = (loginname, sign, time, dispatch) => {
         avatar: data.User.Avatar,
         userSex: data.User.Sex,
       }
-      dispatch(userLoginAction(userData))
+      dispatch(userLoginSuccessAction(userData))
     } else {
+      // 为什么这个 dispatch 没执行
+      console.log(23)
+      dispatch(userLoginFailedAction(data.ErrorMsg))
       throw data.ErrorMsg
     }
   }).catch(error => {
