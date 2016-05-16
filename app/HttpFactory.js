@@ -16,6 +16,8 @@ const post = (url, data) => {
         withCredentials: true,
       },
       success: respData => {
+        // 这里的逻辑是：如果后台返回HTTP 200，但是Success为false
+        // 则仍然reject掉，让post的catch去处理
         if (respData.Success) {
           resolve(respData)
         } else {
