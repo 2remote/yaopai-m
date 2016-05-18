@@ -12,6 +12,8 @@ const SendTelRegister = `${DEV_ENV}?API=User.SendTelRegister`       //   让后�
 const ReceiveTelRegister = `${DEV_ENV}?API=User.ReceiveTelRegister` // 后台接收手机注册验证码
 const GetSysTime = `${DEV_ENV}?API=Sys.Info` // 获取服务器当前时间
 
+const GetPgData = `${DEV_ENV}?API=Photographer.Get` // 获取服务器当前时间
+
 const API = {
   WORK: {
     SEARCH: temp,
@@ -22,6 +24,7 @@ const API = {
     GetSysTime,
     SendTelRegister,
     ReceiveTelRegister,
+    GetPgData,
   },
 }
 
