@@ -8,7 +8,9 @@ const userFactory = () => (
   <Route path="user">
     <Route path="login" component={ LoginContainer } />
     <Route path="register" component={ RegisterContainer } />
-    <Route path="test" component={ LocationIndicator } />
+    <Route path="indicator" component={ LocationIndicator } />
+    <Route path="indicator2" component={ LocationIndicator } />
+    <Route path="indicator3" component={ LocationIndicator } />
   </Route>
 )
 

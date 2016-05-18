@@ -8,17 +8,17 @@ const mapStateToProps = state => ({
   indicatorList: [{ // sort of a config
     text: '第一步',
     // img: '',
-    activeUrl: '/user/test',
+    activeUrl: '/user/indicator',
     activeState: 'active',
   }, {
     text: '第二步',
     // img: '',
-    activeUrl: '/user/test2',
+    activeUrl: '/user/indicator2',
     activeState: 'active',
   }, {
     text: '第三步',
     // img: '',
-    activeUrl: '/user/test3',
+    activeUrl: '/user/indicator3',
     activeState: 'active',
   }],
 })
