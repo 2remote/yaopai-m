@@ -16,10 +16,8 @@ const userLoginFailedAction = (errorMsg) => ({
 })
 
 const loginPost = (loginname, sign, time, dispatch) => {
-  console.log('dadwadwadadwada')
   post(API.USER.LoginWithSign, { loginname, sign, time }).then(data => {
     if (data.Success) {
-      console.log(12131313131)
       const userData = {
         loginToken: data.LoginToken,
         sessionToken: data.SessionToken,
@@ -31,11 +29,12 @@ const loginPost = (loginname, sign, time, dispatch) => {
       dispatch(userLoginSuccessAction(userData))
     } else {
       // 为什么这个 dispatch 没执行
-      console.log(23)
       dispatch(userLoginFailedAction(data.ErrorMsg))
       throw data.ErrorMsg
     }
   }).catch(error => {
+    /* HACK: eslint-disable no-console */
+    /* eslint-disable no-console */
     console.error(error)
   })
 }
@@ -51,6 +50,8 @@ export const userLoginActionAsync = (loginname, password) => dispatch => {
       throw data.ErrorMsg
     }
   }).catch(error => {
+    /* HACK: eslint-disable no-console */
+    /* eslint-disable no-console */
     console.error(error)
   })
 }
@@ -72,6 +73,8 @@ export const sendTelRegisterActionAsync = tel => dispatch => {
       throw data.ErrorMsg
     }
   }).catch(error => {
+    /* HACK: eslint-disable no-console */
+    /* eslint-disable no-console */
     console.error(error)
   })
 }
@@ -93,6 +96,8 @@ export const receiveTelRegisterActionAsync = (tel, code, password) => dispatch =
       dispatch(receiveTelRegisterAction(isReceiveTelSuccess))
     }
   }).catch(error => {
+    /* HACK: eslint-disable no-console */
+    /* eslint-disable no-console */
     console.error(error)
   })
 }
