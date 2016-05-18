@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import { RouteTransition, presets } from 'react-router-transition'
 import UserEntryLayout from './UserEntryLayout'
 import InputGroup from 'common/InputGroup'
-import { checkTel } from 'common/InputRegular'
+import { checkTel } from 'tool/inputRegular'
 
 /* TODO: 这个写法太纠结了。 */
 // 让界面根据数据变化的话，方法有：
