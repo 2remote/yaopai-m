@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import { RouteTransition, presets } from 'react-router-transition'
 import UserEntryLayout from './UserEntryLayout'
 import InputGroup from 'common/InputGroup'
 import { checkTel } from 'common/InputRegular'
+
+/* TODO: 这个写法太纠结了。 */
+// 让界面根据数据变化的话，方法有：
+// 1. 直接使用当前component的state
+// 2. 把所有状态dispatch给redux，让container再map回来
+// 前者更“方便”，”顺手”，后者更redux
 
 class LoginLayout extends React.Component {
   constructor(props) {
@@ -26,7 +32,7 @@ class LoginLayout extends React.Component {
   render() {
     let name
     let password
-    const { user } = this.props
+    // const { user } = this.props
     return (
       <section>
         <UserEntryLayout />
@@ -60,6 +66,10 @@ class LoginLayout extends React.Component {
       </section>
     )
   }
+}
+
+LoginLayout.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 }
 
 export default LoginLayout
