@@ -7,6 +7,7 @@ const onClick = (props, callback) => {
     PriceStart: props.cons.pstart, // 价格：最低价格
     PriceEnd: props.cons.pend, // 价格：最高价格
   }
+  console.log(conditions)
   // 还有total没用到
   const { index, pages, size } = props.paging
   if (index < pages) {

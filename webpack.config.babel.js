@@ -56,7 +56,7 @@ let envConfig = { // dev || prod
   plugins: [],
 }
 /* 3. 用户 || 摄影师 */
-if(target_app === 'user') { // user
+if (target_app === 'user') { // user
   contentPath = USER_PATH
   settingConfig = {
     /* ================================================================ */
@@ -74,7 +74,7 @@ if(target_app === 'user') { // user
     },
   }
 }
-if(target_app === 'grapher') { // grapher
+if (target_app === 'grapher') { // grapher
   contentPath = GRAPHER_PATH
   settingConfig = {
     resolve: {
@@ -163,7 +163,7 @@ common = {
   // },
 }
 /* 5. 开发 || 正式 */
-if(target_env === 'dev') { // dev
+if (target_env === 'dev') { // dev
   envConfig = {
     /* ================================================================ */
     /* 预处理: preLoader */
@@ -204,7 +204,7 @@ if(target_env === 'dev') { // dev
     },
   }
 }
-if(target_env === 'prod') { // prod
+if (target_env === 'prod') { // prod
   envConfig = {
     /* ================================================================ */
     /* 入口分为app和vendor */
@@ -257,7 +257,7 @@ if(target_env === 'prod') { // prod
       /* 参考：https://github.com/reactjs/redux/issues/1029 */
       /* ================================================================ */
       new webpack.DefinePlugin({
-        'process.env.NODE_ENV': '"production"'
+        'process.env.NODE_ENV': '"production"',
       }),
     ],
   }

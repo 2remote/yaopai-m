@@ -1,4 +1,7 @@
 import React from 'react'
+import UserEntryLayout from './UserEntryLayout'
+import { RouteTransition, presets } from 'react-router-transition'
+import InputGroup from 'common/InputGroup'
 
 const RegisterLayout = props => {
   let tel
@@ -6,28 +9,48 @@ const RegisterLayout = props => {
   let password
   return (
     <section>
-      <form onSubmit={() => {
-        props.onSendTel(tel.value.trim())
-      }}
-      >
-        <input type="number" ref={node => (tel = node)} />
-        <label>手机号</label>
-        <br />
-        <button type="submit">发送验证码</button>
-      </form>
-      <br />
-      <form onSubmit={() => {
-        props.onReceiveTel(tel.value, code.value, password.value)
-      }}
-      >
-        <input type="password" ref={node => (password = node)} />
-        <label>密码</label>
-        <br />
-        <input type="password" ref={node => (code = node)} />
-        <label>手机验证码</label>
-        <br />
-        <button type="submit">注册</button>
-      </form>
+      <UserEntryLayout />
+      <RouteTransition { ...presets.slideRight } >
+        <form onSubmit={() => {
+          props.onSendTel(name)
+        }}
+        >
+          <InputGroup
+            icon={ 'phone' }
+            type={ 'number' }
+            placeholder={ '请输入手机号' }
+            link={{
+              text: '手机号输入错误',
+            }}
+            updateValue={ text => {tel = text} }
+          />
+          <button type="submit">发送验证码</button>
+        </form>
+        <form onSubmit={() => {
+          props.onReceiveTel(tel, code, password)
+        }}
+        >
+          <InputGroup
+            icon={ 'phone' }
+            type={ 'number' }
+            placeholder={ '请输入验证码' }
+            link={{
+              text: '验证码输入错误',
+            }}
+            updateValue={ text => {code = text} }
+          />
+          <InputGroup
+            icon={ 'phone' }
+            type={ 'number' }
+            placeholder={ '请输入密码' }
+            link={{
+              text: '密码输入错误',
+            }}
+            updateValue={ text => {password = text} }
+          />
+          <button type="submit">注册</button>
+        </form>
+      </RouteTransition>
     </section>
   )
 }

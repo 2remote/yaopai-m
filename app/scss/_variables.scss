@@ -13,9 +13,9 @@ $coffee              : #cc7b7b;
 
 //## Settings for some of the most global styles.
 //** Background color for `<body>`.
-$body-bg             : $silver;
+$body-bg             : $dim-black;
 //** Global text color on `<body>`.
-$text-color          : $dim-black;
+$text-color          : $black;
 //** Global font-family on `<body>`.
 $body-font-family    : "PingFang SC", "Microsoft Yahei", Arial, sans-serif;
 
@@ -31,6 +31,15 @@ $font-size-h3        : ceil(($font-size-base * 1.7)); // ~24px
 $font-size-h4        : ceil(($font-size-base * 1.25)); // ~18px
 $font-size-h5        : $font-size-base;
 $font-size-h6        : ceil(($font-size-base * .85)); // ~12px
+
+//## Button
+$btn-font-base       : $font-size-base;
+$btn-height: 50px;
+$btn-line-height: $btn-height;
+// $btn-font-large      : $font-size-base;
+// $btn-font-small      : $font-size-base;
+
+
 //** Unit-less `line-height` for use in components like buttons.
 $line-height-base    : 1.428571429; // 20px ÷ 14px = 1.428571429
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
