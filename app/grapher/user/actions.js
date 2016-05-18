@@ -2,8 +2,10 @@ import API from 'app/API'
 import post from 'app/HttpFactory'
 import md5 from 'blueimp-md5'
 import base64encode from 'tool/base64'
-import { SAVE_USERINFO, SEND_TEL_REGISTER, RECEIVE_TEL_REGISTER, LOGIN_FAILED } from './constant'
+import { SAVE_USERINFO, SEND_TEL_REGISTER, RECEIVE_TEL_REGISTER, LOGIN_FAILED,
+  GET_PG_DATA } from './constant'
 
+// 如果用户登陆成功
 const userLoginSuccessAction = (userData) => ({
   type: SAVE_USERINFO,
   userData,
@@ -98,6 +100,29 @@ export const receiveTelRegisterActionAsync = (tel, code, password) => dispatch =
   }).catch(error => {
     /* HACK: eslint-disable no-console */
     /* eslint-disable no-console */
+    console.error(error)
+  })
+}
+
+
+/*
+ * USER.GetPgData 获取摄影师详情
+ */
+const getPgDataAction = (pgData) => ({
+  type: GET_PG_DATA,
+  pgData,
+})
+
+export const getPgDataActionAsycn = (Id) => dispatch => {
+  const postData = {
+    Id,
+    Fields: 'NickName,Sex,Avatar',
+  }
+  post(API.USER.GetPgData, postData).then(data => {
+    if (data.Success) {
+      dispatch(getPgDataAction(data))
+    }
+  }).catch(error => {
     console.error(error)
   })
 }
