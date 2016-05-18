@@ -16,7 +16,15 @@ const LocationIndicator = ({ currentLocation, indicatorList }) => (
   <div>
     {
       indicatorList.map(({ text, img, activeUrl, activeState }, key) => (
-        <div className={activeUrl === currentLocation ? activeState : ''} key={ key }>
+        <div className={activeUrl === currentLocation ? activeState : ''}
+          style={{ // HACK: temporary display
+            background: activeUrl === currentLocation ? 'yellow' : 'green',
+            display: 'inline-block',
+            width: `${100 / indicatorList.length}%`,
+          }}
+          key={ key }
+        >
+        {/* <div className={activeUrl === currentLocation ? activeState : ''} key={ key }> */}
           { text }
           { img ? <img src={img} alt={text} /> : '' }
         </div>
