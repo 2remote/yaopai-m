@@ -105,8 +105,8 @@ export const getPgDataActionAsycn = (Id) => dispatch => {
  */
 const isChangeInfoSuccessAction = makeActionCreator(CHANGE_INFO, 'isChangeInfoSuccess')
 
-export const changeInfoActionAsycn = Avatar => dispatch => {
-  const postData = { Avatar }
+export const changeInfoActionAsycn = (Nickname, Sex, Location) => dispatch => {
+  const postData = { Nickname, Sex, Location }
   post(API.USER.UserChangeInfo, postData)
      .then(data => dispatch(isChangeInfoSuccessAction(data.Success)))
      .catch(error => console.error(error))
@@ -118,8 +118,8 @@ export const changeInfoActionAsycn = Avatar => dispatch => {
   */
 const isChangeAvatarSuccessAction = makeActionCreator(CHANGE_AVATAR, 'isChangeAvatarSuccess')
 
-export const changeAvatarActionAsycn = (Nickname, Sex, Location) => dispatch => {
-  const postData = { Nickname, Sex, Location }
+export const changeAvatarActionAsycn = Avater => dispatch => {
+  const postData = { Avater }
   post(API.USER.UserChangeAvatar, postData)
       .then(data => dispatch(isChangeAvatarSuccessAction(data.Success)))
       .catch(error => console.error(error))
