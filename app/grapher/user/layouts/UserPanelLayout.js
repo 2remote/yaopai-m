@@ -13,8 +13,7 @@ const userInfo = {
 const arr = userInfo.userType.split(',')
 
 const getUserType = (type) => {
-  switch (type)
-  {
+  switch (type) {
     case 'moter' :
       return '认证模特'
     case 'Photographer':
