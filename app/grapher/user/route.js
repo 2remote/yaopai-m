@@ -12,6 +12,7 @@ import AuditContainerThree from './containers/AuditContainerThree'
 import LocationIndicator from './containers/LocationIndicatorContainer'
 
 import UserPanelLayout from './layouts/UserPanelLayout'
+import VertifyResultLayout from './layouts/VertifyResultLayout'
 
 import { getPgDataActionAsycn } from './actions'
 
@@ -47,6 +48,8 @@ const userFactory = store => {
       <Route path="register" component={ RegisterContainer } />
 
       <Route path="userPanel" component={ UserPanelLayout } />
+      <Route path="vertifyResult" component={ VertifyResultLayout } />
+
 
       <Route path="indicator" component={ LocationIndicator } />
       <Route path="indicator2" component={ LocationIndicator } />
