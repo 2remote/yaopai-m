@@ -12,7 +12,10 @@ const SendTelRegister = `${DEV_ENV}?API=User.SendTelRegister`       //   让后�
 const ReceiveTelRegister = `${DEV_ENV}?API=User.ReceiveTelRegister` // 后台接收手机注册验证码
 const GetSysTime = `${DEV_ENV}?API=Sys.Info` // 获取服务器当前时间
 
-const GetPgData = `${DEV_ENV}?API=Photographer.Get` // 获取服务器当前时间
+const GetPgData = `${DEV_ENV}?API=Photographer.Get` // 获取摄影师详情
+const UserChangeAvatar = `${DEV_ENV}?API=User.ChangeAvatar` // 修改登陆用户头像
+const UserChangeInfo = `${DEV_ENV}?API=User.ChangeInfo` // 修改基本信息(昵称，性别，地区，个性签名)
+const UserChangeRealName = `${DEV_ENV}?API=User.ChangeRealName`  // 修改实名信息(真实姓名，身份证号，身份证图片)
 
 const API = {
   WORK: {
@@ -25,6 +28,9 @@ const API = {
     SendTelRegister,
     ReceiveTelRegister,
     GetPgData,
+    UserChangeInfo,
+    UserChangeRealName,
+    UserChangeAvatar,
   },
 }
 
