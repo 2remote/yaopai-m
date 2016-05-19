@@ -27,6 +27,8 @@ const loginPost = (loginname, sign, time, dispatch) => {
         nickname: data.User.Name,
         avatar: data.User.Avatar,
         userSex: data.User.Sex,
+        userType: data.User.TypeString,
+        signature: data.User.Signature,
       }
       dispatch(userLoginSuccessAction(userData))
     } else {
