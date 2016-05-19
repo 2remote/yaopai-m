@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux'
-import loginReducer from './reducers/loginReducer'
+import loginInfo from './reducers/loginReducer'
 import registerReducer from './reducers/registerReducer'
-import gpDataReducer from './reducers/auditReducer'
+import auditReducer from './reducers/auditReducer'
 
 const userReducers = {
   mount: 'user',
   reducer: combineReducers({
-    login: loginReducer,
+    login: loginInfo,
     register: registerReducer,
-    audit: gpDataReducer,
+    audit: auditReducer,
   }),
 }
 

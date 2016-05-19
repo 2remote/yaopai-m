@@ -19,7 +19,7 @@ import { getPgDataActionAsycn } from './actions'
 
 const userFactory = store => {
   const { dispatch/* , getState */ } = store
-  // let userId = getState().user.login.loginSuccess.userId
+  // let userId = getState().user.login.loginInfo.userId
   const userId = 34 // 假设我已经拿到了 ID 😂
 
   const dispatchInit = type => {
