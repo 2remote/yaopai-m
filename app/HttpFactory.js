@@ -28,7 +28,7 @@ const post = (url, data) => {
             errorMsg = '未知错误，请稍后再试' // IDEA: 这个可以做成config
           }
           /* eslint-disable no-alert */
-          alert(errorMsg) // HACK: 应该要换成高级alert组件吧
+          console.log(errorMsg) // HACK: 应该要换成高级alert组件吧
           reject(new Error(errorMsg))
         }
       },
