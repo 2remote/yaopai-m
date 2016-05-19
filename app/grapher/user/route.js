@@ -11,6 +11,8 @@ import AuditContainerThree from './containers/AuditContainerThree'
 
 import LocationIndicator from './containers/LocationIndicatorContainer'
 
+import UserPanelLayout from './layouts/UserPanelLayout'
+
 import { getPgDataActionAsycn } from './actions'
 
 
@@ -43,6 +45,8 @@ const userFactory = store => {
     <Route path="user">
       <Route path="login" component={ LoginContainer } />
       <Route path="register" component={ RegisterContainer } />
+
+      <Route path="userPanel" component={ UserPanelLayout } />
 
       <Route path="indicator" component={ LocationIndicator } />
       <Route path="indicator2" component={ LocationIndicator } />
