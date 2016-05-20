@@ -73,15 +73,15 @@ class AuditContainerOne extends React.Component {
               男性：
               {/* TODO 这绝对是一个反面教材，谁能看得懂你下面写的是啥！😒*/ }
               <input
-                type="radio" name="Sex" value="male"
-                checked={this.state.isSelect ? !this.state.male : !this.state.male && Sex}
+                type="radio" name="Sex" value="female"
+                checked={this.state.isSelect ? this.state.male : this.state.male || !Sex}
                 onChange={this.handleChange}
               />
               <br />
               女性：
               <input
-                type="radio" name="Sex" value="female"
-                checked={this.state.isSelect ? this.state.male : this.state.male || !Sex}
+                type="radio" name="Sex" value="male"
+                checked={this.state.isSelect ? !this.state.male : !this.state.male && Sex}
                 onChange={this.handleChange}
               />
           </div>
