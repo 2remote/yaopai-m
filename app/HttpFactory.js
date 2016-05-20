@@ -35,7 +35,7 @@ const post = (url, data) => {
       error: error => {
         // HACK: 应该要换成高级alert组件吧
         /* eslint-disable no-alert */
-        alert(error.statusText)
+        console.log(error.statusText)
         reject(new Error(error.statusText))
       },
     })
