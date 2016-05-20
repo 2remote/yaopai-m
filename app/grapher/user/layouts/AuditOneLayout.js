@@ -6,22 +6,22 @@ class AuditContainerOne extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.state = {
       male: false,
-      isSelect: false,
+      isSelect: true,
     }
   }
 
-  onSubmit(nickNameUpdate, NickName) {
-    const Sex = this.state.isSelect ? Number(this.state.isSelect) : 1
+  onSubmit(nickNameUpdate, NickName, Sex) {
+    const sexUpdate = this.state.isSelect ? Sex : Number(!this.state.male)
     const Location = this.props.CityId || 2255
 
     if (nickNameUpdate === '') {
       if (NickName === '') {
         alert('请输入昵称')
       } else {
-        this.props.onChangeInfo(NickName, Sex, Location)
+        this.props.onChangeInfo(NickName, sexUpdate, Location)
       }
     } else {
-      this.props.onChangeInfo(nickNameUpdate, Sex, Location)
+      this.props.onChangeInfo(nickNameUpdate, sexUpdate, Location)
     }
 
     // TODO
@@ -29,10 +29,10 @@ class AuditContainerOne extends React.Component {
   }
 
   handleChange(e) {
-    const male = (e.target.value === 'female')
+    const male = (e.target.value === 'male')
     this.setState({
       male,
-      isSelect: true,
+      isSelect: false,
     })
   }
 
@@ -43,7 +43,7 @@ class AuditContainerOne extends React.Component {
       <section>
         <form
           style={{ backgroundColor: 'white' }}
-          onSubmit={() => this.onSubmit(nickNameUpdate.value.trim(), NickName)}
+          onSubmit={() => this.onSubmit(nickNameUpdate.value.trim(), NickName, Sex)}
         >
           <div style={{ border: '2px solid black' }}>
             1.请上传头像
@@ -74,14 +74,14 @@ class AuditContainerOne extends React.Component {
               {/* TODO 这绝对是一个反面教材，谁能看得懂你下面写的是啥！😒*/ }
               <input
                 type="radio" name="Sex" value="female"
-                checked={this.state.isSelect ? this.state.male : this.state.male || !Sex}
+                checked={(this.state.isSelect && typeof Sex === 'number') ? Sex : !this.state.male}
                 onChange={this.handleChange}
               />
               <br />
               女性：
               <input
                 type="radio" name="Sex" value="male"
-                checked={this.state.isSelect ? !this.state.male : !this.state.male && Sex}
+                checked={(this.state.isSelect && typeof Sex === 'number') ? !Sex : this.state.male}
                 onChange={this.handleChange}
               />
           </div>
