@@ -12,6 +12,7 @@ class AuditContainerOne extends React.Component {
 
   onSubmit(nickNameUpdate, NickName, Sex) {
     const sexUpdate = this.state.isSelect ? Sex : Number(!this.state.male)
+    // TODO 选择城市
     const Location = this.props.CityId || 2255
 
     if (nickNameUpdate === '') {
