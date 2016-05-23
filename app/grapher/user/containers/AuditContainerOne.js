@@ -1,10 +1,10 @@
-import AuditOneLayout from 'user/layouts/AuditOneLayout'
 import { connect } from 'react-redux'
+import Immutable from 'immutable'
+import AuditOneLayout from 'user/layouts/AuditOneLayout'
 import { changeAvatarActionAsycn, changeInfoActionAsycn } from 'user/actions'
 
-
 const mapStateToProps = state => ({
-  userData: state.user.audit.pgData,
+  userData: state.getIn(['user', 'audit', 'pgData']),
 })
 
 const mapDispatchToProps = dispatch => ({

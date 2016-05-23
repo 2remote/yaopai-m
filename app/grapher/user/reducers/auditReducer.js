@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux-immutable'
 import { GET_PG_DATA, CHANGE_AVATAR, CHANGE_INFO } from '../constant'
 
 const pgData = (state = {}, action) => {

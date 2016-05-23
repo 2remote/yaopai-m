@@ -4,7 +4,7 @@ import md5 from 'blueimp-md5'
 import base64encode from 'tool/base64'
 import { SAVE_USERINFO, SEND_TEL_REGISTER, RECEIVE_TEL_REGISTER,
   GET_PG_DATA, CHANGE_AVATAR, CHANGE_INFO } from './constant'
-
+import Immutable from 'immutable'
 // action 制造器
 const makeActionCreator = (type, ...argNames) => (...args) => {
   const action = { type }
@@ -24,7 +24,7 @@ const userLoginSuccessAction = makeActionCreator(SAVE_USERINFO, 'userData')
 
 const loginPost = (loginname, sign, time, dispatch) => {
   post(API.USER.LoginWithSign, { loginname, sign, time }).then(data => {
-    const userData = {
+    const userData = Immutable.fromJS({
       loginToken: data.LoginToken,
       sessionToken: data.SessionToken,
       userId: data.User.Id,
@@ -33,7 +33,7 @@ const loginPost = (loginname, sign, time, dispatch) => {
       userSex: data.User.Sex,
       userType: data.User.TypeString,
       signature: data.User.Signature,
-    }
+    })
     dispatch(userLoginSuccessAction(userData))
   }).catch(error => {
     console.error(error)
