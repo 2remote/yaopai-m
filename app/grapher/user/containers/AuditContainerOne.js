@@ -4,6 +4,7 @@ import AuditOneLayout from 'user/layouts/AuditOneLayout'
 import { changeAvatarActionAsycn, changeInfoActionAsycn } from 'user/actions'
 
 const mapStateToProps = state => ({
+  // 不引入 Immutable 也能用 getIn() 方法？
   userData: state.getIn(['user', 'audit', 'pgData']),
 })
 
