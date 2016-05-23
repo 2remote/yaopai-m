@@ -4,7 +4,7 @@ import LocationIndicatorLayout from 'user/layouts/LocationIndicatorLayout'
 
 const mapStateToProps = state => ({
   // 当前path
-  currentLocation: state.routing.locationBeforeTransitions.pathname,
+  currentLocation: state.getIn(['routing', 'locationBeforeTransitions', 'pathname']),
   indicatorList: [{ // sort of a config
     text: '第一步',
     // img: '',
