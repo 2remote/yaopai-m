@@ -19,6 +19,7 @@ class LoginLayout extends React.Component {
   }
 
   onSubmit(name, password) {
+    event.preventDefault()
     if (name === '') {
       this.setState({ errorMsg: '请输入手机号' })
       return

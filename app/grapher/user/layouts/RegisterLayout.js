@@ -12,6 +12,7 @@ const RegisterLayout = props => {
       <UserEntryLayout />
       <RouteTransition { ...presets.slideRight } >
         <form onSubmit={() => {
+          event.preventDefault()
           props.onSendTel(name)
         }}
         >
@@ -27,6 +28,7 @@ const RegisterLayout = props => {
           <button type="submit">发送验证码</button>
         </form>
         <form onSubmit={() => {
+          event.preventDefault()
           props.onReceiveTel(tel, code, password)
         }}
         >
