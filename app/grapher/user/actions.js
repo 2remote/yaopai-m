@@ -89,7 +89,7 @@ export const receiveTelRegisterActionAsync = (tel, code, password) => dispatch =
  */
 const getPgDataAction = makeActionCreator(GET_PG_DATA, 'pgData')
 
-export const getPgDataActionAsycn = (Id) => dispatch => {
+export const getPgDataActionAsync = (Id) => dispatch => {
   const postData = {
     Id,
     Fields: 'NickName,Sex,Avatar,CityId',
