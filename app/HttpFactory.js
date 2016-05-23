@@ -27,14 +27,14 @@ const post = (url, data) => {
           if (respData.ErrorCode && respData.ErrorCode < 0) {
             errorMsg = '未知错误，请稍后再试' // IDEA: 这个可以做成config
           }
-          /* eslint-disable no-alert */
+          /* eslint-disable no-console */
           console.log(errorMsg) // HACK: 应该要换成高级alert组件吧
           reject(new Error(errorMsg))
         }
       },
       error: error => {
         // HACK: 应该要换成高级alert组件吧
-        /* eslint-disable no-alert */
+        /* eslint-disable no-console */
         console.log(error.statusText)
         reject(new Error(error.statusText))
       },
