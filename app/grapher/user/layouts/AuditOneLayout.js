@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 
 class AuditContainerOne extends React.Component {
   constructor(props) {
@@ -11,13 +11,14 @@ class AuditContainerOne extends React.Component {
   }
 
   onSubmit(nickNameUpdate, NickName, Sex) {
+    event.preventDefault()
     const sexUpdate = this.state.isSelect ? Sex : Number(!this.state.male)
     // TODO 选择城市
-    const Location = this.props.CityId || 2255
+    const Location = this.props.userData.CityId || 2255
 
     if (nickNameUpdate === '') {
       if (NickName === '') {
-        alert('请输入昵称')
+        // alert('请输入昵称')
       } else {
         this.props.onChangeInfo(NickName, sexUpdate, Location)
       }
@@ -38,20 +39,22 @@ class AuditContainerOne extends React.Component {
   }
 
   render() {
-    const { NickName, Sex, Avatar } = this.props.userData
+    const { userData } = this.props
     let nickNameUpdate
     return (
       <section>
         <form
           style={{ backgroundColor: 'white' }}
-          onSubmit={() => this.onSubmit(nickNameUpdate.value.trim(), NickName, Sex)}
+          onSubmit={
+            () => this.onSubmit(nickNameUpdate.value.trim(), userData.NickName, userData.Sex)
+          }
         >
           <div style={{ border: '2px solid black' }}>
             1.请上传头像
             {
-              Avatar ?
+              userData.Avatar ?
               <img
-                src={Avatar}
+                src={userData.Avatar}
                 style={{ width: 50, height: 50, backgroundColor: '#f60', borderRadius: '50%' }}
               />
             : ''
@@ -64,7 +67,7 @@ class AuditContainerOne extends React.Component {
             <input
               type="text"
               style={{ color: 'black' }}
-              placeholder={NickName}
+              placeholder={userData.NickName}
               ref={node => {nickNameUpdate = node}}
             />
           </div>
@@ -75,14 +78,18 @@ class AuditContainerOne extends React.Component {
               {/* TODO 这绝对是一个反面教材，谁能看得懂你下面写的是啥！😒*/ }
               <input
                 type="radio" name="Sex" value="female"
-                checked={(this.state.isSelect && typeof Sex === 'number') ? Sex : !this.state.male}
+                checked={
+                  (this.state.isSelect && typeof Sex === 'number') ? userData.Sex : !this.state.male
+                }
                 onChange={this.handleChange}
               />
               <br />
               女性：
               <input
                 type="radio" name="Sex" value="male"
-                checked={(this.state.isSelect && typeof Sex === 'number') ? !Sex : this.state.male}
+                checked={
+                  (this.state.isSelect && typeof Sex === 'number') ? !userData.Sex : this.state.male
+                }
                 onChange={this.handleChange}
               />
           </div>
@@ -94,6 +101,17 @@ class AuditContainerOne extends React.Component {
       </section>
     )
   }
+}
+
+AuditContainerOne.propTypes = {
+  onChangeInfo: PropTypes.func.isRequired,
+  onChangeAvatar: PropTypes.func.isRequired,
+  userData: PropTypes.shape({
+    Avatar: PropTypes.string,
+    Sex: PropTypes.number,
+    CityId: PropTypes.number,
+    NickName: PropTypes.string,
+  }),
 }
 
 export default AuditContainerOne
