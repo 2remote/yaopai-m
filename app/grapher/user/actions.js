@@ -5,6 +5,8 @@ import base64encode from 'tool/base64'
 import { SAVE_USERINFO, SEND_TEL_REGISTER, RECEIVE_TEL_REGISTER,
   GET_PG_DATA, CHANGE_AVATAR, CHANGE_INFO } from './constant'
 import Immutable from 'immutable'
+
+/* eslint-disable no-console */
 // action 制造器
 const makeActionCreator = (type, ...argNames) => (...args) => {
   const action = { type }

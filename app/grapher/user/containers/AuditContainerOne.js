@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import Immutable from 'immutable'
+// import Immutable from 'immutable'
 import AuditOneLayout from 'user/layouts/AuditOneLayout'
 import { changeAvatarActionAsycn, changeInfoActionAsycn } from 'user/actions'
 

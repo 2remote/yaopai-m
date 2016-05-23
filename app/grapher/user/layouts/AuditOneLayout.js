@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 
 class AuditContainerOne extends React.Component {
   constructor(props) {
@@ -17,6 +17,7 @@ class AuditContainerOne extends React.Component {
 
     if (nickNameUpdate === '') {
       if (NickName === '') {
+        /* eslint-disable no-alert */
         alert('请输入昵称')
       } else {
         this.props.onChangeInfo(NickName, sexUpdate, Location)
@@ -94,6 +95,16 @@ class AuditContainerOne extends React.Component {
       </section>
     )
   }
+}
+
+AuditContainerOne.propTypes = {
+  CityId: PropTypes.string,
+  onChangeInfo: PropTypes.func,
+  userData: PropTypes.shape({
+    Sex: PropTypes.number,
+    Avatar: PropTypes.string,
+    NickName: PropTypes.string,
+  }),
 }
 
 export default AuditContainerOne
