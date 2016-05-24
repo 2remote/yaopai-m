@@ -22,13 +22,14 @@ const userFactory = store => {
   // let userId = getState().user.login.loginInfo.userId
   const userId = 34 // 假设我已经拿到了 ID 😂
 
-  const auditInit = () => {
+  const auditInit = (params, replace) => {
     const userState = getState().getIn(['user', 'audit'])
     // 3 steps: basic, realinfo, work
     // TODO: 这里要处理当前用户认证步骤的逻辑
     // TODO: 临时跳step 1
     /* eslint-disable no-console */
     console.log('[should check user info]', userState)
+    replace('/user/audit/basic')
   }
 
   const dispatchInit = type => {
@@ -69,21 +70,20 @@ const userFactory = store => {
       {/* step 1 */}
       {/* basic: 基本信息填入 */}
       {/* step 2 */}
-      {/* realinfo: 实名信息 TODO: 这个翻译？ */}
+      {/* realinfo: 实名信息 */}
       {/* step 3 */}
       {/* work: 作品 */}
-      <Route path="audit" onEnter={ auditInit }>
-        <Route path="basic" component={ AuditContainerOne }
-          onEnter={() => dispatchInit('AUDIT_ONE')}
-        />
-        <Route path="realname" component={ AuditContainerTwo }
-          onEnter={() => dispatchInit('AUDIT_TWO')}
-        />
-        <Route path="work" component={ AuditContainerThree }
-          onEnter={() => dispatchInit('AUDIT_THREE')}
-        />
-      </Route>
-    </Route>
+      <Route path="audit" onEnter={auditInit} />
+      <Route path="audit/basic" component={ AuditContainerOne }
+        onEnter={() => dispatchInit('AUDIT_ONE')}
+      />
+      <Route path="audit/realinfo" component={ AuditContainerTwo }
+        onEnter={() => dispatchInit('AUDIT_TWO')}
+      />
+      <Route path="audit/work" component={ AuditContainerThree }
+        onEnter={() => dispatchInit('AUDIT_THREE')}
+      />
+  </Route>
   )
 }
 

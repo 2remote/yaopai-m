@@ -5,9 +5,18 @@ import React, { PropTypes } from 'react'
 /* HACK: eslint-disable no-console */
 /* eslint-disable no-console */
 
-const AuditContainerOne = ({ onChangeInfo, formData }) => {
+/**
+ * 认证 - 基础信息
+ * @param updateUI: 更新UI方法，接收以下参数：
+ *   1. nickname 昵称
+ *   2. cityId 城市ID
+ * @param formData: 表单数据，包含以下参数：
+ *   1. nickname 昵称
+ *   2. cityId 城市ID
+**/
+const AuditBasicLayout = ({ updateUI, formData }) => {
   /* 1. data from props */
-  const { avatar, nickname, gender, cityId } = formData
+  const { avatar, nickname, cityId } = formData
   /* 2. prepare func */
   /**
    * 用户输入信息时调用：
@@ -15,15 +24,18 @@ const AuditContainerOne = ({ onChangeInfo, formData }) => {
    * @param: value 用户修改后的数据
   **/
   const onChange = (origin, value) => {
+    if (origin === 'nickname') {
+      updateUI(value, cityId)
+    } else if (origin === 'cityId') {
+      updateUI(nickname, value)
+    }
     console.log(`用户修改：${origin}: ${value}`) // TODO:
-    onChangeInfo(nickname, gender, cityId)
-    console.log(`avatar: ${avatar}`)
   }
   const lastStep = () => {
     console.log('pretending that I\'m going back') // TODO:
   }
   const onSubmit = () => {
-    console.log('onSubmit in AuditContainerOne') // TODO:
+    console.log('onSubmit in AuditBasicLayout') // TODO:
   }
   /* 3. the real jsx */
   return (
@@ -35,6 +47,7 @@ const AuditContainerOne = ({ onChangeInfo, formData }) => {
           <label htmlFor="auditOneFile">
             1. 请上传头像
           </label>
+          <div>{ avatar }</div>
           <br />
           {/* TODO: should look like a block level button */}
           {/* TODO: this may take some time */}
@@ -80,8 +93,8 @@ const AuditContainerOne = ({ onChangeInfo, formData }) => {
   )
 }
 
-AuditContainerOne.propTypes = {
-  onChangeInfo: PropTypes.func.isRequired, // 响应form输入
+AuditBasicLayout.propTypes = {
+  updateUI: PropTypes.func.isRequired, // 响应form输入
   formData: PropTypes.shape({ // 表单数据
     avatar: PropTypes.string.isRequired, // 头像
     nickname: PropTypes.string.isRequired, // 昵称
@@ -90,4 +103,4 @@ AuditContainerOne.propTypes = {
   }).isRequired,
 }
 
-export default AuditContainerOne
+export default AuditBasicLayout
