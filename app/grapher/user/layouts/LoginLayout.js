@@ -61,7 +61,7 @@ class LoginLayout extends React.Component {
               updateValue={ text => {password = text} }
             />
 
-            <button className="btn btn-block" type="submit">登陆</button>
+          <div className="btn-block"><button className="btn-dark" type="submit">登陆</button></div>
           </form>
         </RouteTransition>
       </section>

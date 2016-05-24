@@ -41,7 +41,7 @@ const AuditBasicLayout = ({ updateUI, formData }) => {
   }
   /* 3. the real jsx */
   return (
-    <section>
+    <section style={{ backgroundColor: '#ececec' }}>
       <LocationIndicatorContainer />
       {/* form表单 */}
       <form onSubmit={onSubmit}>
@@ -56,11 +56,12 @@ const AuditBasicLayout = ({ updateUI, formData }) => {
           {/* TODO: this may take some time */}
           <input type="file" id="auditOneFile" />
         </div>
-        <div className="input-group">
-          <label htmlFor="auditOneNickName">
-            2. 您的昵称
-          </label>
-          <br />
+        <label htmlFor="auditOneNickName">
+          2. 您的昵称
+        </label>
+        <br />
+        <div className="input-group-light">
+          <i className="phone" />
           <input type="text" id="auditOneNickName" value={ nickname }
             onChange={e => onChange('nickname', e.target.value)}
           />
@@ -77,9 +78,8 @@ const AuditBasicLayout = ({ updateUI, formData }) => {
             <option value="SH">上海</option>
           </select>
         </div>
-        <div>
-          <button type="button" onClick={lastStep}>上一步</button>
-          <button type="submit">下一步</button>
+        <div className="btn-block">
+          <button className="btn-black" type="submit">下一步</button>
         </div>
       </form>
     </section>

@@ -50,7 +50,7 @@ const RegisterLayout = props => {
             }}
             updateValue={ text => {password = text} }
           />
-          <button type="submit">注册</button>
+          <div className="btn-block"><button className="btn-dark" type="submit">注册</button></div>
         </form>
       </RouteTransition>
     </section>

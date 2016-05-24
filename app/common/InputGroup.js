@@ -4,7 +4,7 @@ const InputGroup = props => {
   const { icon, type, placeholder, link, updateValue } = props
   const { href, text } = link
   return (
-    <section className="input-group">
+    <section className="input-group-dark">
       <i className={ icon } />
       <input className="input input-block" type={ type }
         ref={ node => {
