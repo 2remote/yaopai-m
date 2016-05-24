@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import LocationIndicatorLayout from 'user/layouts/LocationIndicatorLayout'
+import LocationIndicatorLayout from 'audit/layouts/LocationIndicatorLayout'
 // import { userLoginActionAsync } from 'user/actions'
 
 const mapStateToProps = state => ({
@@ -8,17 +8,17 @@ const mapStateToProps = state => ({
   indicatorList: [{ // sort of a config
     text: '第一步',
     // img: '',
-    activeUrl: '/user/indicator',
+    activeUrl: '/audit/basic',
     activeState: 'active',
   }, {
     text: '第二步',
     // img: '',
-    activeUrl: '/user/indicator2',
+    activeUrl: '/audit/realinfo',
     activeState: 'active',
   }, {
     text: '第三步',
     // img: '',
-    activeUrl: '/user/indicator3',
+    activeUrl: '/audit/work',
     activeState: 'active',
   }],
 })

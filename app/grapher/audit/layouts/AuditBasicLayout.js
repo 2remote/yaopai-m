@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react'
 
+import LocationIndicatorContainer from 'audit/containers/LocationIndicatorContainer'
+
 /* NOTE: 选择性别改为选择城市 */
 
 /* HACK: eslint-disable no-console */
@@ -40,6 +42,7 @@ const AuditBasicLayout = ({ updateUI, formData }) => {
   /* 3. the real jsx */
   return (
     <section>
+      <LocationIndicatorContainer />
       {/* form表单 */}
       <form onSubmit={onSubmit}>
         {/* TODO: hope this becomes input group or sth */}

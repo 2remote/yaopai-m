@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 // import Immutable from 'immutable'
-import AuditBasicLayout from 'user/layouts/AuditOneLayout'
+import AuditBasicLayout from 'audit/layouts/AuditBasicLayout'
 // import { changeAvatarActionAsycn, changeInfoActionAsycn } from 'user/actions'
 
 const mapStateToProps = state => {
@@ -26,9 +26,9 @@ const mapDispatchToProps = dispatch => ({
   },
 })
 
-const AuditContaninerOne = connect(
+const AuditBasicContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(AuditBasicLayout)
 
-export default AuditContaninerOne
+export default AuditBasicContainer

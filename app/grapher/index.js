@@ -15,6 +15,7 @@ import { syncHistoryWithStore } from 'react-router-redux'
 import store from './store'
 /* 5. 开始引入不同模块 */
 import userFactory from './user/route'
+import auditFactory from 'audit/route'
 
 /* ref: https://github.com/reactjs/react-router-redux/#how-it-works */
 /* history + store (redux) → react-router-redux → enhanced history → react-router */
@@ -33,6 +34,7 @@ const App = () => (
     <Router history={history}>
       <Route path="/">
         {userFactory(store)}
+        {auditFactory(store)}
       </Route>
     </Router>
   </Provider>
