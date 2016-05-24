@@ -33,9 +33,7 @@ const AuditBasicLayout = ({ updateUI, formData }) => {
     }
     console.log(`用户修改：${origin}: ${value}`) // TODO:
   }
-  const lastStep = () => {
-    console.log('pretending that I\'m going back') // TODO:
-  }
+
   const onSubmit = () => {
     console.log('onSubmit in AuditBasicLayout') // TODO:
   }
