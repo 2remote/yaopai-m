@@ -54,7 +54,7 @@ const AuditBasicLayout = ({ updateUI, formData }) => {
           <br />
           {/* TODO: should look like a block level button */}
           {/* TODO: this may take some time */}
-          <input type="file" id="auditOneFile" ></input>
+          <input type="file" id="auditOneFile" />
         </div>
         <div className="input-group">
           <label htmlFor="auditOneNickName">
@@ -63,17 +63,7 @@ const AuditBasicLayout = ({ updateUI, formData }) => {
           <br />
           <input type="text" id="auditOneNickName" value={ nickname }
             onChange={e => onChange('nickname', e.target.value)}
-          ></input>
-        </div>
-        <div className="input-group">
-          <label>
-            3. 性别
-          </label>
-          <br />
-          {/* TODO: should there be a radio group component? */}
-          <input type="radio" name="auditOneGender"></input>男
-          <br />
-          <input type="radio" name="auditOneGender"></input>女
+          />
         </div>
         <div className="input-group">
           <label>
