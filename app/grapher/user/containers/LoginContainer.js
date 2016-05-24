@@ -3,7 +3,7 @@ import LoginLayout from 'user/layouts/LoginLayout'
 import { userLoginActionAsync } from 'user/actions'
 
 const mapStateToProps = state => ({
-  user: state.user.login,
+  user: state.getIn(['user', 'login']),
 })
 
 const mapDispatchToProps = dispatch => ({
