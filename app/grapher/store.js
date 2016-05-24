@@ -5,7 +5,8 @@ import { combineReducers } from 'redux-immutable'
 /* 2. Middlewares */
 import thunk from 'redux-thunk'
 /* 3. 引入reducers */
-import userReducers from './user/reducer'
+import userReducers from 'user/reducer'
+import auditReducers from 'audit/reducer'
 
 /* 4. Immutable下的react-router-redux的reducer */
 /* 参考：https://github.com/gajus/redux-immutable */
@@ -29,6 +30,7 @@ const routeReducer = (state = initialStateForRoute, action) => {
 const reducers = {
   routing: routeReducer,
   [userReducers.mount]: userReducers.reducer,
+  [auditReducers.mount]: auditReducers.reducer,
 }
 
 
