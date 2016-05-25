@@ -1,5 +1,11 @@
 import React, { PropTypes } from 'react'
-
+/**
+* @param: iconLeft 输入框左边的 icon
+* @param: iconRight 输入框右边的 icon
+* @param: type, placeholder 是 input 的基本属性
+* @param: link 输入框右边的 a 标签，link.href 是 a标签的 href 属性，link.text 是 a 标签的内容
+* @param: updateValue 回掉函数，把输入的内容传递给调用该组件的父组件
+**/
 const InputGroup = props => {
   const { iconLeft, iconRight, type, placeholder, link, updateValue } = props
   return (
