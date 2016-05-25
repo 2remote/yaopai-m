@@ -21,10 +21,10 @@ class LoginLayout extends React.Component {
   onSubmit(name, password) {
     event.preventDefault()
     if (name === '') {
-      this.setState({ errorMsg: '请输入手机号' })
+      // this.setState({ errorMsg: '请输入手机号' })
       return
     } else if (checkTel(name)) {
-      this.setState({ errorMsg: '格式不正确' })
+      // this.setState({ errorMsg: '格式不正确' })
       return
     }
     this.props.onSubmit(name, password)
@@ -41,17 +41,14 @@ class LoginLayout extends React.Component {
         <RouteTransition { ...presets.slideLeft } >
           <form className="form-box " onSubmit={() => this.onSubmit(name, password)} >
             <InputGroup
-              icon={ 'phone' }
+              iconLeft={ 'phone' }
               type={ 'number' }
               placeholder={ '请输入账号' }
-              link={{
-                text: this.state.errorMsg,
-              }}
               updateValue={ text => {name = text} }
             />
 
             <InputGroup
-              icon={ 'lockclosed' }
+              iconLeft={ 'lockclosed' }
               type={ 'password' }
               placeholder={ '请输入密码' }
               link={{

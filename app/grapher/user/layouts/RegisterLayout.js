@@ -17,12 +17,9 @@ const RegisterLayout = props => {
         }}
         >
           <InputGroup
-            icon={ 'phone' }
+            iconLeft={ 'phone' }
             type={ 'number' }
             placeholder={ '请输入手机号' }
-            link={{
-              text: '手机号输入错误',
-            }}
             updateValue={ text => {tel = text} }
           />
           <button type="submit">发送验证码</button>
@@ -33,21 +30,15 @@ const RegisterLayout = props => {
         }}
         >
           <InputGroup
-            icon={ 'phone' }
+            iconLeft={ 'phone' }
             type={ 'number' }
             placeholder={ '请输入验证码' }
-            link={{
-              text: '验证码输入错误',
-            }}
             updateValue={ text => {code = text} }
           />
           <InputGroup
-            icon={ 'phone' }
+            iconLeft={ 'phone' }
             type={ 'number' }
             placeholder={ '请输入密码' }
-            link={{
-              text: '密码输入错误',
-            }}
             updateValue={ text => {password = text} }
           />
           <div className="btn-block"><button className="btn-dark" type="submit">注册</button></div>
