@@ -32,7 +32,7 @@ input {
     padding      : 0 100px 0 50px;
   }
 
-  i {
+  .icon-left {
     position   : absolute;
     left       : 0;
     top        : 0;
@@ -43,8 +43,8 @@ input {
     text-align : center;
   }
 
-  a,
-  span {
+  .icon-right,
+  a {
     position   : absolute;
     right      : 0;
     top        : 0;
@@ -53,16 +53,11 @@ input {
     width      : 100px;
     color      : lighten($dim-black,20%);
     text-align : center;
-
   }
 
   a {
     text-decoration: none;
     color          : $white;
-  }
-
-  span {
-    color: $red;
   }
 }
 
@@ -74,5 +69,27 @@ input {
   input {
     color        : $gray;
     border-bottom: 1px $white solid;
+  }
+}
+
+.input-select {
+  display   : none;
+  position  : absolute;
+  left      : 0;
+  top       : $btn-height;
+  z-index   : $zindex-select-mask;
+  width     : 100%;
+  text-align: center;
+  background: $red;
+
+  .select-item {
+    height    : $btn-height;
+    background: $white;
+
+    &.active,
+    &:active {
+      color     : $dim-black;
+      background: $gray;
+    }
   }
 }
