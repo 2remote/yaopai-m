@@ -1,11 +1,10 @@
 import React, { PropTypes } from 'react'
 
 const InputGroup = props => {
-  const { icon, type, placeholder, link, updateValue } = props
-  const { href, text } = link
+  const { iconLeft, iconRight, type, placeholder, link, updateValue } = props
   return (
     <section className="input-group-dark">
-      <i className={ icon } />
+      <i className={`icon-left ${iconLeft}`} />
       <input className="input input-block" type={ type }
         ref={ node => {
           if (node) {
@@ -15,17 +14,16 @@ const InputGroup = props => {
         }}
         placeholder={ placeholder }
       />
-    {
-      href ?
-      <a href={ href }>{ text }</a> :
-      <span>{ text }</span>
-    }
+    {link ? <a href={ link.href }>{ link.text }</a> : ''}
+
+    {iconRight ? <i className={`icon-righr ${iconRight}`} /> : ''}
     </section>
   )
 }
 
 InputGroup.propTypes = {
-  icon: PropTypes.string,
+  iconLeft: PropTypes.string,
+  iconRight: PropTypes.string,
   type: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   link: PropTypes.shape({
