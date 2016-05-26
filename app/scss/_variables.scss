@@ -23,7 +23,7 @@ $body-font-family    : "PingFang SC", "Microsoft Yahei", Arial, sans-serif;
 //
 //## Font, line-height, and color for body text, headings, and more.
 $font-size-base      : 14px;
-$font-size-large     : ceil(($font-size-base * 1.25)); // ~18px
+$font-size-large     : ceil(($font-size-base * 1.14)); // ~16px
 $font-size-small     : ceil(($font-size-base * .85)); // ~12px
 $font-size-h1        : floor(($font-size-base * 2.6)); // ~36px
 $font-size-h2        : floor(($font-size-base * 2.15)); // ~30px

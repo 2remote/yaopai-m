@@ -16,13 +16,26 @@ const post = (url, data) => {
         withCredentials: true,
       },
       success: respData => {
+        // 这里的逻辑是：如果后台返回HTTP 200，但是Success为false
+        // 则仍然reject掉，让post的catch去处理
         if (respData.Success) {
           resolve(respData)
         } else {
-          reject(new Error(respData.ErrorMsg))
+          // 与后台沟通后，ErrorCode如果小于0，则类似HTTP 500的报错
+          // 但是没有ErrorMsg 😂
+          let errorMsg = respData.ErrorMsg
+          if (respData.ErrorCode && respData.ErrorCode < 0) {
+            errorMsg = '未知错误，请稍后再试' // IDEA: 这个可以做成config
+          }
+          /* eslint-disable no-console */
+          console.log(errorMsg) // HACK: 应该要换成高级alert组件吧
+          reject(new Error(errorMsg))
         }
       },
       error: error => {
+        // HACK: 应该要换成高级alert组件吧
+        /* eslint-disable no-console */
+        console.log(error.statusText)
         reject(new Error(error.statusText))
       },
     })

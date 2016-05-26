@@ -1,10 +1,29 @@
-.form-box {
-  margin: 0 10px;
-}
+$nav-height :50px;
 
 .entry-container {
+  position: relative;
+  left: 0;
+  top: 0;
   background-image: url(http://work.file.aiyaopai.com/52/082ba124-a1ec-4f13-a627-c12e76e53155.jpg?imageMogr2/auto-orient/thumbnail/600x/interlace/1);
   background-size: cover;
   background-position: 50% 50%;
   height: 400px;
+}
+
+.entry-nav {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: $nav-height;
+  background: rgba(0, 0, 0, .5);
+  font-size: 0;
+
+  a {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    color: $white;
+    font-size: $font-size-large;
+    line-height: $nav-height;
+  }
 }
