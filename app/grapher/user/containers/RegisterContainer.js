@@ -3,7 +3,7 @@ import RegisterLayout from 'user/layouts/RegisterLayout'
 import { sendTelRegisterActionAsync, receiveTelRegisterActionAsync } from 'user/actions'
 
 const mapStateToProps = state => ({
-  register: state.user.register,
+  register: state.getIn(['user', 'register']),
 })
 
 const mapDispatchToProps = dispatch => ({

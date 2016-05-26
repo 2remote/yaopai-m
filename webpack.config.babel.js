@@ -80,7 +80,9 @@ if (target_app === 'grapher') { // grapher
     resolve: {
       alias: {
         model: path.resolve(contentPath, 'model'), // 纯数据
-        user: path.resolve(contentPath, 'user'), // 用户
+        user: path.resolve(contentPath, 'user'), // 用户界面
+        audit: path.resolve(contentPath, 'audit'), // 认证界面
+        model: path.resolve(contentPath, 'model'), // 纯数据
       },
     },
   }

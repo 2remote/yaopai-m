@@ -1,17 +1,38 @@
 //
 // Buttons
 // --------------------------------------------------
+.input,
+input {
+  display    : inline-block;
+  border     : none;
+  white-space: nowrap;
+  font-size  : $btn-font-base;
+  height     : $btn-height;
+  line-height: $btn-line-height - 25;
+  background : transparent;
 
-.input-group {
+  &.focus,
+  &:focus {
+    outline       : none;
+    border-bottom : 1px solid $white;
+    letter-spacing: 5px;
+  }
+}
+
+.input-group-dark {
   position: relative;
   left    : 0;
   top     : 0;
+  padding : 0 10px;
 
   input {
-    padding: 0 100px 0 50px;
+    width        : 100%;
+    border-bottom: 1px lighten($dim-black, 20%) solid;
+    color        : $white;
+    padding      : 0 100px 0 50px;
   }
 
-  i {
+  .icon-left {
     position   : absolute;
     left       : 0;
     top        : 0;
@@ -22,8 +43,8 @@
     text-align : center;
   }
 
-  a,
-  span {
+  .icon-right,
+  a {
     position   : absolute;
     right      : 0;
     top        : 0;
@@ -32,41 +53,43 @@
     width      : 100px;
     color      : lighten($dim-black,20%);
     text-align : center;
-
   }
 
   a {
     text-decoration: none;
     color          : $white;
   }
+}
 
-  span {
-    visibility: hidden;
-    color     : $red;
+.input-group-light {
+  @extend .input-group-dark;
+  background: $white;
+  margin    : 0 10px;
+
+  input {
+    color        : $gray;
+    border-bottom: 1px $white solid;
   }
 }
 
-.input,
-input {
-  display      : inline-block;
-  border       : none;
-  border-bottom: 1px lighten($dim-black, 20%) solid;
-  color        : $white;
-  white-space  : nowrap;
-  font-size    : $btn-font-base;
-  height       : $btn-height;
-  line-height  : $btn-line-height - 25;
-  background   : transparent;
+.input-select {
+  display   : none;
+  position  : absolute;
+  left      : 0;
+  top       : $btn-height;
+  z-index   : $zindex-select-mask;
+  width     : 100%;
+  text-align: center;
+  background: $red;
 
-  &.focus,
-  &:focus {
-    outline       : none;
-    border-bottom : 1px solid $white;
-    letter-spacing: 5px;
+  .select-item {
+    height    : $btn-height;
+    background: $white;
+
+    &.active,
+    &:active {
+      color     : $dim-black;
+      background: $gray;
+    }
   }
-}
-
-.input-block {
-  display: block;
-  width  : 100%;
 }

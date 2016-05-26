@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux-immutable'
 import { SEND_TEL_REGISTER, RECEIVE_TEL_REGISTER } from '../constant'
 
 const sendTelRegister = (state = false, action) => {
