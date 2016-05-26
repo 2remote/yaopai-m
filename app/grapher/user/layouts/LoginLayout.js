@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import { RouteTransition, presets } from 'react-router-transition'
 import UserEntryLayout from './UserEntryLayout'
 import InputGroup from 'common/InputGroup'
-import { checkTel } from 'tool/inputRegular'
+// import { checkTel } from 'tool/inputRegular'
 
 /* TODO: 这个写法太纠结了。 */
 // 让界面根据数据变化的话，方法有：
@@ -20,13 +20,13 @@ class LoginLayout extends React.Component {
 
   onSubmit(name, password) {
     event.preventDefault()
-    if (name === '') {
-      // this.setState({ errorMsg: '请输入手机号' })
-      return
-    } else if (checkTel(name)) {
-      // this.setState({ errorMsg: '格式不正确' })
-      return
-    }
+    // if (name === '') {
+    //   // this.setState({ errorMsg: '请输入手机号' })
+    //   return
+    // } else if (checkTel(name)) {
+    //   // this.setState({ errorMsg: '格式不正确' })
+    //   return
+    // }
     this.props.onSubmit(name, password)
   }
 
