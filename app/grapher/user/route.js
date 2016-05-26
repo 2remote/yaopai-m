@@ -13,8 +13,8 @@ const userFactory = store => (
   <Route path="user">
     <Route path="login" component={ LoginContainer } />
     <Route path="register" component={ RegisterContainer } />
-    <Route path="userPanel" component={ UserPanelLayout } />
-    <Route path="vertifyResult" component={ VertifyResultLayout } />
+    <Route path="userpanel" component={ UserPanelLayout } />
+    <Route path="vertifyresult" component={ VertifyResultLayout } />
   </Route>
 )
 
