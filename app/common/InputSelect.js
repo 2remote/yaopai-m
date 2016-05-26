@@ -8,7 +8,7 @@ const InputSelect = props => {
   const { iconLeft, iconRight, placeholder, itemList, updateValue } = props
 
   return (
-    <div className="input-group-light">
+    <section className="input-group-light">
       <i className={`icon-left ${iconLeft}`} />
       <input type="text"
         placeholder={placeholder}
@@ -31,7 +31,7 @@ const InputSelect = props => {
           </li>
         )}
       </ul>
-    </div>
+    </section>
   )
 }
 

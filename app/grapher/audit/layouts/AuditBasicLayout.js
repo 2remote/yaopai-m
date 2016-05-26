@@ -37,7 +37,7 @@ const AuditBasicLayout = ({ updateUI, formData }) => {
   const onSubmit = () => {
     console.log('onSubmit in AuditBasicLayout') // TODO:
   }
-  /* 3. slide animated */
+  /* 3. select area */
   const provinceList = ['北京', '上海', '河南', '湖北', '河北', '云南']
   const cityList = ['南阳', '周口', '洛阳', '郑州', '开封', '安阳']
   const onCitySelect = selectItem => console.log(`用户选择了： ${selectItem}`)
