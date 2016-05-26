@@ -41,16 +41,16 @@ class LoginLayout extends React.Component {
         <RouteTransition { ...presets.slideLeft } >
           <form className="form-box " onSubmit={() => this.onSubmit(name, password)} >
             <InputGroup
-              iconLeft={ 'phone' }
-              type={ 'number' }
-              placeholder={ '请输入账号' }
+              iconLeft="phone"
+              type="number"
+              placeholder="请输入账号"
               updateValue={ text => {name = text} }
             />
 
             <InputGroup
-              iconLeft={ 'lockclosed' }
-              type={ 'password' }
-              placeholder={ '请输入密码' }
+              iconLeft="lockclosed"
+              type="password"
+              placeholder="请输入密码"
               link={{
                 href: '//m.aiyaopai.com/#/find_my_pass_page1',
                 text: '忘记密码',
