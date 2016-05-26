@@ -11,6 +11,11 @@ import auditReducers from 'audit/reducer'
 /* 4. Immutable下的react-router-redux的reducer */
 /* 参考：https://github.com/gajus/redux-immutable */
 import Immutable from 'immutable'
+
+/* 5. A redux middleware which saves the state to localStorage */
+/* 参考：https://github.com/pirosikick/redux-save-state */
+import saveState from 'redux-save-state/localStorage'
+
 import { LOCATION_CHANGE } from 'react-router-redux'
 
 const initialStateForRoute = Immutable.fromJS({
@@ -44,6 +49,7 @@ const logger = store => next => action => {
   console.log('[dispatching]', action)
   const result = next(action)
   console.log('[next state]', store.getState())
+  console.log('下面是储存在 localStorage 里的 state', JSON.parse(localStorage.appState))
   return result
 }
 
@@ -63,13 +69,22 @@ const logger = store => next => action => {
 /* ---------------------------------------------------------------- */
 /* HACK: */
 /* eslint-disable new-cap */
-const initState = Immutable.Map()
+
+/* 初始化 state  */
+const appState = JSON.parse(localStorage.appState)
+const initState = Immutable.fromJS(appState) || Immutable.Map()
+console.log(initState.toJS())
+/* 控制台会报错：「Warning: You cannot PUSH the same path using hash history」
+ *  用下面的方法虽然解决的报错，但是……pathname 都给重置了，一旦刷新页面 url 就变成初始的 localhost:8080 了
+ *  initState = initState.setIn(['routing', 'locationBeforeTransitions', 'pathname'], '')
+*/
+
+
 /* 这里创建store */
 const store = createStore(
   /* 1. 创建store用的reducer */
   combineReducers(reducers),
   /* 2. 默认state */
-  // TODO: 要不要做点文章？
   initState,
   /* 3. Middleware */
   compose(
@@ -78,6 +93,8 @@ const store = createStore(
     applyMiddleware(thunk),
     // TODO: debug用的logger，启用的时候建议挂上TODO，方便找
     applyMiddleware(logger),
+    // 每次 state 发生改变时把新的 state 储存到 localStorage 里
+    applyMiddleware(saveState('appState')),
     // 这个用来启动Redux开发者工具，放最后
     window.devToolsExtension ? window.devToolsExtension() : f => f
   )

@@ -55,6 +55,7 @@
     "react-router-transition": "0.0.5",
     "redux": "^3.3.1",
     "redux-immutable": "^3.0.6",
+    "redux-save-state": "^1.0.1",
     "redux-thunk": "^2.0.1"
   },
   "devDependencies": {
