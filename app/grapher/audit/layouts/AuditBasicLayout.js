@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
-import $ from 'jquery'
 import LocationIndicatorContainer from 'audit/containers/LocationIndicatorContainer'
+import InputSelect from 'common/InputSelect'
 
 /* NOTE: 选择性别改为选择城市 */
 
@@ -40,15 +40,8 @@ const AuditBasicLayout = ({ updateUI, formData }) => {
   /* 3. slide animated */
   const provinceList = ['北京', '上海', '河南', '湖北', '河北', '云南']
   const cityList = ['南阳', '周口', '洛阳', '郑州', '开封', '安阳']
-
-  const chooseProvince = (province, e) => {
-    $(e).parent('.input-select').slideUp()
-    console.log(`用户修改省份：${province}`)
-  }
-  const chooseCity = (city, e) => {
-    $(e).parent('.input-select').slideUp()
-    console.log(`用户修改城市：${city}`)
-  }
+  const onCitySelect = selectItem => console.log(`用户选择了： ${selectItem}`)
+  const onProvinceSelect = selectItem => console.log(`用户选择了： ${selectItem}`)
 
   /* 4. the real jsx */
   return (
@@ -78,52 +71,22 @@ const AuditBasicLayout = ({ updateUI, formData }) => {
             onChange={e => onChange('nickname', e.target.value)}
           />
         </div>
-
         <br />
-        <div className="input-group-light">
-          <i className="icon-left phone" />
-          <input type="text"
-            placeholder="请选择省"
-            onFocus={() => $('#chooseProvince').slideDown()}
-          />
-          <i className="icon-right down"
-            onClick={() => $('#chooseProvince').slideToggle()}
-          />
-          <ul className="input-select" id="chooseProvince">
-            {provinceList.map((province, index) =>
-              <li
-                className="select-item"
-                key={index}
-                onClick={e => chooseProvince(province, e.target)}
-              >
-                {province}
-              </li>
-            )}
-          </ul>
-        </div>
+        <InputSelect
+          iconLeft = "phone"
+          iconRight = "down"
+          placeholder="请选择城市"
+          itemList = {provinceList}
+          updateValue={ item => onCitySelect(item) }
+        />
         <br />
-
-        <div className="input-group-light">
-          <i className="icon-left phone" />
-          <input type="text"
-            placeholder="请选择城市"
-            onFocus={() => $('#chooseCity').slideDown()}
-          />
-          <i className="icon-right down"
-            onClick={() => $('#chooseCity').slideToggle()}
-          />
-          <ul className="input-select" id="chooseCity">
-            {cityList.map((city, index) =>
-              <li
-                className="select-item"
-                key={index}
-                onClick={e => chooseCity(city, e.target)}
-              >
-                {city}
-              </li>
-            )}
-          </ul>
-        </div>
+        <InputSelect
+          iconLeft = "phone"
+          iconRight = "down"
+          placeholder="请选择省"
+          itemList = {cityList}
+          updateValue={ item => onProvinceSelect(item) }
+        />
         <br />
         <div className="btn-block">
           <button className="btn-black" type="submit">下一步</button>
