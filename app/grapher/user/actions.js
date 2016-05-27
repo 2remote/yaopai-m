@@ -2,9 +2,9 @@ import API from 'app/API'
 import post from 'app/HttpFactory'
 import md5 from 'blueimp-md5'
 import base64encode from 'tool/base64'
-import { SAVE_USERINFO, SEND_TEL_REGISTER, RECEIVE_TEL_REGISTER,
+import { SEND_TEL_REGISTER, RECEIVE_TEL_REGISTER,
   GET_PG_DATA, CHANGE_AVATAR, CHANGE_INFO } from './constant'
-import Immutable from 'immutable'
+import loginPost from '../model/user/action'
 
 /* eslint-disable no-console */
 // action 制造器
@@ -17,30 +17,30 @@ const makeActionCreator = (type, ...argNames) => (...args) => {
 }
 
 // 如果用户登陆成功
-const userLoginSuccessAction = makeActionCreator(SAVE_USERINFO, 'userData')
+// const userLoginSuccessAction = makeActionCreator(SAVE_USERINFO, 'userData')
 // 相当于
 // const userLoginSuccessAction = (SAVE_USERINFO, userData) => ({
 //   type: SAVE_USERINFO,
 //   userData
 // })
 
-const loginPost = (loginname, sign, time, dispatch) => {
-  post(API.USER.LoginWithSign, { loginname, sign, time }).then(data => {
-    const userData = Immutable.fromJS({
-      loginToken: data.LoginToken,
-      sessionToken: data.SessionToken,
-      userId: data.User.Id,
-      nickname: data.User.Name,
-      avatar: data.User.Avatar,
-      userSex: data.User.Sex,
-      userType: data.User.TypeString,
-      signature: data.User.Signature,
-    })
-    dispatch(userLoginSuccessAction(userData))
-  }).catch(error => {
-    console.error(error)
-  })
-}
+// const loginPost = (loginname, sign, time, dispatch) => {
+//   post(API.USER.LoginWithSign, { loginname, sign, time }).then(data => {
+//     const userData = Immutable.fromJS({
+//       loginToken: data.LoginToken,
+//       sessionToken: data.SessionToken,
+//       userId: data.User.Id,
+//       nickname: data.User.Name,
+//       avatar: data.User.Avatar,
+//       userSex: data.User.Sex,
+//       userType: data.User.TypeString,
+//       signature: data.User.Signature,
+//     })
+//     dispatch(userLoginSuccessAction(userData))
+//   }).catch(error => {
+//     console.error(error)
+//   })
+// }
 
 
 export const userLoginActionAsync = (loginname, password) => dispatch => {
